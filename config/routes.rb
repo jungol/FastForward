@@ -3,6 +3,7 @@ Sylaby::Application.routes.draw do
   root 'static_pages#home'
   get 'static_pages/top10'
   get 'static_pages/rogoff'
+  get 'static_pages/drugcrime'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
