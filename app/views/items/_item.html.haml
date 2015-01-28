@@ -1,9 +1,9 @@
-%li.title= link_to "#{item.title}", "#{item.url}"
-%li.description= item.description
-%li.votes=item.votes
-%span.timestamp
-  Posted
-  = time_ago_in_words(item.created_at)
-  ago
+  
+.item{id: "item-#{item.id}"}
+  %li.title= link_to "#{item.title}", "#{item.url}"
+  %li.description= item.description
+  %li.votes=item.upvotes.count
 
-
+  = form_for @upvote, remote: true do |f|
+    = f.hidden_field :item_id, value: item.id
+    = f.submit "Upvote", class: "btn btn-large"

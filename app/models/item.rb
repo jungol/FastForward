@@ -13,9 +13,15 @@
 
 class Item < ActiveRecord::Base
 
+
+  validates :description, length: { maximum: 100 }
+  validates :title, presence: true
+  validates :url, presence: true
+
+  has_many :upvotes, dependent: :destroy
+
   def date
     self.created_at.strftime('%m/%d/%y')
   end
-
 
 end

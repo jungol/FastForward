@@ -1,11 +1,8 @@
 class StaticPagesController < ApplicationController
   def home
-  end
-
-  def top10
-  end
-
-  def rogoff
+    @items = Item.all
+    @upvote = Upvote.new
+    @email_signup = EmailSignup.new
   end
 
 end
