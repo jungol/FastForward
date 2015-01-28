@@ -6,41 +6,88 @@ html {
 }
 
 body { 
-	padding-top: 50px;
-	padding-right: 15px;
-    padding-left: 15px;
+	padding-top: 10px;
+	// padding-right: 15px;
+    // padding-left: 15px;
     font-family: 'Georgia';
     font-size: 1.55em;
 }
 
-.list {
-	max-width: 500px;
-	h4 {
+ul{
+	-webkit-padding-start: 0px;
+
+}
+li{
+	list-style: none;
+	vertical-align: middle;
+}
+
+.feed{
+	.title {
 		font-weight: bold;
 	}
-	li {
-		margin-bottom: 10px;
-	}
-	.author, .description {
-		font-size: .8em;
-	}
-	.author {
-		font-style: italic;
-	}
 }
 
-.feature {
-	border-right: solid 1px #66ccff;
+.day_feed {
+	margin-top: 25px;
 }
 
-.navbar-fixed-top {
-	background: white;
-	border-bottom: 1px solid #66ccff;
-    padding-right: 15px;
+.day {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+.date {
+	color: #bbbbbb;
+}
+
+.item {
+	margin-top: 7px;
+	margin-bottom: 7px;
+	&:hover {
+		background-color: #fcf5e2;
+		border-radius: 5px;
+	}
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-left: 7px;
+}
+
+.glyphicon-map-marker{
+	color: white;
+	font-size: 1.6em;
+	background-color: #179ac8;
+	padding: 6px;
+}
+
+.glyphicon-plus {
+	background-color: #179ac8;
+	color: white;
+	padding: 8px;
+}
+
+.glyphicon{
+	border-radius: 100%;
+}
+
+.email_signup {
+	background-color: #fcf5e2;
+	padding: 10px;
+	padding-bottom: 10px;
+	height: 60px;
+	border-radius:5px;
+}
+
+.list-inline{
+	margin-bottom: 0px;
+}
+
+nav{
+	margin-bottom: 20px;
 }
 
 h1, h2 {
-	letter-spacing: -2px;
+	letter-spacing: -1px;
 	// margin-bottom: 25px;
 	font-size: 2em;
     margin-top: 0px;
@@ -50,15 +97,30 @@ h3{
     font-size: 1.5em;
     margin-top: 0px;
 }
+
+.heading li {
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	vertical-align: middle;
+}
 #logo {
   font-family: 'Aileron-SemiBold';
-  font-size: 1.9em;
+  font-size: 1.4em;
   color: #179ac8;
-  letter-spacing: -1px;
+  // letter-spacing: -1px;
   font-weight: bold;
   &:hover {
   	text-decoration: none;
   }
+}
+
+
+@media(min-width: $screen-md) {
+	.container {
+		max-width: 950px;
+	}
 }
 
 

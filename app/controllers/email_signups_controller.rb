@@ -1,10 +1,12 @@
 class EmailSignupsController < ApplicationController
   def create
     @email_signup = EmailSignup.create(email_signup_params)
-    respond_to do |format|
-      format.html { redirect_to items_path }
-      format.js
+    if @email_signup.save
+      flash[:success] = "Thanks for signing up!"
+    else
+      flash[:error] = @email_signup.errors.full_messages
     end
+    redirect_to root_path
   end
 
   private

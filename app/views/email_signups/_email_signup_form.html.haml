@@ -1,5 +1,10 @@
-= form_for @email_signup, remote: true do |f|
+= form_for @email_signup do |f|
   = render 'shared/error_messages', object: f.object
-  %div.field
-    = f.text_field :email, placeholder: "Your email..."
-  = f.submit "Signup", class: "btn btn-large btn-primary"
+  .row
+    .col-xs-8
+      %ul.list-inline
+        %li The best new research collections, delivered to your inbox daily!
+    .col-xs-4
+      %ul.list-inline
+        %li= f.text_field :email, placeholder: "Your email..."
+        %li= f.submit "Join", class: "btn btn-large btn-primary"

@@ -1,6 +1,14 @@
 %ul.items
   - @items.group_by(&:date).sort.reverse.each do |date, items|
-    .date
-      %h2= date
+    .day_feed
+      %ul.list-inline
+        %li.day
+          - if date == Date.today.strftime('%B %d')
+            Today
+          - elsif date == Date.yesterday.strftime('%B %d')
+            Yesterday
+          - else
+        %li.date
+          = date
       = render partial: 'items/item', collection: items
 

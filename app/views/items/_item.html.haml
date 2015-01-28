@@ -1,9 +1,17 @@
-  
 .item{id: "item-#{item.id}"}
-  %li.title= link_to "#{item.title}", "#{item.url}"
-  %li.description= item.description
-  %li.votes=item.upvotes_count
-
-  = form_for @upvote, remote: true do |f|
-    = f.hidden_field :item_id, value: item.id
-    = f.submit "Upvote", class: "btn btn-large"
+  =link_to item.url do 
+    .row
+      .col-xs-8
+        %ul.list-inline
+          %li
+            = form_for @upvote, remote: true do |f|
+              = f.hidden_field :item_id, value: item.id
+              = f.submit "#{item.upvotes_count} Upvote", class: "btn btn-large"
+          %li  
+            %ul
+              %li.title= item.title
+              %li.description= item.description
+      .col-xs-3
+        %ul.list-inline.pull-right
+          %li
+            %span.glyphicon.glyphicon-plus

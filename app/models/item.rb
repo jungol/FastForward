@@ -23,7 +23,7 @@ class Item < ActiveRecord::Base
   has_many :upvotes, dependent: :destroy
 
   def date
-    self.created_at.strftime('%m/%d/%y')
+    self.created_at.strftime('%B %d')
   end
 
 end
