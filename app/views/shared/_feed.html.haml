@@ -1,5 +1,6 @@
 %ul.items
-  - @items.group_by(&:date).each do |date, items|
+  - @items.group_by(&:date).sort.reverse.each do |date, items|
     .date
       %h2= date
       = render partial: 'items/item', collection: items
+

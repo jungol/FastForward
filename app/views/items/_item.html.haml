@@ -2,7 +2,7 @@
 .item{id: "item-#{item.id}"}
   %li.title= link_to "#{item.title}", "#{item.url}"
   %li.description= item.description
-  %li.votes=item.upvotes.count
+  %li.votes=item.upvotes_count
 
   = form_for @upvote, remote: true do |f|
     = f.hidden_field :item_id, value: item.id

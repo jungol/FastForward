@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @items = Item.all
+    @items = Item.top_votes
     @upvote = Upvote.new
     @email_signup = EmailSignup.new
   end
