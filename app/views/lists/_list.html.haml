@@ -1,0 +1,39 @@
+.list{id: "list-#{list.id}"}
+  .row
+    / .col-xs-1.upvote
+    /   %span.glyphicon.glyphicon-chevron-up
+    / = form_for @upvote, remote: true do |f|
+    /   = f.hidden_field :list_id, value: list.id
+    /   %ul.list-inline.upvote-box
+    /     %li
+    /       %span.glyphicon.glyphicon-chevron-up
+    /     %li
+    /       = f.submit "#{list.upvotes_count}"
+    =link_to list_url(list) do
+      .col-xs-10
+        .row
+          .col-xs-12.title
+            = list.title
+        .row
+          .col-xs-12.description
+            = list.description
+    .col-xs-1
+      = link_to "Subscribe", '#', :class => "openair-btn btn navbar-btn"
+    .col-xs-1
+      = image_tag('http://www.gravatar.com/avatar/4728ceb48bf783091f942fc1b7e9aaae.png', class: "img-circle profile-img navbar-btn")
+      /   %ul.list-inline
+      /     %li
+      /       = form_for @upvote, remote: true do |f|
+      /         = f.hidden_field :list_id, value: list.id
+      /         = f.submit "#{list.upvotes_count} Upvote", class: "btn btn-large"
+      /     %li
+      /       %ul
+      /         %li.title
+      /           = list.title 
+      /           = "(#{list.items.count} papers)"
+      /         %li.description= list.description
+      / .col-xs-3
+      /   %ul.list-inline.pull-right
+
+
+

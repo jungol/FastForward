@@ -1,9 +1,9 @@
 class UpvotesController < ApplicationController
   def create
-    @item = Item.find(params[:upvote][:item_id])
-    @item.upvotes.create!
+    @list = List.find(params[:upvote][:list_id])
+    @list.upvotes.create!
     respond_to do |format|
-      format.html { redirect_to items_path }
+      format.html { redirect_to root_path }
       format.js
     end
   end

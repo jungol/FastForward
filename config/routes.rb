@@ -1,7 +1,8 @@
 Sylaby::Application.routes.draw do
 
+
+  resources :lists, only: [:index, :show]
   resources :items, only: [:index]
-  # get 'static_pages/home'
   root 'static_pages#home'
   resources :email_signups
   resources :upvotes  

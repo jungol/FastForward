@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150128015957) do
+ActiveRecord::Schema.define(version: 20150129162814) do
 
   create_table "email_signups", force: :cascade do |t|
     t.string   "email"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 20150128015957) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.integer  "upvotes_count", default: 0
+    t.integer  "list_id"
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.string   "description"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "title"
+    t.integer  "upvotes_count"
   end
 
   create_table "microposts", force: :cascade do |t|
@@ -39,9 +48,9 @@ ActiveRecord::Schema.define(version: 20150128015957) do
 
   create_table "upvotes", force: :cascade do |t|
     t.integer  "count"
-    t.integer  "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "list_id"
   end
 
 end

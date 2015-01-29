@@ -1,0 +1,16 @@
+.row.list_heading
+  .col-xs-10.navbar-btn
+    .row
+      .col-xs-12
+        %h3= @list.title
+    .row
+      .col-xs-12
+        %h4= @list.description
+  .col-xs-2
+    %ul.navbar-btn
+      %li= image_tag('http://www.gravatar.com/avatar/4728ceb48bf783091f942fc1b7e9aaae.png', class: "img-circle profile-img img-big")
+      %li
+        By Ethan Barhydt
+
+- @list.items.each do |item|
+  = render item

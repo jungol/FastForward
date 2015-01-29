@@ -1,6 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@font-face {
+    font-family: 'Aileron-SemiBold';
+    src: font_url('Aileron-SemiBold.otf') format('opentype');
+
+}
+
 html {
 	overflow-y: scroll;
 }
@@ -9,7 +15,7 @@ body {
 	padding-top: 10px;
 	// padding-right: 15px;
     // padding-left: 15px;
-    font-family: 'Georgia';
+    font-family: 'Verdana';
     font-size: 1.55em;
 }
 
@@ -22,10 +28,71 @@ li{
 	vertical-align: middle;
 }
 
-.feed{
-	.title {
-		font-weight: bold;
-	}
+.btn {
+	vertical-align: middle;
+}
+
+.tagline {
+	font-size: .9em;
+	color: #999999;
+	margin-top: -5px;
+}
+
+.title {
+	font-weight: bold;
+	color: #534540;
+}
+.description {
+	color: #999999;
+}
+
+.profile-img {
+	width: 30px;
+}
+
+
+
+.openair-btn{
+    background: #179ac8;
+    padding-right: 10px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Aileron-Light';
+    font-size: .8em;
+    &:hover{
+        border-color: #B8B8B8;
+        background: #179ac8;
+        color: white;
+    }
+    &:visited{
+        color: white;
+    }
+}
+
+.img-big {
+	width: 100px;
+}
+
+.upvote {
+	margin-right: 5px;
+}
+
+.glyphicon-chevron-up {
+	color: #179ac8;
+}
+
+.upvote-box {
+	background: #bbbbbb;
+}
+
+.list_heading {
+	background: #ffffad;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.lists {
+	margin-top: 10px;
 }
 
 .day_feed {
@@ -35,13 +102,14 @@ li{
 .day {
 	font-size: 1.3em;
 	font-weight: bold;
+	color: #534540;
 }
 
 .date {
 	color: #bbbbbb;
 }
 
-.item {
+.item, .list {
 	margin-top: 7px;
 	margin-bottom: 7px;
 	&:hover {

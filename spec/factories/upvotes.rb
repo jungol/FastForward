@@ -4,9 +4,9 @@
 #
 #  id         :integer          not null, primary key
 #  count      :integer
-#  item_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  list_id    :integer
 #
 
 FactoryGirl.define do
