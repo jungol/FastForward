@@ -10,17 +10,18 @@
     /     %li
     /       = f.submit "#{list.upvotes_count}"
     =link_to list_url(list) do
-      .col-xs-10
+      .col-xs-8
         .row
           .col-xs-12.title
             = list.title
         .row
           .col-xs-12.description
             = list.description
-    .col-xs-1
-      = link_to "Subscribe", '#', :class => "openair-btn btn navbar-btn"
-    .col-xs-1
+    .col-xs-2
       = image_tag('http://www.gravatar.com/avatar/4728ceb48bf783091f942fc1b7e9aaae.png', class: "img-circle profile-img navbar-btn")
+
+    .col-xs-2
+      = link_to "Subscribe", '#', :class => "openair-btn btn navbar-btn"
       /   %ul.list-inline
       /     %li
       /       = form_for @upvote, remote: true do |f|
