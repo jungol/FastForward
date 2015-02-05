@@ -7,6 +7,13 @@
             %ul
               %li.title= item.title
               %li.description= item.description
+              %li.lists
+                %ul 
+                  - if item.lists.count > 1
+                    Also in:
+                    - item.lists.each do |list|
+                      - if !(list == @list)
+                        %li= link_to "#{list.title}", list_path(list)
       .col-xs-2
         %ul.list-inline.pull-right
           %li
