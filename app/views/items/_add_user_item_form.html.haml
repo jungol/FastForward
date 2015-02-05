@@ -1,0 +1,5 @@
+.add_user_item_form
+  - if current_user.has_item?(item)
+    = render partial: 'items/remove_user_item', object: item, as: 'item'
+  -else
+    = render partial: 'items/add_user_item', object: item, as: 'item'

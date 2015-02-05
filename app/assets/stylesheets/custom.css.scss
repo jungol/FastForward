@@ -28,6 +28,14 @@ li{
 	vertical-align: middle;
 }
 
+button {
+	background: none;
+	border: 0px;
+	&:active {
+		border: none;
+	}
+}
+
 .btn {
 	vertical-align: middle;
 }
@@ -127,7 +135,7 @@ li{
 	padding: 6px;
 }
 
-.glyphicon-plus {
+.glyphicon-plus, .glyphicon-minus {
 	background-color: #179ac8;
 	color: white;
 	padding: 8px;

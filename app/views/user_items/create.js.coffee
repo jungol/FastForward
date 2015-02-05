@@ -1,0 +1,1 @@
+$('#item-' + <%=@item.id%> + ' .add_user_item_form').html("<%= escape_javascript(render partial: 'items/add_user_item_form', object: @item, as: 'item')%>")

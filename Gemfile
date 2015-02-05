@@ -8,6 +8,8 @@ gem 'haml'
 gem 'faker'
 gem 'bootstrap-sass'
 gem 'sprockets'
+gem 'devise'
+gem 'rails_admin'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

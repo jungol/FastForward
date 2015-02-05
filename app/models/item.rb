@@ -21,6 +21,8 @@ class Item < ActiveRecord::Base
   validates :url, presence: true
 
   has_many :upvotes, dependent: :destroy
+  has_many :user_items
+  has_many :users, :through => :user_items
   belongs_to :list
 
   def date

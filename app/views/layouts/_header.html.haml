@@ -15,12 +15,20 @@
             %span.glyphicon.glyphicon-map-marker
           %li
             %ul
-              %li= link_to "Research GPS", root_path, id: "logo"
-              %li.tagline Your roadmap to the minimum wage debate
+              %li= link_to "Development Economics GPS", root_path, id: "logo"
+              %li.tagline Your roadmap to Development Economics
       .col-xs-3.navbar-btn
-        = link_to "Login", '#'
-        |
-        = link_to "My Library", '#'
+        -if !user_signed_in?
+          = link_to "Login", new_user_session_path
+        -else
+          = link_to "Sign Out", destroy_user_session_path, method: :delete
+          |
+          = link_to "My Library", current_user
+
+        
+        
+
+
   
 
 

@@ -1,9 +1,16 @@
 Sylaby::Application.routes.draw do
 
 
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  get 'user_items/create'
+
+  devise_for :users
+  resources :users, only: [:show]
+  resources :user_items, only: [:create, :destroy]
   resources :lists, only: [:index, :show]
   resources :items, only: [:index]
-  root 'static_pages#home'
+  root to: 'static_pages#home'
   resources :email_signups
   resources :upvotes  
 
