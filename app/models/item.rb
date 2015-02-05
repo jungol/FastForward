@@ -25,7 +25,6 @@ class Item < ActiveRecord::Base
   has_many :item_lists
   has_many :users, :through => :user_items
   has_many :lists, :through => :item_lists
-  belongs_to :list
 
   def date
     self.created_at.strftime('%B %d')
