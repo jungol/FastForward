@@ -11,7 +11,9 @@
 #
 
 class List < ActiveRecord::Base
-  has_many :items
+  has_many :item_lists
+  has_many :items, :through => :item_lists
+
 
   def date
     self.created_at.strftime('%B %d')

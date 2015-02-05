@@ -22,7 +22,9 @@ class Item < ActiveRecord::Base
 
   # has_many :upvotes, dependent: :destroy
   has_many :user_items
+  has_many :item_lists
   has_many :users, :through => :user_items
+  has_many :lists, :through => :item_lists
   belongs_to :list
 
   def date
