@@ -14,13 +14,13 @@
 
 class Item < ActiveRecord::Base
 
-  scope :top_votes, -> { order('upvotes_count DESC') }
+  # scope :top_votes, -> { order('upvotes_count DESC') }
 
   validates :description, presence: true
   validates :title, presence: true
   validates :url, presence: true
 
-  has_many :upvotes, dependent: :destroy
+  # has_many :upvotes, dependent: :destroy
   has_many :user_items
   has_many :users, :through => :user_items
   belongs_to :list
