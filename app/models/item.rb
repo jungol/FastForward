@@ -16,7 +16,7 @@ class Item < ActiveRecord::Base
 
   scope :top_votes, -> { order('upvotes_count DESC') }
 
-  validates :description
+  validates :description, presence: true
   validates :title, presence: true
   validates :url, presence: true
 
