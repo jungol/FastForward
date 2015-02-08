@@ -1,16 +1,15 @@
-.row.list_heading
-  .col-xs-10.navbar-btn
+%ul.list-header
+  %li
     .row
-      .col-xs-12
-        %h3= @list.title
-    .row
-      .col-xs-12
-        %h4= @list.description
-  .col-xs-2
-    %ul.navbar-btn
-      %li= image_tag('http://www.gravatar.com/avatar/4728ceb48bf783091f942fc1b7e9aaae.png', class: "img-circle profile-img img-big")
-      %li
-        By Ethan Barhydt
+      .clearfix.call-to-action.col-xs-8
+        .list-title
+          %h3= @list.title
+        %h5.byline
+          By Ethan Barhydt, 
+          %i Harvard University
+        %span
+          = @list.description
 
-- @list.items.each do |item|
-  = render item
+%ul.list
+  - @list.items.each do |item|
+    = render item

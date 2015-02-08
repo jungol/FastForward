@@ -1,15 +1,16 @@
-.list{id: "list-#{list.id}"}
-  .row
-    =link_to list_url(list) do
-      .col-xs-11
-        .row
-          .col-xs-12.title
-            = list.title
-        .row
-          .col-xs-12.description
-            = list.description
-    .col-xs-1
-      = image_tag('http://www.gravatar.com/avatar/4728ceb48bf783091f942fc1b7e9aaae.png', class: "img-circle profile-img navbar-btn")
+%li
+  =link_to list_url(list) do
+    %h2.repo-name
+      = list.title
+    .repo-meta.clearfix
+      %span.repo-username
+        By Ethan Barhydt, Harvard University
+      %span.language
+        = list.items.count
+        Articles
+    %h3.repo-des
+      =list.description
+
 
 
 

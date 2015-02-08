@@ -1,21 +1,37 @@
-.item{id: "item-#{item.id}"}
-  =link_to item.url do 
-    .row
-      .col-xs-10
-        %ul.list-inline
-          %li  
-            %ul
-              %li.title= item.title
-              %li.description= item.description
-              %li.lists
-                %ul 
-                  - if item.lists.count > 1
-                    Also in:
-                    - item.lists.each do |list|
-                      - if !(list == @list)
-                        %li= link_to "#{list.title}", list_path(list)
-      .col-xs-2
-        %ul.list-inline.pull-right
-          %li
-            - if user_signed_in?
-              = render partial: 'items/add_user_item_form', object: item, as: 'item'
+%li{id: "item-#{item.id}"}
+  .row
+    .col-xs-10.item-info
+      %h4.item-name
+        =link_to "#{item.title}", item.url
+        =link_to "(details)", item_path(item)
+      .repo-meta.clearfix
+        %span
+          =item.description
+    .col-xs-2.add_user_item_form
+      - if user_signed_in?
+        =render partial: 'items/add_user_item_form', object: item, as: 'item'
+
+
+
+
+/ .item{id: "item-#{item.id}"}
+/   =link_to item.url do 
+/     .row
+/       .col-xs-10
+/         %ul.list-inline
+/           %li  
+/             %ul
+/               %li.title= item.title
+/               %li.description= item.description
+/               %li.description
+/                 %ul 
+/                   - if item.lists.count > 1
+/                     Also in:
+/                     - item.lists.each do |list|
+/                       - if !(list == @list)
+/                         %li= link_to "#{list.title}", list_path(list)
+/       .col-xs-2
+/         %ul.list-inline.pull-right
+/           %li
+/             - if user_signed_in?
+/               = render partial: 'items/add_user_item_form', object: item, as: 'item'

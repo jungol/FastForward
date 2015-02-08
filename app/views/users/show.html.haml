@@ -1,2 +1,17 @@
+%ul.list
+  %li
+    .call-to-action.clearfix
+      %span.mt3.library
+        %h2 Library
+      %span.call-to-action-text
+        Keep track of the research you're interested in.
+        %br
+        Collections Stats:
+        = current_user.items.count
+        Articles
+
+
+
 - current_user.items.each do |item|
-  = render item
+  %ul.list
+    = render item

@@ -9,8 +9,11 @@ Sylaby::Application.routes.draw do
   resources :users, only: [:show]
   resources :user_items, only: [:create, :destroy]
   resources :lists, only: [:index, :show]
-  resources :items, only: [:index]
+  resources :items, only: [:show]
   root to: 'static_pages#home'
+  get 'static_pages/design'
+  get 'static_pages/design2'
+  get 'static_pages/design3'
   resources :email_signups
   resources :upvotes  
 

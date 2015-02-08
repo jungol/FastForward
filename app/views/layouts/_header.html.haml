@@ -1,3 +1,34 @@
+%nav.nav
+  %h1.oh-brand
+    =link_to "Development Economics GPS", root_path, id: "home"
+  %span
+    =link_to "Home", root_path
+  
+  %span.pull-right.pad-rt-10
+    - if !(user_signed_in?)
+      =link_to "Sign in", new_user_session_path, class: "pad-rt-10"
+    -else
+      =link_to "Sign out", destroy_user_session_path, method: :delete    
+      |
+      =link_to "Library", current_user, class: "pad-rt-10"
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 / %header.navbar.navbar-fixed-top
 /   .navbar-inner
 /     .container
@@ -6,24 +37,35 @@
 /         %ul.nav.pull-right
 /           %li Login
 
-%nav
-  .container
-    .row
-      .col-xs-9
-        %ul.list-inline.heading
-          %li
-            %span.glyphicon.glyphicon-map-marker
-          %li
-            %ul
-              %li= link_to "Development Economics GPS", root_path, id: "logo"
-              %li.tagline Your roadmap to Development Economics
-      .col-xs-3.navbar-btn
-        -if !user_signed_in?
-          = link_to "Login", new_user_session_path
-        -else
-          = link_to "Sign Out", destroy_user_session_path, method: :delete
-          |
-          = link_to "My Library", current_user
+
+
+/ .container
+/   %nav.nav
+/     %h1.oh-brand
+/       = link_to "Development Economics GPS", root_url
+/     %ul.oh-menu.sitenav
+/       %li= link_to "Home", root_url
+/     %span.signin.pull-right
+/       = link_to "Sign In", new_user_session_path
+
+/ %nav
+/   .container
+/     .row
+/       .col-xs-9
+/         %ul.list-inline.heading
+/           %li
+/             %span.glyphicon.glyphicon-map-marker
+/           %li
+/             %ul
+/               %li= link_to "Development Economics GPS", root_path, id: "logo"
+/               %li.tagline Your roadmap to Development Economics
+/       .col-xs-3.navbar-btn
+/         -if !user_signed_in?
+/           = link_to "Login", new_user_session_path
+/         -else
+/           = link_to "Sign Out", destroy_user_session_path, method: :delete
+/           |
+/           = link_to "My Library", current_user
 
         
         

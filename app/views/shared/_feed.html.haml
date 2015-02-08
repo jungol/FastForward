@@ -1,13 +1,15 @@
-%ul.lists
-  - @lists.group_by(&:date).sort.reverse.each do |date, lists|
-    .day_feed
-      %ul.list_inline
-        %li.day
-          - if date == Date.today.strftime('%B %d')
-            Today's Collections
-          - elsif date == Date.yesterday.strftime('%B %d')
-            Yesterday
-          - else
-        %li.date
-          = date
-      = render partial: 'lists/list', collection: lists
+%ul.list
+  = render @lists
+
+
+  / - @lists.group_by(&:date).sort.reverse.each do |date, lists|
+  /   .day_feed
+  /     %ul.list_inline
+  /       %li.day
+  /         - if date == Date.today.strftime('%B %d')
+  /           Today's Collections
+  /         - elsif date == Date.yesterday.strftime('%B %d')
+  /           Yesterday
+  /         - else
+  /       %li.date
+  /         = date

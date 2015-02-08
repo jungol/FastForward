@@ -6,4 +6,13 @@ class StaticPagesController < ApplicationController
     @email_signup ||= EmailSignup.new
   end
 
+  def design
+  end
+
+  def design2
+  end
+
+  def design3
+  end
+
 end
