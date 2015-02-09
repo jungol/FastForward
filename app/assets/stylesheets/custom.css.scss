@@ -25,6 +25,17 @@
 
 }
 
+.resources {
+	padding: 10px;
+	li {
+		padding-left: 20px;
+		padding-top: 10px;
+	}
+	a {
+		color: blue;
+	}
+}
+
 .related {
 	color: #179ac8;
 }
@@ -241,6 +252,10 @@ nav.nav .sitenav a {
 
 nav.nav .sitenav {
   margin-left: 20px;
+}
+
+nav.nav span {
+	padding-left: 5px;
 }
 
 .list {
