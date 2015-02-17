@@ -14,7 +14,7 @@
 
 class Item < ActiveRecord::Base
 
-  # scope :top_votes, -> { order('upvotes_count DESC') }
+  default_scope -> { order('year') }
 
   validates :title, presence: true
   validates :url, presence: true
