@@ -8,4 +8,6 @@
         .col-xs-12
           %h5
             =link_to "#{list.title}", list_path(list)
-          
+          .paper-count
+            =list.items.count
+            papers
