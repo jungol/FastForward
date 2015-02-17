@@ -3,7 +3,6 @@ Sylaby::Application.routes.draw do
 
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  get 'user_items/create'
 
   devise_for :users
   resources :users, only: [:show]
@@ -14,10 +13,7 @@ Sylaby::Application.routes.draw do
   get 'static_pages/design'
   get 'static_pages/design2'
   get 'static_pages/design3'
-  get 'static_pages/resources'
-  match '/resources',    to: 'static_pages#resources',    via: 'get'
   resources :email_signups
-  resources :upvotes  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
