@@ -7,11 +7,15 @@ html {
 }
 
 body {
-	padding-top: 60px;
+	padding-top: 90px;
 }
 
 h1, h4, h5 {
 	margin: 0px;
+}
+
+h1 {
+	margin-bottom: 10px;
 }
 
 ul {
@@ -26,29 +30,32 @@ a {
 	}
 }
 
-.main {
-	padding-top: 33px;
-}
-
 #globe {
 	border-radius: 100%;
 	background-color: #333333;
 	color: #ffc31c;
 	height: 70px;
 	width: 70px;
-	padding-top: 25px;
-	padding-left: 18px;
-	margin-right: 10px;
-	letter-spacing: 3px;
+	padding-top: 27px;
+	margin-bottom: 20px;
+	padding-left: 20px;
+	letter-spacing: 2px;
+	font-size: .9em;
+	margin-left: 50px;
+	margin-right: 2px;
+}
+
+// NAV
+
+.navbar-brand a {
+	color: #777777;
 	&:hover {
-		color: #ffc31c;
+		color: #333333;
 	}
 }
 
-
 // SIDENAV
 .sidenav {
-	padding-top: 130px;
 	font-size: 1.2em;
 }
 
@@ -61,10 +68,10 @@ a {
 	font-size: .7em;
 	margin-left: 10px;
 	margin-right: 10px;
-	width: 120%;
 	margin-top: 30px;
 	span {
 		border-bottom: 2px solid #ffc31c;
+		margin-right: 50px;
 	}
 	div {
 		margin-bottom: 10px;
@@ -79,12 +86,11 @@ a {
 // FEED 
 
 .feed {
-
 	border-left: 5px solid #333333;
 }
 
 .feed-item {
-	margin-bottom: 20px;
+	padding-bottom: 20px;
 	&:hover {
 		margin-left: -20px;
 		border-left: 5px solid #ffc31c;

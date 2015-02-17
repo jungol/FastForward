@@ -1,8 +1,10 @@
-.row.item
-  .col-xs-1.date
-    1938
-  .col-xs-10
-    %h5
-      =link_to "#{item.title}", item.url
-    .item-description
-      =item.description
+=link_to item.url do 
+  .row.item
+    .col-xs-1.date
+      1938
+    .col-xs-10
+      %h5
+        =item.url
+        / =link_to "#{item.title}", item.url
+      .item-description
+        =item.description
