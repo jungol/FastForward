@@ -1,14 +1,12 @@
-%ul.list-header
-  %li
+.row
+  .col-xs-2#globe
+    GPS
+  .col-xs-10
     .row
-      .clearfix.call-to-action.col-xs-8
-        .list-title
-          %h3= @list.title
-        %h5.byline
-          By Ethan Barhydt
-        %span
-          = @list.description
+      .col-xs-12.title
+        %h4= @list.title
+    .row
+      .col-xs-8.description
+        = @list.description 
+    = render @items
 
-%ul.list
-  - @list.items.each do |item|
-    = render item

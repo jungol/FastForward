@@ -7,22 +7,18 @@
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"}
     = render 'layouts/shim'
   
-  %body.single
-    / #wrapper
-    / # = render 'layouts/header'
-    / .container
+  %body
     / -flash.each do |key,value|
     /   = content_tag(:div, value, class: "alert alert-#{key}")
-    .main
-      .container
-        = render 'layouts/header'
-        = yield
-    %footer.footer
-      .container
-        %span.copy
-          2015 Research GPS
-        %span.drive-by.fr
-          %span Because the long-run growth rate of knowledge depends on T
-
-
-
+    
+    = render 'layouts/header'
+    .container-fluid
+      .row
+        .col-xs-3
+          = render 'layouts/sidenav'
+        .col-xs-9.main
+          = yield
+    .footer 
+      .container-fluid
+        .contact.pull-right
+          Questions or comments? Email ethanbarhydt@gmail.com

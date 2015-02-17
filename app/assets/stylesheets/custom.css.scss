@@ -2,392 +2,146 @@
 @import "bootstrap";
 
 
-// html {
-// 	overflow-y: scroll;
-// }
-
-// body {
-//   padding-top: 60px;
-//   max-width: 700px;
-// }
-
-
-.list-header {
-	position: relative;
- 	li {
-  		padding-left: 20px;
-  		position: relative;
-
-  	}
-  	border-bottom: 1px solid #e0e0e0;
-  	padding-bottom: 10px;
-  	padding-left: 5px;
-
-}
-
-.resources {
-	padding: 10px;
-	li {
-		padding-left: 20px;
-		padding-top: 10px;
-	}
-	a {
-		color: blue;
-	}
-}
-
-.related {
-	color: #179ac8;
-}
-
-.byline {
-	margin-top: 3px;
-	margin-bottom: 3px;
-}
-
-.list-header span {
-	color: #191e21;
-}
-
-.list-title {
-	// text-align: left;
-	margin-bottom: 5px;
-	color: #179ac8;
-}
-
-.mt3 {
-	margin-top: 5px;
-}
-
-
-#home {
-	padding-top: 10px;
-}
-
-.pad-rt-10 {
-	padding-right: 10px;
+html {
+	overflow-y: scroll;
 }
 
 body {
-  background-color: #fafafa;
+	padding-top: 60px;
 }
 
-a {
-  color: #333;
-  text-decoration: none;
-}
-
-a.linker:visited {
-  color: #999;
-}
-
-h1, h2, h3, h4, h5 {
-  margin: 0;
+h1, h4, h5 {
+	margin: 0px;
 }
 
 ul {
-  margin: 0;
-  padding-left: 0;
-  list-style: none;
+	padding-left: 0px;
 }
 
-.btn-gps {
-	background: #191e21;
-	float: center;
+a {
+	color: #333333;
+	&:hover {
+		color: #333333;
+		text-decoration: none;
+	}
 }
-
-.tc {
-  text-align: center;
-}
-
-.clearfix:after {
-  clear: both;
-  content: '.';
-  display: block;
-  height: 0;
-  visibility: hidden;
-}
-
-hr {
-  border: none;
-  height: 1px;
-  background-color: #eee;
-  margin: 10px 0;
-}
-
-.single .container {
-  width: 720px;
-}
-
 
 .main {
-  
+	padding-top: 33px;
 }
 
-a:hover li {
-	text-decoration: none;
-}
-
-.repo-name {
-  font-size: 18px;
-
-}
-
-.item-name {
-	font-size: 14px;
-}
-
-.glyphicon {
-	font-size: 1.5em;
-	// padding: 5px;
+#globe {
 	border-radius: 100%;
-}
-
-.fr {
-	.text-align: right;
-}
-
-.item-button {
-	vertical-align: center;
-	display: inline-block;
-	height: 50px;
-}
-
-.repo-des {
-  margin-top: 6px;
-  font-size: 14px;
-  font-weight: 400;
-  color: #999;
-}
-
-.repo-meta {
-  color: #999;
-  margin-top: 5px;
-  font-size: 13px;
-}
-
-.repo-meta a {
-  color: #999;
-}
-
-.repo-meta span {
-  float: left;
-}
-
-.repo-meta span+span:before {
-  content: '·';
-  margin: 0 5px;
-}
-
-.call-to-action {
-	color: #999;
-	margin-top: 5px;
-	padding: 10px;
-	font-size: 13px;
-	a {
-		color: #999;
-	}
-	span {
-		float: left;
+	background-color: #333333;
+	color: #ffc31c;
+	height: 70px;
+	width: 70px;
+	padding-top: 25px;
+	padding-left: 18px;
+	margin-right: 10px;
+	letter-spacing: 3px;
+	&:hover {
+		color: #ffc31c;
 	}
 }
 
-.call-to-action-text {
-	padding-left: 20px;
-	width: 60%;
+
+// SIDENAV
+.sidenav {
+	padding-top: 130px;
 	font-size: 1.2em;
 }
 
-.fade-header {
-  color: #999;
-  font-size: 16px;
+.call-to-action {
+	font-size: 1.1em;
+	text-align: center;
 }
 
-.left {
-  width: 25%;
-  float: left;
-  border-right: 1px solid #eee;
+.info {
+	font-size: .7em;
+	margin-left: 10px;
+	margin-right: 10px;
+	width: 120%;
+	margin-top: 30px;
+	span {
+		border-bottom: 2px solid #ffc31c;
+	}
+	div {
+		margin-bottom: 10px;
+	}
 }
 
-
-
-.main .container {
-  background-color: #fff;
-  padding: 0;
-  box-shadow: 0 0 1px #aaa;
-  min-height: 100vmin;
-}
-
-.main a:hover {
-	text-decoration: none;
-}
-
-.main .nav a:hover {
-  text-decoration: none;
-}
-
-nav.nav {
-  background-color: rgb(246, 246, 239);
-  // padding: 0 10px;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-nav.nav h1.oh-brand {
-  // background-color: rgb(246, 246, 239);
-  height: 47px;
-}
-
-nav.nav h1.oh-brand a {
-  padding: 0;
-  // color: #fff;
-}
-
-nav.nav .oh-menu li a:hover {
-  background-color: #fff;
-}
-
-nav.nav .sitenav a {
-  height: 47px;
-}
-
-nav.nav .sitenav {
-  margin-left: 20px;
-}
-
-nav.nav span {
-	padding-left: 5px;
-}
-
-.list {
-  position: relative;
-}
-
-.list li {
-  padding: 10px;
-  border-bottom: 1px solid #e0e0e0;
-  position: relative;
-}
-
-.list li:hover {
-  background-color: #F6F6EF;
+.contact {
+	margin-top: 10px;
 }
 
 
+// FEED 
+
+.feed {
+
+	border-left: 5px solid #333333;
+}
+
+.feed-item {
+	margin-bottom: 20px;
+	&:hover {
+		margin-left: -20px;
+		border-left: 5px solid #ffc31c;
+		button {
+			color: #ffc31c;
+		}
+	}
+	span {
+		color: #777777;
+	}
+}
+
+// LIST
+
+.title  {
+	padding-bottom: 5px;
+}
+
+.author {
+	margin-bottom: 10px;
+	margin-top: 3px;
+	color: #777777;
+}
+
+.description {
+	font-size: .9em;
+	margin-top: 5px;
+	margin-bottom: 20px;
+}
+
+.item {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	&:hover {
+		background: #e5e5e5;
+	}
+}
+
+.date {
+	color: #777777;
+}
+
+.item-description {
+	color: #777777;
+	font-size: .9em;
+}
+
+// FOOTER
 
 .footer {
-  margin-top: 20px;
-  color: #999;
-  text-shadow: 0 1px #fff;
-}
-
-.footer a {
-  color: #999;
-}
-
-.footer a:hover {
-  color: #778087;
-}
-
-.footer .container {
-  padding: 0;
-}
-
-@media (max-width: 468px) {
-  .single .container {
-    width: 100%;
-  }
+	border-top: 1px solid #d3d3d3;
+	margin-top: 5px;
+	padding-bottom: 10px;
+	font-size: .9em;
 }
 
 
-body {
-  margin: 0;
-}
 
 
-a {
-  background-color: transparent;
-}
-a:active,
-a:hover {
-  outline: 0;
-}
-
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-
-body {
-  font-size: 14px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  line-height: 1.4;
-}
-
-a {
-  color: #333;
-  text-decoration: none;
-}
-ul {
-  // padding-left: 20px;
-  font-weight: 300;
-}
-
-.container {
-  padding: 0 4%;
-  margin: 0 auto;
-}
-
-.fr {
-  float: right;
-}
-.fl {
-  float: left;
-}
-
-.container:after {
-  display: block;
-  content: '.';
-  clear: both;
-  height: 0;
-  visibility: hidden;
-}
-
-nav.nav {
-  height: 48px;
-  line-height: 48px;
-  // background: #f7f7f7;
-}
-nav.nav h1.oh-brand {
-  margin: 0;
-  // background: #fff;
-  text-align: center;
-  font-size: 24px;
-  float: left;
-}
-nav.nav h1.oh-brand a {
-  display: block;
-  padding: 0 15px;
-  // color: #3090e4;
-}
-nav.nav .oh-menu {
-  margin: 0;
-  padding-left: 0;
-  list-style: none;
-  float: left;
-}
-nav.nav .oh-menu li {
-  float: left;
-}
-nav.nav .oh-menu li a {
-  color: #777;
-  padding: 0 10px;
-  display: block;
-  -webkit-transition: background 0.2s ease;
-  transition: background 0.2s ease;
-}
-nav.nav .oh-menu li a:hover {
-  color: #333;
-  background: #f0f0f0;
-}
 
