@@ -9,7 +9,10 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  upvotes_count :integer          default("0")
-#  list_id       :integer
+#  date          :date
+#  year          :integer
+#  author        :string
+#  journal       :string
 #
 
 require 'rails_helper'

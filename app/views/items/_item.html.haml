@@ -5,6 +5,7 @@
     .col-xs-10
       %h5
         =item.title
-        / =link_to "#{item.title}", item.url
+        / # =link_to "#{item.title}", item.url
       .item-description
-        =item.description
+        %span.author="#{item.author}, "
+        %span.journal="#{item.journal}"
