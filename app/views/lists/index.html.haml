@@ -1,14 +1,15 @@
 - provide(:title, "Home")
 .row
-  .col-md-2#globe.hidden-sm.hidden-xs
-    GPS
+  / .col-md-2#globe.hidden-sm.hidden-xs
+  /   GPS
   .col-xs-10.feed
-    %h1 Lists
+    %h1 Microfinance
+    .row
     - @lists.each do |list|
-      .row.feed-item
-        .col-xs-12
+      =link_to list_path(list) do
+        .col-xs-4.feed-item
           %h5
-            =link_to "#{list.title}", list_path(list) 
+            =list.title
           .paper-count
             =list.items.count
             papers
