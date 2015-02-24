@@ -6,6 +6,16 @@
         %h4= "Microfinance > #{@list.title}"
     .row
       .col-xs-8.description
-        = @list.description 
+        = @list.description
+    .row
+      .col-xs-12#missing-content
+        - if @items.count < 1
+          %h5
+            Looks like there aren't any articles here yet :-( 
+          / %br
+          %i
+            Contribute to this list by emailing me at ethanbarhydt@gmail.com. You'll be listed as a curator of the list (if you want)
+        -else
+          Something missing from this list? Help make it better. Email me at ethanbarhydt@gmail.com.
     = render @items
 
