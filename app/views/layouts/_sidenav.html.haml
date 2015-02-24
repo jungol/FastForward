@@ -1,25 +1,27 @@
 #sidebar-wrapper
   %ul.sidebar-nav  
     %li.slogan
-      A roadmap to great research papers in microfinance, curated by the community.
+      A roadmap to great papers in development econ, curated by the research community.
     %br
     %li.signup
       = form_for EmailSignup.new do |f|
         = render 'shared/error_messages', object: f.object
         = f.text_field :email, placeholder: "Your email"
-        = f.submit "Request Account", class: "btn-gps"
+        = f.submit "Get Occasional Updates", class: "btn-gps"
     %br
     %li.italic
       %h5
-        With an account you can:
-    %br
+        Research GPS is a work in progress. Sign up for occasional updates about:
     %ul#signup-pitch
       %li.indent
-        Curate your own lists of research
+        New curated content
       %li.indent
-        Save articles to your library
-      %li
-        More to come!
+        New features
+    /   %li
+    /     More to come!
+    %br
+    .email-me
+      Questions or comments? Better yet, want to curate a list or two?! Email Ethan at ethanbarhydt@gmail.com
 
 
 
