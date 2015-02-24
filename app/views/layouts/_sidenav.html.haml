@@ -1,7 +1,28 @@
 #sidebar-wrapper
   %ul.sidebar-nav  
     %li.slogan
-      A roadmap to the best research in microfinance. Great papers curated by the community.  
+      A roadmap to great research papers in microfinance, curated by the community.
+    %br
+    %li.signup
+      = form_for EmailSignup.new do |f|
+        = render 'shared/error_messages', object: f.object
+        = f.text_field :email, placeholder: "Your email"
+        = f.submit "Request Account", class: "btn-gps"
+    %br
+    %li.italic
+      %h5
+        With an account you can:
+    %br
+    %ul#signup-pitch
+      %li.indent
+        Curate your own lists of research
+      %li.indent
+        Save articles to your library
+      %li
+        More to come!
+
+
+
   /       #sidebar-wrapper
   / %ul.sidebar-nav.nav
   /   =render partial: 'shared/shelf_item', collection: current_user.articles #collection refers to variable name in controller

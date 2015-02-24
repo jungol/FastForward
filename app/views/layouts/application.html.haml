@@ -19,6 +19,8 @@
       = render 'layouts/sidenav'
       #page-content-wrapper
         .container-fixed
+          - flash.each do |key, value|
+            = content_tag(:div, value.to_s, class: "alert alert-#{key}")
           = yield
 
   .footer 

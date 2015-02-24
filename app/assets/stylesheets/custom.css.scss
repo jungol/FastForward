@@ -30,6 +30,20 @@ a {
 	}
 }
 
+
+#signup-pitch li {
+	list-style: square inside;
+}
+
+.alert {
+	color: #333333;
+	border: 1px solid #333333;
+	padding: 10px;
+	margin-right: 10px;
+	margin-left: 10px;
+	background: #fcf8e3;
+}
+
 #wrapper {
     padding-left: 0;
 
@@ -43,6 +57,7 @@ a {
 
 li.slogan {
 	font-size: 1.3em;
+	margin-bottom: 50px;
 }
 
 .sidebar-nav li a {
@@ -71,6 +86,7 @@ li.slogan {
     top: 0;
     width: 250px;
     margin: 0;
+    // margin-right: 10px;
     padding: 0;
 }
 
@@ -85,6 +101,16 @@ li.slogan {
 	font-style: italic;
 }
 
+.signup input {
+	border: 2px solid #333333;
+}
+
+#email_signup_email {
+	padding-left: 7px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
 #globe {
 	border-radius: 100%;
 	background-color: #333333;
@@ -93,6 +119,17 @@ li.slogan {
 	padding-left: 10px;
 	letter-spacing: 2px;
 	font-size: .7em;
+}
+
+.btn-gps {
+	background: #333333;
+	color: white;
+	padding-left: 8px;
+	padding-right: 8px;
+	&:hover {
+		color: #ffc31c;
+	}
+	margin-top: 2px;
 }
 
 // NAV
@@ -233,6 +270,7 @@ li.slogan {
 @media(min-width:768px) {
     #wrapper {
         padding-left: 250px;
+        min-height: 500px;
     }
 
     #wrapper.toggled {
@@ -248,7 +286,7 @@ li.slogan {
     }
 
     #page-content-wrapper {
-        // padding: 20px;
+        padding-left: 20px;
         position: relative;
     }
 
