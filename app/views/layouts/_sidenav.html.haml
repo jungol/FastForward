@@ -1,27 +1,19 @@
 #sidebar-wrapper
   %ul.sidebar-nav  
-    %li.slogan
-      A roadmap to great research papers in microfinance
-    %br
+    / %li.slogan
+    /   The Internet's syllabus for Development Economics
+    / %br
     %li.signup
       = form_for EmailSignup.new do |f|
         = render 'shared/error_messages', object: f.object
         = f.text_field :email, placeholder: "Your email"
-        = f.submit "Get Occasional Updates", class: "btn-gps"
+        = f.submit "Get Weekly Updates", class: "btn-gps"
     %br
     %li.italic
-      %h5
-        Research GPS is a work in progress. Sign up for occasional updates about:
-    %ul#signup-pitch
-      %li.indent
-        New curated content
-      %li.indent
-        New features
-    /   %li
-    /     More to come!
+      Find the best research papers in development economics, curated by a community of academics.
     %br
-    .email-me
-      Questions or comments? Better yet, want to curate a list or two? Email Ethan at ethanbarhydt@gmail.com
+    %li
+      ResearchGPS@gmail.com
 
 
 
