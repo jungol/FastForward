@@ -14,4 +14,12 @@ class StaticPagesController < ApplicationController
   def design3
   end
 
+  def microfinance
+    @lists = List.where(id: 17...27)
+  end
+
+  def health
+    @lists = List.where(id: 28...100)
+  end
+
 end
