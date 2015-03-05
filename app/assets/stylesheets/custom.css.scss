@@ -10,7 +10,7 @@ body {
 	padding-top: 90px;
 }
 
-h1, h4, h5 {
+h1, h2, h4, h5 {
 	margin: 0px;
 }
 
@@ -46,6 +46,21 @@ a {
 
 .email-me {
 	margin: 10px;
+}
+
+.topics {
+	a {
+		border-bottom: 3px solid #ffc31c;
+		&:hover {
+			border-bottom: 3px solid blue;
+		}
+	}
+	h2 {
+		margin-bottom: 30px;
+	}
+	h4 {
+		color: gray;
+	}
 }
 
 .signup input {

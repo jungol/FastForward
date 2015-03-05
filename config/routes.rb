@@ -9,10 +9,11 @@ Sylaby::Application.routes.draw do
   resources :user_items, only: [:create, :destroy]
   resources :lists, only: [:index, :show]
   resources :items, only: [:show]
-  root to: 'lists#index'
+  root to: 'static_pages#home'
   get 'static_pages/design'
   get 'static_pages/design2'
   get 'static_pages/design3'
+  get 'static_pages/home'
   resources :email_signups
 
   # The priority is based upon order of creation: first created -> highest priority.

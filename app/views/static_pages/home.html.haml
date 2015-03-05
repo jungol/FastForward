@@ -1,8 +1,12 @@
-/ .email_signup
-/   = render 'email_signups/email_signup_form'
+.topics
 
-= render 'shared/signup'
-
-.feed
-  = render 'shared/feed'
+  %h4 select a topic
+  %br
+  %h2
+    =link_to "Microfinance", lists_path
+  %h2 
+    =link_to "Health", '#'
+  %br
+  %br
+  %h4 more topics coming soon...
 
