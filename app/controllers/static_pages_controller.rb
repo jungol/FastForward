@@ -23,7 +23,12 @@ class StaticPagesController < ApplicationController
   end
 
   def growth
-    @lists = List.where(id: 39...100)
+    @lists = List.where(id: 39...47)
   end
+
+  def education
+    @lists = List.where(id: 47...100)
+  end
+
 
 end

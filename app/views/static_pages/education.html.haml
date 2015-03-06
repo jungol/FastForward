@@ -1,0 +1,15 @@
+- provide(:title, "Home")
+.row
+  / .col-md-2#globe.hidden-sm.hidden-xs
+  /   GPS
+  .col-xs-12.feed
+    %h1 Lists in Education
+    .row
+    - @lists.each do |list|
+      =link_to list_path(list) do
+        .col-xs-4.feed-item
+          %h5
+            =list.title
+          .paper-count
+            =list.items.count
+            papers

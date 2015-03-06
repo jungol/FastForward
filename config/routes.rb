@@ -17,6 +17,7 @@ Sylaby::Application.routes.draw do
   get 'static_pages/microfinance'
   get 'static_pages/health'
   get 'static_pages/growth'
+  get 'static_pages/education'
   resources :email_signups
 
   # The priority is based upon order of creation: first created -> highest priority.
