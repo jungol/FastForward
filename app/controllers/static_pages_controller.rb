@@ -27,8 +27,11 @@ class StaticPagesController < ApplicationController
   end
 
   def education
-    @lists = List.where(id: [29, 44, 47...100])
+    @lists = List.where(id: [29, 44, 47...62])
   end
 
+  def history
+    @lists = List.where(id: [62...100])
+  end
 
 end
