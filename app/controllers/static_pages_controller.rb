@@ -31,7 +31,11 @@ class StaticPagesController < ApplicationController
   end
 
   def history
-    @lists = List.where(id: [62...100])
+    @lists = List.where(id: [62...74])
+  end
+
+  def foreignaid
+    @lists = List.where(id: [74...100])
   end
 
 end
