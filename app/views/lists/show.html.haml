@@ -3,7 +3,10 @@
   .col-xs-10.list
     .row
       .col-xs-12.title
-        %h4= "Microfinance > #{@list.title}"
+        %h4= "#{@list.title}"
+        %h5.curator
+          By 
+          =link_to @list.curator, @list.curator_url
     .row
       .col-xs-12.description
         = @list.description

@@ -244,9 +244,6 @@ li.slogan {
 	.paper-count {
 		color: #ffc31c;
 	}
-	.curator {
-		color: #ffc31c;
-	}
 	h5 {
 		color: white;
 	}
@@ -271,7 +268,14 @@ li.slogan {
 
 }
 
-
+.curator {
+	color: #ffc31c;
+	padding-top: 5px;
+	color: #333333;
+	a {
+		color: blue;
+	}
+}
 
 .list {
 	margin-left: 15px;

@@ -8,6 +8,8 @@
 #  updated_at    :datetime         not null
 #  title         :string
 #  upvotes_count :integer
+#  curator       :string
+#  curator_url   :string
 #
 
 require 'rails_helper'
