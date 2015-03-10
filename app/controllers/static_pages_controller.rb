@@ -38,4 +38,8 @@ class StaticPagesController < ApplicationController
     @lists = List.where(id: [74...100])
   end
 
+  def propertyrights
+    @lists = List.where(id: [74...100])
+  end
+
 end
