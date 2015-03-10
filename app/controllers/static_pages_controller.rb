@@ -35,11 +35,11 @@ class StaticPagesController < ApplicationController
   end
 
   def foreignaid
-    @lists = List.where(id: [74...100])
+    @lists = List.where(id: [74...85])
   end
 
   def propertyrights
-    @lists = List.where(id: [74...100])
+    @lists = List.where(id: [85...100])
   end
 
 end
