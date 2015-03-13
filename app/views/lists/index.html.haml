@@ -1,7 +1,7 @@
 - provide(:title, "Home")
 %h1.collections Collections
 = form_tag lists_path, method: :get, class: "tag-form", remote: true do
-  CHOOSE SOME TAGS (new feature!)
+  CHOOSE SOME TAGS (feature is broken, fix coming soon)
   %br
   - @tags.each do |tag|
     = check_box_tag("tags[]", tag.id, @checked_tags[tag.id], class: "tag_checkbox")
