@@ -23,7 +23,8 @@ class List < ActiveRecord::Base
   end
 
   def self.tagged_with(tags)
-    joins(:tags).where('tags.id IN (?)', tags).group('list_id').having('count(*) >= ?', tags.count).distinct
+    select('lists.*').joins(:tags).where('tags.id IN (?)', tags).group('list_id').having('count(*) >= ?', tags.count)
   end
 end
 
+# User.select('users.*').joins(:payments).group('users.id').having('count(payments.id) > 4')
