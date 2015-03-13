@@ -23,7 +23,7 @@ class List < ActiveRecord::Base
   end
 
   def self.tagged_with(tags)
-    joins(:tags).where('tags.id IN (?)', tags).group('list_id').having('count(*) >= ?', tags.count).select('lists.*')
+    joins(:tags).where('tags.id IN (?)', tags).group('list_id').having('count(*) >= ?', tags.count).distinct
   end
 end
 
