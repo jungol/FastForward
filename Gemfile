@@ -10,6 +10,7 @@ gem 'bootstrap-sass'
 gem 'sprockets'
 gem 'devise'
 gem 'rails_admin'
+gem 'faker'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

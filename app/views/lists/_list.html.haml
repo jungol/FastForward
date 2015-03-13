@@ -1,16 +1,7 @@
-%li
-  =link_to list_url(list) do
-    %h2.repo-name
-      = list.title
-    .repo-meta.clearfix
-      %span.repo-username
-        By Ethan Barhydt
-      %span.language
-        = list.items.count
-        Articles
-    %h3.repo-des
-      =list.description
-
-
-
-
+=link_to list_path(list) do
+  .col-xs-4.feed-item
+    %h5
+      =list.title
+    .paper-count
+      =list.items.count
+      papers

@@ -15,10 +15,15 @@
 class List < ActiveRecord::Base
   has_many :item_lists
   has_many :items, :through => :item_lists
-
+  has_many :taggings
+  has_many :tags, :through => :taggings
 
   def date
     self.created_at.strftime('%B %d')
   end
 
+  def self.tagged_with(tags)
+    joins(:tags).where('tags.id IN (?)', tags).group('list_id').having('count(*) >= ?', tags.count)
+  end
 end
+

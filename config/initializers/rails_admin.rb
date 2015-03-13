@@ -32,6 +32,7 @@ RailsAdmin.config do |config|
     field :curator
     field :curator_url
     field :description
+    field :tags
   end
 
     ## With an audit adapter, you can add:

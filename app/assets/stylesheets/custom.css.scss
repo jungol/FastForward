@@ -222,8 +222,16 @@ li.slogan {
 	margin-left: 15px;
 	margin-right: 15px;
 	h1 {
-		margin-bottom: 20px;
+		margin-bottom: 60px;
+		text-align: center;
+		margin-right: 130px;
 	}
+}
+
+h1.collections {
+	text-align: center;
+	margin-right: 100px;
+	margin-bottom: 50px;
 }
 
 .feed-item {
@@ -261,11 +269,42 @@ li.slogan {
 	}
 }
 
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  padding: 10px;
+}
+
+.tag-form {
+	margin-bottom: 50px;
+	margin-left: 30px;
+}
+
+.checkboxtext {
+	display: inline;
+	padding-left: 5px;
+	padding-right: 15px;
+}
 // LIST
 
 .paper-count {
 	color: #777777;
 
+}
+
+.tag {
+	padding: 10px;
+}
+
+.hilite {
+	a {
+		color: #ffc31c;
+	}
+	background: black;
 }
 
 .curator {
