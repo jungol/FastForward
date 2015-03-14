@@ -235,30 +235,33 @@ h1.collections {
 }
 
 .feed-item {
-	border: 1px solid black;
-	width: 220px;
-	margin-bottom: 25px;
-	border-radius: 1%;
-	margin-right: 25px;
+	border-bottom: 1px solid #e0e0e0;
+	width: 100%;
+	// margin-bottom: 25px;
+	// border-radius: 1%;
+	// margin-right: 25px;
 	// line-height: 30px;
-	text-align: center;
-	padding-left: 7px;
-	padding-right: 7px;
+	// text-align: center;
+	// padding-left: 7px;
+	// padding-right: 7px;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
-	height: 267px;
-	background: #333333;
+	// height: 267px;
+	// background: #333333;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	.paper-count {
-		color: #ffc31c;
+		color: #333333;
 	}
 	h5 {
-		color: white;
+		color: blue;
 	}
 
 	h5 {
 		font-size: 1.2em;
 		line-height: 22px;
+		font-weight: normal;
 	}
 	h6 {
 		font-size: 1.1em;
