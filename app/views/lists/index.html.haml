@@ -1,8 +1,8 @@
 - provide(:title, "Home")
-%h1.collections Collections
+%h1.collections Research Collections
+%h4.collections Collections of great papers addressing questions in development economics
 = form_tag lists_path, method: :get, class: "tag-form" do
-  Choose some tags to find what you're looking for
-  %br
+  Choose some tags to find what you're looking for ---
   - @tags.each do |tag|
     = check_box_tag("tags[]", tag.id, @checked_tags[tag.id], class: "tag_checkbox")
     %span.checkboxtext= tag.name

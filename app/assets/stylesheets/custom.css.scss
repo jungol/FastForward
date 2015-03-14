@@ -30,6 +30,10 @@ a {
 	}
 }
 
+li {
+	list-style: none;
+}
+
 
 #signup-pitch li {
 	list-style: square inside;
@@ -229,28 +233,23 @@ li.slogan {
 }
 
 h1.collections {
-	text-align: center;
-	margin-right: 100px;
-	margin-bottom: 50px;
+	margin-bottom: 10px;
+	margin-left: 230px;
+}
+
+h4.collections {
+	margin-left: 100px;
+	color: #988f8c;
 }
 
 .feed-item {
 	border-bottom: 1px solid #e0e0e0;
-	width: 100%;
-	// margin-bottom: 25px;
-	// border-radius: 1%;
-	// margin-right: 25px;
-	// line-height: 30px;
-	// text-align: center;
-	// padding-left: 7px;
-	// padding-right: 7px;
+	width: 80%;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
-	// height: 267px;
-	// background: #333333;
 	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-bottom: 5px;
 	.paper-count {
 		color: #333333;
 	}
@@ -262,6 +261,8 @@ h1.collections {
 		font-size: 1.2em;
 		line-height: 22px;
 		font-weight: normal;
+		padding-bottom: 5px;
+		color: blue;
 	}
 	h6 {
 		font-size: 1.1em;
@@ -270,6 +271,18 @@ h1.collections {
 		line-height: 17px;
 		margin-top: 5px;
 	}
+	&:hover {
+		// background: gray;
+	}
+	a {
+		color: blue;
+	}
+}
+
+.curated-by {
+	font-size: .9em;
+	color: gray;
+	padding: 5px;
 }
 
 input[type=checkbox]
@@ -280,9 +293,20 @@ input[type=checkbox]
   -webkit-transform: scale(2); /* Safari and Chrome */
   -o-transform: scale(2); /* Opera */
   padding: 10px;
+  margin-left: 10px;
+}
+
+.list-info li {
+	float: left;
+	&.tag-item {
+		background: #e4edf4;
+		padding: 5px;
+		margin-right: 5px;
+	}
 }
 
 .tag-form {
+	margin-top: 30px;
 	margin-bottom: 50px;
 	margin-left: 30px;
 }
@@ -296,7 +320,14 @@ input[type=checkbox]
 
 .paper-count {
 	color: #777777;
+	padding: 5px;
+	padding-left: 0px;
+	margin-right: 5px;
 
+}
+
+.tag_checkbox {
+	margin-left: 5px;
 }
 
 .tag {

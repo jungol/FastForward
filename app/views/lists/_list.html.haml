@@ -1,7 +1,15 @@
-=link_to list_path(list) do
-  .col-xs-4.feed-item
-    %h5
-      =list.title
-    .paper-count
+.col-xs-4.feed-item
+  %h5
+    =link_to list.title, list_path(list)
+  %ul.list-info
+    %li.paper-count
       =list.items.count
       papers
+    - list.tags.each do |tag|
+      %li.tag-item= tag.name
+    %li.pull-right.curated-by
+      Created by
+      = link_to list.curator, list.curator_url
+      = time_ago_in_words(list.created_at)
+      ago.
+
