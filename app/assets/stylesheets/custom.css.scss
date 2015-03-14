@@ -230,6 +230,7 @@ li.slogan {
 		text-align: center;
 		margin-right: 130px;
 	}
+	margin-top: 30px;
 }
 
 h1.collections {
@@ -285,6 +286,16 @@ h4.collections {
 	padding: 5px;
 }
 
+.tag-list {
+	width: 80%;
+	li {
+		float:left;
+		padding: 12px;
+		padding-left: 0px;
+	}
+	margin-bottom: 40px;
+}
+
 input[type=checkbox]
 {
   /* Double-sized Checkboxes */
@@ -302,6 +313,7 @@ input[type=checkbox]
 		background: #e4edf4;
 		padding: 5px;
 		margin-right: 5px;
+		padding-left: 0px;
 	}
 }
 
