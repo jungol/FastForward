@@ -1,7 +1,8 @@
 class ListsController < ApplicationController
   def index
     if @tags = params[:tags]
-      @lists = List.tagged_with(@tags)
+      @temp_lists = List.tagged_with(@tags)
+      @lists = @temp_lists.map{ |key,val| List.find_by_id(key) }
     else
       @lists = List.all
     end
