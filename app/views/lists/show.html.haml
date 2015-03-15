@@ -1,24 +1,28 @@
 - provide(:title, @list.title)
 .row
-  .col-xs-10.list
+  .col-xs-8.list-wrapper
     .row
-      .col-xs-12.title
-        %h4= "#{@list.title}"
-        %h5.curator
-          By 
-          =link_to @list.curator, @list.curator_url
-    .row
-      .col-xs-12.description
-        = @list.description
-    .row
-      .col-xs-12#missing-content
-        - if @items.count < 1
-          %h5
-            Looks like there aren't any articles here yet :-( 
-          / %br
-          %i
-            Contribute to this list by emailing info@researchgps.com. 
-        -else
-          Something missing from this list? Help make it better. Email info@researchgps.com.
-    = render @items
-
+      .col-xs-10.list
+        .row
+          .col-xs-12.title
+            %h4= "#{@list.title}"
+            %h5.curator
+              By 
+              =link_to @list.curator, @list.curator_url
+        .row
+          .col-xs-12.description
+            = @list.description
+        .row
+          .col-xs-12#missing-content
+            - if @items.count < 1
+              %h5
+                Looks like there aren't any articles here yet :-( 
+              / %br
+              %i
+                Contribute to this list by emailing info@researchgps.com. 
+            -else
+              Something missing from this list? Help make it better. Email info@researchgps.com.
+        = render @items
+  .col-xs-4.sidebar-right
+    %ul#sidebar-nav-right
+      %li Click an article to see it's abstract and read it

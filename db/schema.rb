@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311150641) do
+ActiveRecord::Schema.define(version: 20150315005916) do
 
   create_table "email_signups", force: :cascade do |t|
     t.string   "email"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150311150641) do
     t.integer  "year"
     t.string   "author"
     t.string   "journal"
+    t.text     "abstract"
   end
 
   create_table "lists", force: :cascade do |t|

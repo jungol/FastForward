@@ -1,5 +1,5 @@
-=link_to item_path(item) do 
-  .row.item
+=link_to item_path(item), remote: true do 
+  .row.item#item
     .col-xs-2.col-sm-1.date
       = item.year
     .col-xs-10

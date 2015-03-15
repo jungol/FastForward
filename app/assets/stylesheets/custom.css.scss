@@ -34,6 +34,13 @@ li {
 	list-style: none;
 }
 
+.abstract {
+	width: 50%;
+}
+
+.bold {
+	font-weight: bold;
+}
 
 #signup-pitch li {
 	list-style: square inside;
@@ -41,8 +48,10 @@ li {
 
 .read span {
 	background: blue;
-	color: white;
 	padding: 10px;
+	a {
+		color: white;
+	}
 }
 
 .alert {
@@ -129,6 +138,18 @@ li.slogan {
     margin: 0;
     // margin-right: 10px;
     padding: 0;
+}
+
+// .sidebar-right {
+// 	height: 100%;
+// 	background: #F5F5DC;
+// 	z-index: 1000;
+// 	overflow-y: auto;
+// 	min-height: 500px;
+// }
+
+.sidebar-nav-right {
+	padding: 30px;
 }
 
 #page-content-wrapper {
@@ -370,6 +391,12 @@ input[type=checkbox]
 
 .list {
 	margin-left: 15px;
+	// border-right: 1px solid gray;
+	// padding-right: 10px;
+}
+
+.list-wrapper {
+	border-right: 1px solid gray;
 }
 
 .title  {

@@ -1,2 +1,11 @@
-%h2.read 
+%h4= @item.title
+= "#{@item.author}, #{@item.journal}"
+%br
+%br
+%h4.read 
   %span= link_to "Read Now", @item.url
+%br
+.abstract
+  %ul
+    %li.bold Abstract
+    %li= @item.abstract
