@@ -1,14 +1,2 @@
-%ul.list-header
-  %li
-    .row
-      .clearfix.call-to-action.col-xs-8
-        .list-title
-          %h4 
-            =link_to "#{@item.title}", @item.url
-        %span
-          =@item.description
-
-  %li.related
-    This article is part of 7 other lists: 
-    - @item.lists.each do |list|
-      = link_to "#{list.title}", list_path(list)
+%h2.read 
+  %span= link_to "Read Now", @item.url
