@@ -13,6 +13,9 @@
           .col-xs-12.description
             = @list.description
         .row
+          .col-xs-12.views
+            = "Created #{time_ago_in_words(@list.created_at)} ago, Viewed #{@list.view_count} times" 
+        .row
           .col-xs-12#missing-content
             - if @items.count < 1
               %h5

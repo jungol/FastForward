@@ -19,21 +19,3 @@ class ListsController < ApplicationController
     @items = @list.items
   end
 end
-
-# Photo.joins(:tags).where('tags.name' => ['herp','derp']).group(:id)
-
-# def self.tagged_with(name) #name is an array of 1 or more tag names
-#     all(:conditions => {:tags => {:name => name}},
-#       :joins      => :taggings,
-#       :joins      => :tags,
-#       :group      => 'articles.id',
-#       :having     => ['COUNT(*) >= ?', name.length]
-#     )
-# end
-
-# Student.where(:seeking_position => position,
-#               :min_hourly => min_hourly,
-#               :max_hourly => max_hourly,
-#               :start_weeks => start_weeks)
-
-# uthor.joins(:articles).where(articles: { author: author })

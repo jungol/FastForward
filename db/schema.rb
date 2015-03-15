@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150315005916) do
+ActiveRecord::Schema.define(version: 20150315211726) do
 
   create_table "email_signups", force: :cascade do |t|
     t.string   "email"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150315005916) do
     t.integer  "upvotes_count"
     t.string   "curator"
     t.string   "curator_url"
+    t.integer  "view_count"
   end
 
   create_table "microposts", force: :cascade do |t|
