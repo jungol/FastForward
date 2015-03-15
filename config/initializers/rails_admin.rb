@@ -35,6 +35,15 @@ RailsAdmin.config do |config|
     field :tags
   end
 
+  config.model Item do
+    field :title
+    field :url
+    field :abstract
+    field :year
+    field :author
+    field :journal
+    field :lists
+  end
     ## With an audit adapter, you can add:
     # history_index
     # history_show
