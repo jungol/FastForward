@@ -33,6 +33,7 @@ RailsAdmin.config do |config|
     field :curator_url
     field :description
     field :tags
+    field :view_count
   end
 
   config.model Item do

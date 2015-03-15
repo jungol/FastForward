@@ -3,8 +3,7 @@
     =link_to list.title, list_path(list)
   %ul.list-info
     %li.paper-count
-      =list.items.count
-      papers
+      = pluralize(list.items.count, 'paper')
     - list.tags.each do |tag|
       %li.tag-item= tag.name
     %li.pull-right.curated-by

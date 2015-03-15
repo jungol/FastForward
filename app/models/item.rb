@@ -28,8 +28,4 @@ class Item < ActiveRecord::Base
   has_many :users, :through => :user_items
   has_many :lists, :through => :item_lists
 
-  def date
-    self.created_at.strftime('%B %d')
-  end
-
 end

@@ -1,21 +1,22 @@
 class ListsController < ApplicationController
   def index
+    
     if @tags = params[:tags]
-      @temp_lists = List.tagged_with(@tags)
-      @lists = @temp_lists.map{ |key,val| List.find_by_id(key) }
+      @lists = List.get_lists_with(@tags)
     else
       @lists = List.all
     end
-    @checked_tags = Hash[(Tag.where(id: params[:tags])).collect { |tag| [tag.id, "true"]}]
+    
+    @checked_tags = Hash[Tag.hash_of_checked_tags(@tags)]
     @tags = Tag.all
-    respond_to do |format|
-      format.html { }
-      # format.js
-    end
+
   end
 
   def show
     @list = List.find(params[:id])
     @items = @list.items
   end
+
+
 end
+

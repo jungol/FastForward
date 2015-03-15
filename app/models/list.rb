@@ -18,15 +18,26 @@ class List < ActiveRecord::Base
   has_many :taggings
   has_many :tags, :through => :taggings
 
-  def date
-    self.created_at.strftime('%B %d')
-  end
-
-  def self.tagged_with(tags)
+  # Creates hash of list_ids (keys) and tag counts (values)
+  def self.hash_of_list_id_and(tags)
     joins(:taggings).
     where('tag_id IN (?)', tags).
     group('list_id').
     having('COUNT(list_id) >= ?', tags.count).
     count
   end
+
+  # Grabs keys of hash above to get the requested list objects
+  def self.get_lists_with(tags)
+    hash_of_list_id_and(tags).map{ |list_id, tag_count| List.find_by_id(list_id) }
+  end
+
+  def get_view_count
+    if view_count > 0
+      "Viewed #{view_count} times"
+    else
+      return
+    end
+  end
+
 end
