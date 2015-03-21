@@ -1,17 +1,21 @@
 - provide(:title, "Home")
-%h1.collections Research Collections
-%h4.collections Collections of great papers addressing questions in development economics
-= form_tag lists_path, method: :get, class: "tag-form" do
-  Choose some tags to find what you're looking for
-  %ul.tag-list
-    - @tags.each do |tag|
+.row.heading.text-center
+  .col-xs-12
+    %ul
       %li
-        = check_box_tag("tags[]", tag.id, @checked_tags[tag.id], class: "tag_checkbox")
-        %span.checkboxtext= tag.name
+        %h1 Research Questions
+      %li Collections of papers addressing big questions in development economics
+
+.row.tag-list
+  .col-xs-12
+    = form_tag lists_path, method: :get, class: "tag-form" do
+      %ul
+      - @tags.each do |tag|
+        %li
+          = check_box_tag("tags[]", tag.id, @checked_tags[tag.id], class: "checkbox")
+          %span= tag.name
     / # = submit_tag "Filter", class: "submit"
-.row
-  / .col-md-2#globe.hidden-sm.hidden-xs
-  /   GPS
-  .col-xs-12.feed
-    .row.feed-lists
+.row.feed
+  .col-xs-12
+    %ul
       = render @lists
