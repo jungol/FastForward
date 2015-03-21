@@ -3,6 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-	$('.tag_checkbox').click( ->
+	$('input').click( ->
 		$('.tag-form').submit()
 	)

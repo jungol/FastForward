@@ -1,32 +1,57 @@
 - provide(:title, @list.title)
 .row
-  .col-xs-8.list-wrapper
+  .col-xs-8
     .row
-      .col-xs-10.list
-        .row
-          .col-xs-12.title
-            %h4= "#{@list.title}"
-            %h5.curator
-              Contributors:
-              =link_to @list.curator, @list.curator_url
-        .row
-          .col-xs-12.description
-            = @list.description
-        .row
-          .col-xs-12.views
-            = "Created #{time_ago_in_words(@list.created_at)} ago"
-            = @list.get_view_count 
-        .row
-          .col-xs-12#missing-content
-            - if @items.count < 1
-              %h5
-                Looks like there aren't any articles here yet :-( 
-              / %br
-              %i
-                Contribute to this list by emailing info@researchgps.com. 
-            -else
-              Something missing from this list? Help make it better. Email info@researchgps.com.
+      .col-xs-12
+        %h4= @list.title
+
+    .row.list-info
+      .col-xs-12
+        %ul.gray
+          %li
+            =link_to @list.curator_url do
+              / = image_tag "photo.jpg", class: "photo"
+              .gray= "Edited by #{@list.curator}"
+          %li
+            = "Updated #{time_ago_in_words(@list.updated_at)} ago"
+
+    .row.content
+      .col-xs-12
+        = @list.description
+      .col-xs-12.list-wrapper
         = render @items
-  .col-xs-4.sidebar-right
+  .col-xs-4.right-sidebar
     %ul#sidebar-nav-right
-      %li Click an article to see it's abstract and read it
+
+
+/ .row
+/   .col-xs-8.list-wrapper
+/     .row
+/       .col-xs-10.list
+/         .row
+/           .col-xs-12.title
+/             %h4= "#{@list.title}"
+/             %h5.curator
+/               By 
+/               =link_to @list.curator, @list.curator_url
+/         .row
+/           .col-xs-12.description
+/             = @list.description
+/         .row
+/           .col-xs-12.views
+/             = "Created #{time_ago_in_words(@list.created_at)} ago"
+/             = @list.get_view_count 
+/         .row
+/           .col-xs-12#missing-content
+/             - if @items.count < 1
+/               %h5
+/                 Looks like there aren't any articles here yet :-( 
+/               / %br
+/               %i
+/                 Contribute to this list by emailing info@researchgps.com. 
+/             -else
+/               Something missing from this list? Help make it better. Email info@researchgps.com.
+/         = render @items
+/   .col-xs-4.sidebar-right
+/     %ul#sidebar-nav-right
+/       %li Click an article to see it's abstract and read it

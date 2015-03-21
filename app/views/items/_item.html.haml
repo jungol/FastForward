@@ -1,11 +1,10 @@
 =link_to item_path(item), remote: true do 
   .row.item#item
-    .col-xs-2.col-sm-1.date
+    .col-xs-2.col-sm-1.date.gray
       = item.year
     .col-xs-10
       %h5
         =item.title
-        / # =link_to "#{item.title}", item.url
-      .item-description
+      .item-description.gray
         %span.author="#{item.author}, "
         %span.journal="#{item.journal}"
