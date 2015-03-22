@@ -77,8 +77,8 @@ a {
 .right-sidebar {
 	border-left: 1px solid gray;
 	position: fixed;
-	height: 100%;
-	overflow-y: auto;
+	min-height: 100%;
+	overflow-y: scroll;
 	width: 300px;
 	right: 0px;
 	background: #fcf8e3;
@@ -97,6 +97,14 @@ a {
 
 .db {
 	display: block;
+}
+
+.attention {
+	border: 1px solid red;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 5px;
+	color: black;
 }
 
 .item-count {

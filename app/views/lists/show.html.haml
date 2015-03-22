@@ -10,12 +10,14 @@
         .col-xs-12
           %ul.gray
             %li
-              =link_to @list.curator_url do
-                / = image_tag "photo.jpg", class: "photo"
-                %span.gray Edited by 
-                %span= link_to "#{@list.curator}", @list.curator_url
+              %span.gray Edited by 
+              %span= link_to "#{@list.curator}", @list.curator_url
             %li
               = "Updated #{time_ago_in_words(@list.updated_at)} ago"
+            %li.pt10.pb10.attention
+              Want to contribute to this page, either by editing the summary or adding papers? Email 
+              = mail_to "info@researchgps.com"
+              and we'll be in touch. Editing is open to PhD students at Harvard, Yale, and MIT. 
 
       .row.content
         .col-xs-12.description

@@ -8,10 +8,8 @@
         %span.tag= tag.name
     .col-xs-4.social-info.text-right
       - if list.curator != (nil || '')
-        =link_to list.curator_url do
-          / # = image_tag "photo.jpg", class: "photo"
-          %span.gray Edited by 
-          %span= link_to "#{list.curator}", list.curator_url
+        %span.gray Edited by 
+        %span= link_to "#{list.curator}", list.curator_url
 
       / =image_tag "photo.jpg", class: "photo"
       / =link_to "#{list.curator}", list.curator_url
