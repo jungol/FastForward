@@ -17,7 +17,7 @@
 
 class Item < ActiveRecord::Base
 
-  default_scope -> { order('year') }
+  default_scope -> { order('year DESC') }
 
   validates :title, presence: true
   validates :url, presence: true
