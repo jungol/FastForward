@@ -2,7 +2,7 @@
   .row
     .col-xs-8.basic-info
       %h5=link_to list.title, list_path(list), class: "title"
-      %span.timestamp.gray= "updated #{time_ago_in_words(list.created_at)} ago;"
+      %span.timestamp.gray= "updated #{time_ago_in_words(list.updated_at)} ago;"
       %span.item-count.gray=pluralize(list.items.count, 'paper')
       - list.tags.each do |tag|
         %span.tag= tag.name
@@ -10,6 +10,3 @@
       - if list.curator != (nil || '')
         %span.gray Edited by 
         %span= link_to "#{list.curator}", list.curator_url
-
-      / =image_tag "photo.jpg", class: "photo"
-      / =link_to "#{list.curator}", list.curator_url
