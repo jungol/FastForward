@@ -4,7 +4,10 @@ class ListsController < ApplicationController
     if @tags = params[:tags]
       @lists = List.get_lists_with(@tags)
     else
-      @lists = List.all
+      @base_tags = []
+      @base_tags << Tag.find_by_name("finance")
+      @base_tags << Tag.find_by_name("education")
+      @lists = List.get_lists_with(@base_tags)
     end
     
     @checked_tags = Hash[Tag.hash_of_checked_tags(@tags)]
