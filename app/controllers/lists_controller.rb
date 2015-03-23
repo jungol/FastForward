@@ -4,10 +4,6 @@ class ListsController < ApplicationController
     if @tags = params[:tags]
       @lists = List.get_lists_with(@tags)
     else
-      # @base_tags = []
-      # @base_tags << Tag.find_by_name("Finance")
-      # @base_tags << Tag.find_by_name("Education")
-      # @lists = List.
       @lists = List.all
     end
     
