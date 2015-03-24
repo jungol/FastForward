@@ -4,7 +4,7 @@ class ListsController < ApplicationController
     if @tags = params[:tags]
       @lists = List.get_lists_with(@tags)
     else
-      @lists = List.all
+      @lists = List.where(published: true)
     end
     
     @checked_tags = Hash[Tag.hash_of_checked_tags(@tags)]

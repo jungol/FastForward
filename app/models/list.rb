@@ -17,13 +17,14 @@ class List < ActiveRecord::Base
   has_many :items, :through => :item_lists
   has_many :taggings
   has_many :tags, :through => :taggings
-  # default_scope -> { where(id: "59") }
+  # default_scope -> { where(published: true) }
 
 
   # Creates hash of list_ids (keys) and tag counts (values)
   def self.hash_of_list_id_and(tags)
     joins(:taggings).
     where('tag_id IN (?)', tags).
+    where(published: true).
     group('list_id').
     having('COUNT(list_id) >= ?', tags.count).
     count
