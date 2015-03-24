@@ -10,12 +10,12 @@
         .col-xs-12
           %ul.gray
             %li
-              %span.gray Edited by 
+              %span.gray Contributors: 
               %span= link_to "#{@list.curator}", @list.curator_url
             %li
               = "Published #{time_ago_in_words(@list.created_at)} ago"
             %li
-              = "Updated #{time_ago_in_words(@list.updated_at)} ago"
+              = "Last updated #{time_ago_in_words(@list.updated_at)} ago"
             %li.pt10.pb10.attention
               Want to contribute to this page, either by editing the summary or adding papers? Email 
               = mail_to "info@researchgps.com"
