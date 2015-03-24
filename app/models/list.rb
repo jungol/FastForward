@@ -17,6 +17,8 @@ class List < ActiveRecord::Base
   has_many :items, :through => :item_lists
   has_many :taggings
   has_many :tags, :through => :taggings
+  default_scope -> { where(id: "59") }
+
 
   # Creates hash of list_ids (keys) and tag counts (values)
   def self.hash_of_list_id_and(tags)
