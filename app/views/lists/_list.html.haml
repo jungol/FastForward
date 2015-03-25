@@ -7,6 +7,7 @@
       - list.tags.each do |tag|
         %span.tag= tag.name
     .col-xs-4.social-info.text-right
-      %span.gray Contributors: 
       - list.users.each do |user|
-        %span= link_to "#{user.first_name} #{user.last_name}, #{user.school}", user.link
+        = link_to user.link do
+          %span.profile-img= image_tag("#{user.first_name}_#{user.last_name}.jpg")
+
