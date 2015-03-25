@@ -40,44 +40,48 @@ a {
 
 
 
-.topics li {
-	width: 220px;
-	height: 267px;
-	background: #000;
-	position: relative;
-	float: left;
-	margin-right: 15px;
-
-	.bg-img {
-		// background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('microfinance.png');
-		height: inherit;
-		background-position: center;
-		background-size: cover;
-		border-radius: 3px;
-		box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
-		left: 0;
-		opacity: .6;
-		// position: absolute;
-		top: 0;
-		width: inherit;
-		position: absolute;
-		&:hover {
-			opacity: .8;
-		}
-	}
-	a {
+.topics {
+	margin-left: 100px;
+	margin-right: 100px;
+	li {
+		width: 220px;
+		height: 267px;
+		background: #000;
 		position: relative;
-		height: inherit;
-		left: 0;
-		width: inherit;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		color: white;
-		text-align: center;
-		font-size: 1.9em;
-		font-weight: bold;
-		letter-spacing: 1px;
+		float: left;
+		margin-right: 15px;
+
+		.bg-img {
+			// background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('microfinance.png');
+			height: inherit;
+			background-position: center;
+			background-size: cover;
+			border-radius: 3px;
+			box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+			left: 0;
+			opacity: .6;
+			// position: absolute;
+			top: 0;
+			width: inherit;
+			position: absolute;
+			&:hover {
+				opacity: .8;
+			}
+		}
+		a {
+			position: relative;
+			height: inherit;
+			left: 0;
+			width: inherit;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			color: white;
+			text-align: center;
+			font-size: 1.9em;
+			font-weight: bold;
+			letter-spacing: 1px;
+		}
 	}
 }
 

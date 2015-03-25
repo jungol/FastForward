@@ -11,7 +11,7 @@ class ListsController < ApplicationController
     # @tags = Tag.all
 
     @tag = Tag.find_by_name(params[:topic])
-    @lists = @tag.lists
+    @lists = @tag.lists.where(published: true)
 
   end
 
