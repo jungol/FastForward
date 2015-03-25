@@ -1,14 +1,17 @@
 class ListsController < ApplicationController
   def index
+    # Tagging system for later
+    # if @tags = params[:tags]
+    #   @lists = List.get_lists_with(@tags)
+    # else
+    #   @lists = List.where(published: true)
+    # end
     
-    if @tags = params[:tags]
-      @lists = List.get_lists_with(@tags)
-    else
-      @lists = List.where(published: true)
-    end
-    
-    @checked_tags = Hash[Tag.hash_of_checked_tags(@tags)]
-    @tags = Tag.all
+    # @checked_tags = Hash[Tag.hash_of_checked_tags(@tags)]
+    # @tags = Tag.all
+
+    @tag = Tag.find_by_name(params[:topic])
+    @lists = @tag.lists
 
   end
 

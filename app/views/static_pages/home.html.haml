@@ -1,22 +1,30 @@
-.topics
+- provide(:title, "Home")
+.row.heading.text-center
+  .col-xs-12
+    %ul
+      %li
+        %h1 Development Economics
+      %li 
+        %h4.gray Frame your thinking around big development questions
 
-  %h4 select a topic
-  %br
-  %h2
-    =link_to "Microfinance", 'static_pages/microfinance'
-  %h2 
-    =link_to "Health", 'static_pages/health'
-  %h2 
-    =link_to "Growth", 'static_pages/growth'
-  %h2 
-    =link_to "Education", 'static_pages/education'
-  %h2 
-    =link_to "History", 'static_pages/history'
-  %h2 
-    =link_to "Foreign Aid", 'static_pages/foreignaid'
-  %h2 
-    =link_to "Property Rights", 'static_pages/propertyrights'
-  %br
+%ul.topics
+  %li
+    .bg-img{style: "background-image: url(#{image_path 'education.jpg'})"}
+    =link_to lists_path(topic: 'Education') do
+      %span Education
+  %li
+    .bg-img{style: "background-image: url(#{image_path 'microfinance.png'})"}
+    =link_to lists_path(topic: 'Microfinance') do
+      %span Microfinance
+/ {:style => "background-image: url(#{image_path "logos/#{facility.image}.jpg"})"}
 
-  %h4 *More development topics coming soon, including Trade -- Foreign Aid -- Household Economics -- Firms and Contracts -- Taxation -- Corruption -- Technology -- Behavioral Poverty -- More
+/ .row.topics
+/   .col-xs-12
+/     .education
+/       =link_to lists_path(topic: 'Education') do
+/         %h2 Education
 
+/   .col-xs-12
+/     .microfinance
+/       =link_to lists_path(topic: 'Microfinance') do
+/         %h2 Microfinance

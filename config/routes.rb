@@ -9,7 +9,7 @@ Sylaby::Application.routes.draw do
   resources :user_items, only: [:create, :destroy]
   resources :lists, only: [:index, :show]
   resources :items, only: [:show]
-  root to: 'lists#index'
+  root to: 'static_pages#home'
   get 'static_pages/design'
   get 'static_pages/design2'
   get 'static_pages/design3'
@@ -22,7 +22,7 @@ Sylaby::Application.routes.draw do
   get 'static_pages/foreignaid'
   get 'static_pages/propertyrights'
   resources :email_signups
-  get 'tags/*tags', to: 'lists#index', as: :tag
+  # get 'tags/*tags', to: 'lists#index', as: :tag
 
 
   # The priority is based upon order of creation: first created -> highest priority.
