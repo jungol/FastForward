@@ -7,6 +7,6 @@
       - list.tags.each do |tag|
         %span.tag= tag.name
     .col-xs-4.social-info.text-right
-      - if list.curator != (nil || '')
-        %span.gray Contributors: 
-        %span= link_to "#{list.curator}", list.curator_url
+      %span.gray Contributors: 
+      - list.users.each do |user|
+        %span= link_to "#{user.first_name} #{user.last_name}, #{user.school}", user.link

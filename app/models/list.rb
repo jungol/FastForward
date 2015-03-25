@@ -17,6 +17,8 @@ class List < ActiveRecord::Base
   has_many :items, :through => :item_lists
   has_many :taggings
   has_many :tags, :through => :taggings
+  has_many :user_lists
+  has_many :users, :through => :user_lists
   # default_scope -> { where(published: true) }
 
 

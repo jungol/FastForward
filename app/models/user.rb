@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
   
   has_many :user_items
   has_many :items, :through => :user_items
+  has_many :user_lists
+  has_many :lists, :through => :user_lists
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

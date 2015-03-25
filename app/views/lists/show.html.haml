@@ -11,7 +11,8 @@
           %ul.gray
             %li
               %span.gray Contributors: 
-              %span= link_to "#{@list.curator}", @list.curator_url
+              - @list.users.each do |user|
+                %span= link_to "#{user.first_name} #{user.last_name}, #{user.school}", user.link            
             %li
               = "Published #{time_ago_in_words(@list.created_at)} ago"
             %li

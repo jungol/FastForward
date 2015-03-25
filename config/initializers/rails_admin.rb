@@ -35,6 +35,7 @@ RailsAdmin.config do |config|
     field :tags
     field :view_count
     field :published
+    # field :users
   end
 
   config.model Item do
