@@ -12,6 +12,11 @@ class ListsController < ApplicationController
 
     @tag = Tag.find_by_name(params[:topic])
     @lists = @tag.lists.where(published: true)
+    if @tag.name == 'Education'
+      @tag_image = 'education.jpg'
+    else
+      @tag_image = 'microfinance.png'
+    end
 
   end
 
