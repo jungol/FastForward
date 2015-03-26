@@ -9,5 +9,6 @@
     .col-xs-4.social-info.text-right
       - list.users.each do |user|
         = link_to user.link do
+          / .school-icon= image_tag("Harvard_University.png")
           %span.profile-img= image_tag("#{user.first_name}_#{user.last_name}.jpg")
 
