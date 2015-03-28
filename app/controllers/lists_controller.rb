@@ -22,8 +22,8 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-    @list.view_count = @list.view_count + 1
-    @list.save
+    # @list.view_count = @list.view_count + 1
+    # @list.save
     @items = @list.items
   end
 
