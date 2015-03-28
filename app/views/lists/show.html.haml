@@ -32,7 +32,11 @@
         .col-xs-12.description
           = raw @list.description
         .col-xs-12.list-wrapper
-          = render @items
+          - if @items != []
+            = render @items 
+          - else
+            = "We do not know of any papers that address '#{@list.title}.' If you know of some, please email us at"
+            = mail_to "info@researchgps.com"
     .right-sidebar
       %ul#sidebar-nav-right
         %li.gray#prompt Click on an article to view its abstract here
