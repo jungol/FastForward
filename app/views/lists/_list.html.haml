@@ -1,14 +1,15 @@
-%li.feed-item
-  .row
-    .col-xs-8.basic-info
-      %h5=link_to list.title, list_path(list), class: "title"
-      %span.timestamp.gray= "Last updated #{time_ago_in_words(list.updated_at)} ago;"
-      %span.item-count.gray=pluralize(list.items.count, 'paper')
-      - list.tags.each do |tag|
-        %span.tag= tag.name
-    .col-xs-4.social-info.text-right
-      - list.users.each do |user|
-        = link_to user.link do
-          / .school-icon= image_tag("Harvard_University.png")
-          %span.profile-img= image_tag("#{user.first_name}_#{user.last_name}.jpg")
+= link_to list_path(list) do
+  %li.feed-item
+    .row
+      .col-xs-8.basic-info
+        %h5= list.title
+        %span.timestamp.gray= "Last updated #{time_ago_in_words(list.updated_at)} ago;"
+        %span.item-count.gray=pluralize(list.items.count, 'paper')
+        - list.tags.each do |tag|
+          %span.tag= tag.name
+      .col-xs-4.social-info.text-right
+        - list.users.each do |user|
+          = link_to user.link do
+            / .school-icon= image_tag("Harvard_University.png")
+            %span.profile-img= image_tag("#{user.first_name}_#{user.last_name}.jpg")
 
