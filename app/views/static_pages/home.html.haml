@@ -17,6 +17,14 @@
     .bg-img{style: "background-image: url(#{image_path 'microfinance.png'})"}
     =link_to lists_path(topic: 'Microfinance') do
       %span Microfinance
+
+.row.feed
+  .col-xs-12
+    .recently-published 
+      %h3 Published Today
+    %ul
+      = render @lists
+
 / {:style => "background-image: url(#{image_path "logos/#{facility.image}.jpg"})"}
 
 / .row.topics

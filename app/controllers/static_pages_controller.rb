@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
     # @items = Item.top_votes
-    @lists = List.all
+    @lists = List.recently_published
     @email_signup ||= EmailSignup.new
   end
 

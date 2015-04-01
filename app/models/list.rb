@@ -22,6 +22,10 @@ class List < ActiveRecord::Base
   # default_scope -> { where(published: true) }
 
 
+  def self.recently_published
+    where('created_at > ?', 1.day.ago)
+  end
+
   # Creates hash of list_ids (keys) and tag counts (values)
   def self.hash_of_list_id_and(tags)
     joins(:taggings).
