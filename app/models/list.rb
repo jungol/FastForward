@@ -23,7 +23,7 @@ class List < ActiveRecord::Base
 
 
   def self.recently_published
-    where('created_at > ?', 1.day.ago)
+    where('created_at > ?', 1.day.ago).where(published: true)
   end
 
   # Creates hash of list_ids (keys) and tag counts (values)

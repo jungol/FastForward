@@ -7,7 +7,7 @@ Sylaby::Application.routes.draw do
   devise_for :users
   resources :users, only: [:show]
   resources :user_items, only: [:create, :destroy]
-  resources :lists, only: [:index, :show]
+  resources :lists, only: [:index, :show, :new, :create]
   resources :items, only: [:show]
   root to: 'static_pages#home'
   get 'static_pages/design'

@@ -6,8 +6,7 @@
         %h1 Development Economics
       %li 
         %h4.gray Playlists of research papers for the big questions in development economics
-
-
+        
 %ul.topics
   %li
     .bg-img{style: "background-image: url(#{image_path 'education.jpg'})"}
@@ -18,12 +17,12 @@
     =link_to lists_path(topic: 'Microfinance') do
       %span Microfinance
 
-.row.feed
-  .col-xs-12
-    .recently-published 
-      %h3 Published in the last 24 hours
-    %ul
-      = render @lists
+/ .row.feed
+/   .col-xs-12
+/     .recently-published 
+/       %h3 Published in the last 24 hours
+/     %ul
+/       = render @lists
 
 / {:style => "background-image: url(#{image_path "logos/#{facility.image}.jpg"})"}
 

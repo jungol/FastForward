@@ -27,6 +27,23 @@ class ListsController < ApplicationController
     @items = @list.items
   end
 
+  def new
+    @list = List.new
+    @tags = Tag.all
+  end
+
+  def create
+    @list = List.create(list_params)
+    if @list.save
+      flash[:success] = "List created!"
+    end
+    redirect_to root_url
+  end
+
+  private
+  
+    def list_params
+      params.require(:list).permit(:title, :published)
+    end
 
 end
-
