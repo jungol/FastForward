@@ -19,6 +19,7 @@ class List < ActiveRecord::Base
   has_many :tags, :through => :taggings
   has_many :user_lists
   has_many :users, :through => :user_lists
+  accepts_nested_attributes_for :taggings
   # default_scope -> { where(published: true) }
 
 

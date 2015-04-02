@@ -6,10 +6,7 @@
   = f.text_field :title
   = f.label :published
   = f.check_box :published
-  - @tags.each do |tag|
-    = fields_for tag do |tag_fields|
-      = tag_fields.label :title
-      = tag_fields.check_box :title
+  
   = f.submit "Create list"
 
 
