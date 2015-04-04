@@ -12,7 +12,11 @@ class ListsController < ApplicationController
 
     @tag = Tag.find_by_name(params[:topic])
     # don't forget to fix this so it just does this for admins
-    @lists = @tag.lists
+    if current_user.try(:admin?)
+      @lists = @tag.lists
+    else
+      @lists = @tag.lists.where(published: true)
+    end
     if @tag.name == 'Education'
       @tag_image = 'education.jpg'
     else
