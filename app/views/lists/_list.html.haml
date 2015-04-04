@@ -12,4 +12,8 @@
           = link_to user.link do
             / .school-icon= image_tag("Harvard_University.png")
             %span.profile-img= image_tag("#{user.first_name}_#{user.last_name}.jpg")
+        - if current_user.try(:admin?)
+          =button_to "Edit", edit_list_path(list), method: "get"
+          - if !list.published?
+            = "unpublished"
 

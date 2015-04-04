@@ -15,6 +15,10 @@ h1, h2, h4, h5 {
 	margin: 0px;
 }
 
+h1 {
+	margin-top: 30px;
+}
+
 h5 {
 	// font-size: 1.3em;
 }
@@ -30,6 +34,66 @@ li {
 a {
 	color: #333333;
 }
+
+
+#list_title {
+	width: 500px;
+}
+
+.new_list {
+
+	input {
+		display: inline;
+		margin-right: 10px;
+		margin-bottom: 20px;
+	}
+	label {
+		margin-right: 20px;
+	}
+}
+
+label {
+	padding-left: 10px;
+	padding-right: 20px;
+	padding-bottom: 15px;
+}
+
+.add_new_item {
+	margin-bottom: 20px;
+	padding: 10px;
+	background: #fcf8e3;
+}
+
+.item_title, .item_url, .item_author {
+	input {
+		width: 800px;
+	}
+}
+
+.item_abstract {
+	textarea {
+		width: 800px;
+		height: 200px;
+	}
+}
+
+#list_description {
+	width: 800px;
+	height: 250px;
+}
+
+.checkbox_container {
+  display: inline-block;
+  vertical-align: -1px;
+  margin: 5px;
+ }
+.checkbox_container input {
+  display: inline;
+ }
+.checkbox_container .collection_check_boxes{
+  display: inline;
+  vertical-align: -5px;
+ }
 
 .social-info {
 	// text-align: right;
@@ -292,6 +356,10 @@ a {
 	}
 }
 
+.gps-nav {
+	margin-bottom: 0px;
+}
+
 // FEED 
 
 .feed {
@@ -401,7 +469,7 @@ input[type=checkbox]
 
     #page-content-wrapper {
         // padding-left: 30px;
-        position: relative;
+        // position: relative;
     }
 }
 

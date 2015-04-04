@@ -8,8 +8,10 @@
     .text-right.slogan
       %ul
         %li The PhD-curated handbook for development economics
-        / # %li= link_to "Create list", new_list_path
-
+        - if current_user.try(:admin?)
+          %li= button_to "Create list", new_list_path, method: 'get'
+        - if signed_in?
+          %li= link_to "Sign out", destroy_user_session_path, method: 'delete'
 
 
 

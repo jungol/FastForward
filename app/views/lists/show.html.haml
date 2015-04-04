@@ -5,6 +5,8 @@
       .row
         .col-xs-12
           %h4= @list.title
+          - if current_user.try(:admin?)
+            = button_to "Edit", edit_list_path(@list), method: "get"
 
       .row.list-info
         .col-xs-12

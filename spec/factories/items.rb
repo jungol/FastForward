@@ -13,6 +13,7 @@
 #  year          :integer
 #  author        :string
 #  journal       :string
+#  abstract      :text
 #
 
 FactoryGirl.define do

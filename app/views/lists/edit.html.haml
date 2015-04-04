@@ -1,0 +1,22 @@
+- provide(:title, "Edit List")
+%h1 Edit List
+%br
+= form_for(@list) do |f|
+  = f.submit
+  %br
+  %br
+  = render 'list_fields', f: f
+  = f.fields_for :items do |builder|
+    = render 'item_fields', f: builder
+
+
+
+  / <fieldset>
+  / <%= f.label :content, "Question" %><br />
+  / <%= f.text_area :content %><br />
+  / <%= f.check_box :_destroy %>
+  / <%= f.label :_destroy, "Remove Question" %>
+  / <%= f.fields_for :answers do |builder| %>
+  /   <%= render 'answer_fields', f: builder %>
+  / <% end %>
+  / <%= link_to_add_fields "Add Answer", f, :answers %>

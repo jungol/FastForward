@@ -11,7 +11,8 @@ class ListsController < ApplicationController
     # @tags = Tag.all
 
     @tag = Tag.find_by_name(params[:topic])
-    @lists = @tag.lists.where(published: true)
+    # don't forget to fix this so it just does this for admins
+    @lists = @tag.lists
     if @tag.name == 'Education'
       @tag_image = 'education.jpg'
     else
@@ -22,8 +23,6 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-    # @list.view_count = @list.view_count + 1
-    # @list.save
     @items = @list.items
   end
 
@@ -33,17 +32,40 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.create(list_params)
-    if @list.save
+    @list = List.new(list_params)
+    if @list.save    
       flash[:success] = "List created!"
+      redirect_to @list
+    else
+      render 'new'
     end
-    redirect_to root_url
+  end
+
+  def edit
+    @list = List.find(params[:id])
+  end
+
+  def update
+    @list = List.find(params[:id])
+    if @list.update_attributes(list_params)
+      flash[:success] = "List updated"
+      redirect_to @list
+    else
+      render 'edit'
+    end
   end
 
   private
   
     def list_params
-      params.require(:list).permit(:title, :published)
+      params.require(:list).permit(
+        :title, 
+        :published, 
+        :description,
+        :tag_ids => [], 
+        :items_attributes => 
+          [:id, :title, :author, :description, :url]
+      )
     end
 
 end
