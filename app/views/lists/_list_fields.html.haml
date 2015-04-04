@@ -1,0 +1,16 @@
+= render 'list_title_field', f: f
+%br 
+%br
+= render 'list_description_field', f: f
+%br
+%br
+= render 'list_published_field', f: f
+%br
+%br
+= render 'list_tags_field', f: f
+%br 
+%br
+= link_to_add_fields "Add Item", f, :items
+%br
+%br
+= f.submit

@@ -15,6 +15,12 @@
 #  last_sign_in_ip        :string
 #  created_at             :datetime
 #  updated_at             :datetime
+#  link                   :string
+#  school                 :string
+#  position               :string
+#  first_name             :string
+#  last_name              :string
+#  admin                  :boolean
 #
 
 require 'rails_helper'
