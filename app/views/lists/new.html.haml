@@ -2,16 +2,7 @@
 %h1 New List
 
 = form_for(@list) do |f|
-<<<<<<< HEAD
-  = f.label :title
-  = f.text_field :title
-  = f.label :published
-  = f.check_box :published
-  
-  = f.submit "Create list"
-=======
   = render 'list_fields', f: f
->>>>>>> adminedits
 
 
 

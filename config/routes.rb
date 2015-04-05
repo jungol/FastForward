@@ -8,6 +8,7 @@ Sylaby::Application.routes.draw do
   resources :users, only: [:show]
   resources :user_items, only: [:create, :destroy]
   resources :lists
+  resources :collections
   resources :items, only: [:show]
   root to: 'static_pages#home'
   get 'static_pages/design'

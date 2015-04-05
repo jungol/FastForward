@@ -1,0 +1,15 @@
+- provide(:title, "Home")
+.row.heading.text-center
+  .col-xs-12
+    %ul
+      %li
+        %h1 Development Economics
+      %li 
+        %h4.gray Playlists of research papers for the big questions in development economics
+        
+%ul.collections
+  - @collections.each do |collection|
+    %li
+      .bg-img{style: "background-image: url(#{image_path collection.image_url})"}
+      =link_to collection_path(collection) do
+        %span= collection.name

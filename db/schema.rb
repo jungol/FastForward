@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404135933) do
+ActiveRecord::Schema.define(version: 20150404194104) do
+
+  create_table "collections", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image_url"
+  end
 
   create_table "email_signups", force: :cascade do |t|
     t.string   "email"
@@ -40,6 +47,13 @@ ActiveRecord::Schema.define(version: 20150404135933) do
     t.string   "author"
     t.string   "journal"
     t.text     "abstract"
+  end
+
+  create_table "list_collections", force: :cascade do |t|
+    t.integer  "list_id"
+    t.integer  "collection_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "lists", force: :cascade do |t|
