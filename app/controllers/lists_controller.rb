@@ -68,7 +68,7 @@ class ListsController < ApplicationController
         :description,
         :tag_ids => [], 
         :items_attributes => 
-          [:id, :title, :author, :description, :url]
+          [:id, :title, :author, :abstract, :url, :year, :journal]
       )
     end
 
