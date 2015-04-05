@@ -1,6 +1,11 @@
 .title
   %h4= @item.title
 %br
+- if current_user.try(:admin?)
+  ID:
+  = @item.id
+%br
+%br
 = link_to @item.url do 
   %h6.read
     %span Read Now
