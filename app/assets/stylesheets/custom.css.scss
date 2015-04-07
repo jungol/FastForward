@@ -108,8 +108,11 @@ label {
 	background-size: cover;
 	background-position: center;
 	position: relative;
+}
 
-
+span#unpublished {
+	padding: 5px;
+	background: yellow;
 }
 
 .banner-info {
