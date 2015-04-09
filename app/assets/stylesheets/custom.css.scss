@@ -64,6 +64,11 @@ label {
 	background: #fcf8e3;
 }
 
+span.question-count {
+	font-size: .6em;
+	font-weight: normal;
+}
+
 .item_title, .item_url, .item_author {
 	input {
 		width: 800px;
@@ -171,6 +176,9 @@ span#unpublished {
 			font-size: 1.9em;
 			font-weight: bold;
 			letter-spacing: 1px;
+			&:hover {
+				text-decoration: none;
+			}
 		}
 	}
 }

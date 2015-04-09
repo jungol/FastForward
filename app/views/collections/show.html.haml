@@ -1,0 +1,9 @@
+%div{:class => 'row banner', :style => %(background-image:url(/assets/#{@collection.image_url}))}
+  .banner-info
+    .container
+      .name
+        %span= @collection.name
+.row.feed
+  .col-xs-12
+    %ul
+      =render @collection.lists
