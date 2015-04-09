@@ -8,7 +8,7 @@
           - if current_user.try(:admin?)
             = button_to "Edit", edit_list_path(@list), method: "get"
           - if !(@list.published?)
-            %span#unpublished= "unpublished"
+            %span#unpublished= "DRAFT"
       .row.list-info
         .col-xs-12
           %ul.gray
