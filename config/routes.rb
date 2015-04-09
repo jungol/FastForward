@@ -10,7 +10,7 @@ Sylaby::Application.routes.draw do
   resources :lists
   resources :collections
   resources :items, only: [:show]
-  root to: 'static_pages#home'
+  root to: 'collections#index'
   get 'static_pages/design'
   get 'static_pages/design2'
   get 'static_pages/design3'
