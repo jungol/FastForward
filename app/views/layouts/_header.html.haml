@@ -7,7 +7,7 @@
           %span#globe GPS
     .text-right.slogan
       %ul
-        %li The PhD-curated handbook for development economics
+        %li A new handbook for development economics
         - if current_user.try(:admin?)
           %li= button_to "Create list", new_list_path, method: 'get'
         - if signed_in?
