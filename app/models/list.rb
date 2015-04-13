@@ -16,6 +16,14 @@
 
 class List < ActiveRecord::Base
   
+  include AlgoliaSearch
+
+  algoliasearch per_environment: true do
+    attribute :title, :description, :created_at, :published
+
+    attributesToIndex ['unordered(title)', 'unordered(description)']
+  end
+
   validates :title, presence: true
   validates_presence_of :description
 
