@@ -11,7 +11,7 @@
 
   $(document).ready(function() {
     var client = algoliasearch("0949R8OD7S", "b954bfc9213c62c07a0b12019213ec4a");
-    var index = client.initIndex('List');
+    var index = client.initIndex('List_#{Rails.env}');
 
     $inputfield.keyup(function() {
       index.search($inputfield.val(), searchCallback);
