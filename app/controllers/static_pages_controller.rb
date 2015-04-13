@@ -5,6 +5,9 @@ class StaticPagesController < ApplicationController
     @email_signup ||= EmailSignup.new
   end
 
+  def search
+  end
+
   def design
   end
 

@@ -20,6 +20,7 @@ Sylaby::Application.routes.draw do
   get 'static_pages/growth'
   get 'static_pages/education'
   get 'static_pages/history'
+  get 'static_pages/search'
   get 'static_pages/foreignaid'
   get 'static_pages/propertyrights'
   resources :email_signups
