@@ -30,12 +30,13 @@ function searchCallback(err, content) {
   var html = '';
   for (var i = 0; i < content.hits.length; ++i) {
     var hit = content.hits[i];
+    console.log(hit)
     // console.log(hit)
     // For example, display all properties that have at least
     // one highlighted word (matchLevel = full or partial)
     html += '<div class="row feed"><div class="col-xs-12"><ul>'
     console.log(hit._highlightResult["title"]["value"]);
-    html += '<li class="feed-item"><div class="row"><div class="col-xs-8 basic-info"><h5>' + hit._highlightResult["title"]["value"] + '</h5></div></div></li>'
+    html += '<a href="/lists/' + hit.objectID + '"><li class="feed-item"><div class="row"><div class="col-xs-8 basic-info"><h5>' + hit._highlightResult["title"]["value"] + '</h5></div></div></li></a>'
     html += '</ul></div></div>';
   }
 
