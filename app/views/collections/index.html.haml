@@ -6,18 +6,27 @@
         %h1 Development Economics
       %li 
         %h4.gray Collections of research questions, updated daily
+.search
+  %input{autofocus: "true", autocomplete: "off", class: "instantsearch", id: "q", placeholder: "Search for research questions...", type: "text", spellcheck: "false"}
+
+#display
+  #hits
+  :javascript
+    var $inputfield = $('#q');
+    var $hits = $('#hits');
+
+          
+  %ul.collections
+    - @collections.each do |collection|
+      %li
+        %div{:class => 'bg-img', :style => %(background-image:url(/assets/#{collection.image_url}))}
+
+        / style: "background-image: url(_#{image_path image_url}_)"}
+        =link_to collection_path(collection) do
+          %span= collection.name
+          %span.question-count= "#{pluralize(collection.lists.count, 'research question')}"
+  :javascript
+    var $collections = $('.collections')
 
 
-        
-%ul.collections
-  - @collections.each do |collection|
-    %li
-      %div{:class => 'bg-img', :style => %(background-image:url(/assets/#{collection.image_url}))}
-
-      / style: "background-image: url(_#{image_path image_url}_)"}
-      =link_to collection_path(collection) do
-        %span= collection.name
-        %span.question-count= "#{pluralize(collection.lists.count, 'research question')}"
-
-
-/ %div{:class => 'styled_div', :style => %(background:url("#{resource.background.url(:medium)}") no-repeat center)}
+  / %div{:class => 'styled_div', :style => %(background:url("#{resource.background.url(:medium)}") no-repeat center)}

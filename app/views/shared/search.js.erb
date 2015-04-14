@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+  alert("read")
   var client = algoliasearch("0949R8OD7S", "b954bfc9213c62c07a0b12019213ec4a");
   var index = client.initIndex("List_<%= Rails.env %>");
 
@@ -29,33 +29,23 @@ function searchCallback(err, content) {
   if (content.hits.length === 0) {
     // no results
     $hits.empty();
-    $('#display').html('<div class="noresults"><span>Sorry! We couldn\'t find any research questions for you.</span></div>')
+    $hits.html("Sorry! We couldn't find any research questions for you.")
     return;
   }
 
   // Scan all hits and display them
   var html = '';
-  console.log(content.hits)
-  html += '<div class="row feed"><div class="col-xs-12"><h3>Results (' + content.hits.length + ') </h3><ul>' 
   for (var i = 0; i < content.hits.length; ++i) {
     var hit = content.hits[i];
+    console.log(hit)
     // console.log(hit)
     // For example, display all properties that have at least
     // one highlighted word (matchLevel = full or partial)
-    
-    html += '<a href="/lists/' + hit.objectID + '"> \
-      <li class="feed-item"> \
-        <div class="row"> \
-          <div class="col-xs-8 basic-info"> \
-            <h5>' 
-              + hit._highlightResult["title"]["value"] + 
-            '</h5> \
-          </div> \
-        </div> \
-      </li> \
-    </a>'
+    html += '<div class="row feed"><div class="col-xs-12"><ul>'
+    console.log(hit._highlightResult["title"]["value"]);
+    html += '<a href="/lists/' + hit.objectID + '"><li class="feed-item"><div class="row"><div class="col-xs-8 basic-info"><h5>' + hit._highlightResult["title"]["value"] + '</h5></div></div></li></a>'
+    html += '</ul></div></div>';
   }
-  html += '</ul></div></div>';
 
   $hits.html(html);
   $('#display').html($hits)
