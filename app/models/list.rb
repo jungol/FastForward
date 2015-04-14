@@ -19,7 +19,7 @@ class List < ActiveRecord::Base
   include AlgoliaSearch
 
   algoliasearch per_environment: true do
-    attribute :title, :description, :created_at, :published
+    attribute :title, :description, :created_at, :published, :id
 
     attributesToIndex ['unordered(title)', 'unordered(description)']
   end
