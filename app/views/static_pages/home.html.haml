@@ -5,34 +5,29 @@
       %li
         %h1 Development Economics
       %li 
-        %h4.gray Playlists of research papers for the big questions in development economics
-        
-%ul.topics
-  %li
-    .bg-img{style: "background-image: url(#{image_path 'education.jpg'})"}
-    =link_to lists_path(topic: 'Education') do
-      %span Education
-  %li
-    .bg-img{style: "background-image: url(#{image_path 'microfinance.png'})"}
-    =link_to lists_path(topic: 'Microfinance') do
-      %span Microfinance
+        %h4.gray A repository for open research questions 
+.search
+  %input{autofocus: "true", autocomplete: "off", class: "instantsearch", id: "q", placeholder: "Search for a research question (e.g. microcredit)", type: "text", spellcheck: "false"}
 
-/ .row.feed
-/   .col-xs-12
-/     .recently-published 
-/       %h3 Published in the last 24 hours
-/     %ul
-/       = render @lists
+#display
+  #hits
+  :javascript
+    var $inputfield = $('#q');
+    var $hits = $('#hits');
 
-/ {:style => "background-image: url(#{image_path "logos/#{facility.image}.jpg"})"}
+          
+  .collections
+    %span With Research GPS, it just takes one click to discover the existing literature on particular research questions in development economics. Enter your keywords into the search box above or
+    %span#random= link_to "go to a research question at random.", list_path(List.offset(rand(List.count)).first)
 
-/ .row.topics
-/   .col-xs-12
-/     .education
-/       =link_to lists_path(topic: 'Education') do
-/         %h2 Education
 
-/   .col-xs-12
-/     .microfinance
-/       =link_to lists_path(topic: 'Microfinance') do
-/         %h2 Microfinance
+  /   - @collections.each do |collection|
+  /     %li
+  /       %div{:class => 'bg-img', :style => %(background-image:url(/assets/#{collection.image_url}))}
+
+  /       / style: "background-image: url(_#{image_path image_url}_)"}
+  /       =link_to collection_path(collection) do
+  /         %span= collection.name
+  /         %span.question-count= "#{pluralize(collection.lists.count, 'research question')}"
+  :javascript
+    var $collections = $('.collections')
