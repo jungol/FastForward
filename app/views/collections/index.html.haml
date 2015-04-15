@@ -5,7 +5,7 @@
       %li
         %h1 Development Economics
       %li 
-        %h4.gray Collections of research questions, updated daily
+        %h4.gray A growing repository of research questions 
 .search
   %input{autofocus: "true", autocomplete: "off", class: "instantsearch", id: "q", placeholder: "Search for research questions (e.g. microcredit)", type: "text", spellcheck: "false"}
 
@@ -16,15 +16,19 @@
     var $hits = $('#hits');
 
           
-  %ul.collections
-    - @collections.each do |collection|
-      %li
-        %div{:class => 'bg-img', :style => %(background-image:url(/assets/#{collection.image_url}))}
+  .collections
+    %span With Research GPS, it just takes one click to discover the existing literature on particular research questions in development economics. Enter your keywords into the search box above or
+    %span#random= link_to "go to a research question at random.", list_path(List.offset(rand(List.count)).first)
 
-        / style: "background-image: url(_#{image_path image_url}_)"}
-        =link_to collection_path(collection) do
-          %span= collection.name
-          %span.question-count= "#{pluralize(collection.lists.count, 'research question')}"
+
+  /   - @collections.each do |collection|
+  /     %li
+  /       %div{:class => 'bg-img', :style => %(background-image:url(/assets/#{collection.image_url}))}
+
+  /       / style: "background-image: url(_#{image_path image_url}_)"}
+  /       =link_to collection_path(collection) do
+  /         %span= collection.name
+  /         %span.question-count= "#{pluralize(collection.lists.count, 'research question')}"
   :javascript
     var $collections = $('.collections')
 

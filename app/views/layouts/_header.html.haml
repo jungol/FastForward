@@ -7,7 +7,7 @@
           %span#globe GPS
     .text-right.slogan
       %ul
-        %li A new handbook for development economics
+        / %li= link_to "Who's contributing to this project?", static_pages_contributors_path
         - if current_user.try(:admin?)
           %li= button_to "Create list", new_list_path, method: 'get'
         - if signed_in?

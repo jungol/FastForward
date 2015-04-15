@@ -19,6 +19,7 @@ Sylaby::Application.routes.draw do
   get 'static_pages/health'
   get 'static_pages/growth'
   get 'static_pages/education'
+  get 'static_pages/contributors'
   get 'static_pages/history'
   get 'static_pages/search'
   get 'static_pages/foreignaid'

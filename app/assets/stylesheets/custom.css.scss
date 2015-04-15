@@ -58,9 +58,10 @@ a {
 		display: block;
 		margin: 0 auto;
 		width: 600px;
-		height: 30px;
-		padding: 5px;
+		height: 40px;
+		padding: 5px 10px 5px;
 		margin-bottom: 50px;
+		font-size: 1.2em;
 	}
 }
 
@@ -163,9 +164,19 @@ span#unpublished {
 	}
 }
 
+#random {
+	font-weight: bold;
+	a {
+		color: blue;
+	}
+	color: blue;
+}
+
 .collections, .topics {
-	margin-left: 100px;
-	margin-right: 100px;
+	margin-left: 250px;
+	margin-right: 250px;
+	display: inline-block;
+	text-align: center;
 	li {
 		width: 220px;
 		height: 267px;

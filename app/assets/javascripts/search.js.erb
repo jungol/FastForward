@@ -29,7 +29,13 @@ function searchCallback(err, content) {
   if (content.hits.length === 0) {
     // no results
     $hits.empty();
-    $('#display').html('<div class="noresults"><span>Sorry! We couldn\'t find any research questions for you.</span></div>')
+    var $inputfieldArray = $inputfield.val().split(" ");
+    var searchInput = "https://scholar.google.com/scholar?hl=en&q=" + $inputfieldArray.join("+") + "&btnG=&as_sdt=1%2C22&as_sdtp=";
+    $('#display').html('<div class="noresults"> \
+      <span>Sorry! We couldn\'t find any research questions for you.</br> \
+      Want to try <a href="' + searchInput + '">searching for <i>' + $inputfield.val() + '</i> on Google Scholar?</a> \
+      </span> \
+    </div>')
     return;
   }
 
