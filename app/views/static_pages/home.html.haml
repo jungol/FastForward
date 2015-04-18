@@ -10,14 +10,16 @@
 .search
   %input{autofocus: "true", autocomplete: "off", class: "instantsearch", id: "q", placeholder: "Search any topic in development economics (e.g. microcredit)", type: "text", spellcheck: "false"}
 
+%div.browsetopics
+  %span Not sure what to search for? 
+  %span#random=  link_to "Browse research questions by topic.", collections_path
+
 #display
   #hits
   :javascript
     var $inputfield = $('#q');
     var $hits = $('#hits');
   .instructions
-    %span Not sure what to search for? 
-    %span#random=  link_to "Browse research questions by topic.", collections_path
 
 
   :javascript
