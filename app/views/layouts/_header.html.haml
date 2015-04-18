@@ -11,7 +11,7 @@
         %li 
           = "Happy #{Date.today.strftime('%A')}!"
         %li
-          = link_to "Learn more about us.", static_pages_about_path
+          = link_to "Learn more about Research GPS.", static_pages_about_path
         - if current_user.try(:admin?)
           %li= button_to "Create list", new_list_path, method: 'get'
         - if signed_in?
