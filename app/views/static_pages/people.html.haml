@@ -1,15 +1,66 @@
-- provide(:title, "Community")
+- provide(:title, "People")
 
 .row.heading.text-center
   .col-xs-12 
     %ul
       %li
-        %h1 Community
+        %h1 People
+
+
 
 %ul.people
-  %li 
-    %img 
-    %span person 1
-  %li person 2
-  %li person 3
-  %li person 4
+  %div 
+    Research GPS is comprised of 20 PhD students who write and/or review the research entries. More of them will be added to this page shortly.
+  %br
+  %br
+  =link_to "https://www.linkedin.com/pub/juan-pablo-chauvin/3/434/704" do
+    %li 
+      / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
+
+      %div= image_tag("juan_pablo_chauvin.jpg")
+      / # %span.profile-img= image_tag("Siddharth_George.jpg")
+      %div.name= "Juan Pablo Chauvin "
+      %span.position= "PhD, Economics (Harvard University)"
+
+  =link_to "http://www.iq.harvard.edu/people/siddharth-eapen-george" do
+    %li 
+      / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
+
+      %div= image_tag("Siddharth_George.jpg")
+      / # %span.profile-img= image_tag("Siddharth_George.jpg")
+      %div.name= "Siddharth George"
+      %span.position= "PhD, Economics (Harvard University)"
+
+  =link_to "https://www.linkedin.com/in/gauravchiplunkar" do
+    %li 
+      / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
+
+      %div= image_tag("Gaurav_Chiplunkar2.jpg")
+      / # %span.profile-img= image_tag("Siddharth_George.jpg")
+      %div.name= "Gaurav Chiplunkar"
+      %span.position= "PhD, Economics (Yale University)"
+
+  =link_to "http://scholar.harvard.edu/abel/home" do
+    %li 
+      / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
+
+      %div= image_tag("Martin_Abel.jpg")
+      / # %span.profile-img= image_tag("Siddharth_George.jpg")
+      %div.name= "Martin Abel"
+      %span.position= "PhD, Economics (Harvard University)"
+
+
+  =link_to "http://www.iq.harvard.edu/people/tomoko-harigaya" do
+    %li 
+      / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
+
+      %div= image_tag("Tomoko_Harigaya.jpg")
+      / # %span.profile-img= image_tag("Siddharth_George.jpg")
+      %div.name= "Tomoko Harigaya"
+      %span.position= "PhD, Economics (Harvard University)"
+
+
+
+
+
+

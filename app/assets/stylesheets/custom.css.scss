@@ -35,16 +35,73 @@ a {
 	color: #333333;
 }
 
+
+.people {
+	width: 60%;
+	// display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	li {
+		margin-bottom: 75px;
+		width: 150px;
+		height: 150px;
+		// background: #000;
+		// position: relative;
+		// border: 2px solid black;
+		float: left;
+		margin-right: 15px;
+		border-radius: 3px;
+		.name {
+			font-weight: bold;
+		}
+		img {
+			width: 150px;
+			height: 150px;
+		}
+
+		// .bg-img {
+		// 	// background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('microfinance.png');
+		// 	height: inherit;
+		// 	background-position: center;
+		// 	background-size: cover;
+		// 	border-radius: 3px;
+		// 	box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+		// 	left: 0;
+		// 	opacity: .6;
+		// 	// position: absolute;
+		// 	top: 0;
+		// 	width: inherit;
+		// 	position: absolute;
+		// 	&:hover {
+		// 		opacity: .8;
+		// 	}
+		}
+		// a {
+		// 	position: relative;
+		// 	height: inherit;
+		// 	left: 0;
+		// 	width: inherit;
+		// 	display: flex;
+		// 	flex-direction: column;
+		// 	justify-content: center;
+		// 	color: white;
+		// 	text-align: center;
+		// 	// font-size: 1.9em;
+		// 	// font-weight: bold;
+		// 	// letter-spacing: 1px;
+		// 	&:hover {
+		// 		text-decoration: none;
+		// 	}
+		
+
+}
+
+
 .feed {
 	em {
 		background: yellow;
 		font-style: normal;
-	}
-}
-
-.people {
-	li {
-		float: left;
 	}
 }
 

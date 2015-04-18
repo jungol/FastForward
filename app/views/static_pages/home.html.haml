@@ -6,7 +6,7 @@
       %li
         %h1 Development Economics
       %li 
-        %h4.gray Research questions, answered by economists 
+        %h4.gray Research questions, addressed by economists 
 .search
   %input{autofocus: "true", autocomplete: "off", class: "instantsearch", id: "q", placeholder: "Search any topic in development economics (e.g. microcredit)", type: "text", spellcheck: "false"}
 
@@ -16,8 +16,8 @@
     var $inputfield = $('#q');
     var $hits = $('#hits');
   .instructions
-    %span Search for a topic above or 
-    %span#random=  link_to "browse by topic", collections_path
+    %span Not sure what to search for? 
+    %span#random=  link_to "Browse research questions by topic.", collections_path
 
 
   :javascript
