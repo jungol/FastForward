@@ -1,5 +1,4 @@
-$(document).ready(function() {
-
+ready = function() {
   var client = algoliasearch("0949R8OD7S", "b954bfc9213c62c07a0b12019213ec4a");
   var index = client.initIndex("List_<%= Rails.env %>");
 
@@ -7,7 +6,10 @@ $(document).ready(function() {
   $inputfield.keyup(function() {
     index.search($inputfield.val(), searchCallback);
   }).focus();
-});
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
 
 function searchCallback(err, content) {
   if (err) {
@@ -16,7 +18,7 @@ function searchCallback(err, content) {
   }
 
   if ($inputfield.val() == "") {
-    $('#display').html($collections)
+    $('#display').html($instructions)
     return
 
   }

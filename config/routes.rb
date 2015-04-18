@@ -15,6 +15,7 @@ Sylaby::Application.routes.draw do
   get 'static_pages/design2'
   get 'static_pages/design3'
   get 'static_pages/home'
+  get 'static_pages/about'
   get 'static_pages/microfinance'
   get 'static_pages/health'
   get 'static_pages/growth'
@@ -24,6 +25,7 @@ Sylaby::Application.routes.draw do
   get 'static_pages/search'
   get 'static_pages/foreignaid'
   get 'static_pages/propertyrights'
+  get 'static_pages/people'
   resources :email_signups
   # get 'tags/*tags', to: 'lists#index', as: :tag
 

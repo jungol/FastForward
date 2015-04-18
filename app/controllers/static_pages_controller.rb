@@ -20,6 +20,12 @@ class StaticPagesController < ApplicationController
   def contributors
   end
 
+  def about
+  end
+
+  def people
+  end
+
   def microfinance
     @lists = List.where(id: 0...28)
   end

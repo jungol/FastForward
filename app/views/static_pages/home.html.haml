@@ -1,11 +1,12 @@
 - provide(:title, "Home")
+
 .row.heading.text-center
-  .col-xs-12
+  .col-xs-12 
     %ul
       %li
         %h1 Development Economics
       %li 
-        %h4.gray Discover the research literature on any topic
+        %h4.gray Research questions, answered by economists 
 .search
   %input{autofocus: "true", autocomplete: "off", class: "instantsearch", id: "q", placeholder: "Search any topic in development economics (e.g. microcredit)", type: "text", spellcheck: "false"}
 
@@ -14,20 +15,10 @@
   :javascript
     var $inputfield = $('#q');
     var $hits = $('#hits');
-
-          
-  .collections
-    %span With Research GPS, it just takes one click to discover the existing literature on particular research questions in development economics. Enter your keywords into the search box above or
-    %span#random= link_to "go to a research question at random.", list_path(List.offset(rand(List.count)).first)
+  .instructions
+    %span Search for a topic above or 
+    %span#random=  link_to "browse by topic", collections_path
 
 
-  /   - @collections.each do |collection|
-  /     %li
-  /       %div{:class => 'bg-img', :style => %(background-image:url(/assets/#{collection.image_url}))}
-
-  /       / style: "background-image: url(_#{image_path image_url}_)"}
-  /       =link_to collection_path(collection) do
-  /         %span= collection.name
-  /         %span.question-count= "#{pluralize(collection.lists.count, 'research question')}"
   :javascript
-    var $collections = $('.collections')
+    var $instructions = $('.instructions')
