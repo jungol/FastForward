@@ -37,6 +37,15 @@ a {
 
 .contributors {
 	padding-top: 20px;
+	h4 {
+		margin-bottom: 10px;
+	}
+}
+
+.table-of-contents {
+	// background: blue;
+	font-size: 1.1em;
+	padding-bottom: 10px;
 }
 
 .people {
@@ -394,6 +403,11 @@ span#unpublished {
 	}
 	font-size: 1.1em;
 	border-bottom: 1px solid gray;
+	border-top: 1px solid gray;
+	padding-top: 20px;
+	h4 {
+		margin-bottom: 5px;
+	}
 }
 
 .basic-info {
