@@ -25,12 +25,20 @@
         .col-xs-12.description
           = raw @list.description
         .col-xs-12.list-wrapper
-          %h4= "Papers that address \"#{@list.title}\""
+          %h4= "Relevant Papers"
           - if @items != []
             = render @items 
           - else
             = "We do not know of any papers that address '#{@list.title}.' If you know of some, please email us at"
             = mail_to "info@researchgps.com"
+        .col-xs-12.contributors
+          %h4 
+            Contributors
+          - @list.users.each do |user|
+            %li.byline
+              =link_to user.link do
+                %span.profile-img= image_tag("#{user.first_name}_#{user.last_name}.jpg")
+                %span.name= "#{user.first_name} #{user.last_name}, #{user.school}"
       / .row
       /   .col-xs-12.list-info 
       /     %ul.gray
@@ -41,7 +49,8 @@
       /             %li.byline
       /               =link_to user.link do
       /                 %span.profile-img= image_tag("#{user.first_name}_#{user.last_name}.jpg")
-      /                 %span.name= "#{user.first_name} #{user.last_name}, #{user.school}"      
+      /                 %span.name= "#{user.first_name} #{user.last_name}, #{user.school}" 
+
     .right-sidebar
       %ul#sidebar-nav-right
         %li.gray#prompt Click on an article to view its abstract here

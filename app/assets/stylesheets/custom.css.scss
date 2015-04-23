@@ -35,6 +35,9 @@ a {
 	color: #333333;
 }
 
+.contributors {
+	padding-top: 20px;
+}
 
 .people {
 	width: 60%;
@@ -132,7 +135,10 @@ a {
 	h4 {
 		margin-top: 10px;
 	}
+	border-bottom: 1px solid gray;
 }
+
+
 
 .right-header {
 	li {
@@ -381,11 +387,13 @@ span#unpublished {
 	// padding-left: 10px;
 	// padding-right: 10px;
 	// font-size: .9em;
+	padding-bottom: 20px;
 	margin-bottom: 10px;
 	a {
 		color: blue;
 	}
 	font-size: 1.1em;
+	border-bottom: 1px solid gray;
 }
 
 .basic-info {
