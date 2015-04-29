@@ -410,6 +410,11 @@ span#unpublished {
 	}
 	li {
 		list-style: disc;
+		margin-left: 20px;
+	}
+	li li {
+		list-style-type: circle;
+		margin-left: 20px;
 	}
 }
 
