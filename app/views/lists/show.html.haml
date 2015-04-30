@@ -20,25 +20,24 @@
             /   Want to contribute to this page, either by editing the summary or adding papers? Email 
             /   = mail_to "info@researchgps.com"
             /   and we'll be in touch. 
-        .col-xs-12
-          %ul.table-of-contents
-            %li= link_to "Overview", '#overview'
-            %li= link_to "Relevant Papers", '#papers'
-            %li= link_to "Contributors", '#contributors'
+        / .col-xs-12
+        /   %ul.table-of-contents
+        /     %li= link_to "Overview", '#overview'
+        /     %li= link_to "Relevant Papers", '#papers'
+        /     %li= link_to "Contributors", '#contributors'
       .row.content#overview
+        %h4 Overview
         .col-xs-12.description
-          %h4 Overview
           = raw @list.description
-        .col-xs-12.list-wrapper#papers
           %h4= "Relevant Papers"
+        .col-xs-12.list-wrapper#papers
           - if @items != []
             = render @items 
           - else
             = "We do not know of any papers that address '#{@list.title}.' If you know of some, please email us at"
             = mail_to "info@researchgps.com"
+          %h4 Contributors
         .col-xs-12.contributors#contributors
-          %h4 
-            Contributors
           - @list.users.each do |user|
             %li.byline
               =link_to user.link do

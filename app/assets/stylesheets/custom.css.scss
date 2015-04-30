@@ -27,9 +27,9 @@ ul {
 	padding-left: 0px;
 }
 
-li {
-	list-style: none;
-}
+// li {
+// 	list-style: none;
+// }
 
 a {
 	color: #333333;
@@ -290,6 +290,7 @@ span#unpublished {
 	text-align: center;
 	li {
 		width: 220px;
+		list-style-type: none;
 		height: 267px;
 		background: #000;
 		position: relative;
@@ -362,6 +363,7 @@ span#unpublished {
 .list-info {
 	li {
 		color: gray;
+		list-style-type: none;
 	}
 }
 
@@ -389,6 +391,12 @@ span#unpublished {
 	font-size: .9em;
 }
 
+#sidebar-nav-right {
+	li {
+		list-style-type: none;
+	}
+}
+
 .description {
 	// background: #c6e4ee;
 	// padding-top: 20px;
@@ -396,7 +404,8 @@ span#unpublished {
 	// padding-left: 10px;
 	// padding-right: 10px;
 	// font-size: .9em;
-	padding-bottom: 20px;
+	// padding-bottom: 20px;
+	// padding-left: 10px;
 	margin-bottom: 10px;
 	a {
 		color: blue;
@@ -404,19 +413,28 @@ span#unpublished {
 	font-size: 1.1em;
 	border-bottom: 1px solid gray;
 	border-top: 1px solid gray;
-	padding-top: 20px;
+	// padding-top: 20px;
 	h4 {
 		margin-bottom: 5px;
 	}
 	li {
-		list-style-type: none;
+		// list-style-type: disc;
 		// margin-left: 20px;
 	}
 	li li {
 		list-style-type: disc;
-		margin-left: 30px;
+		margin-left: 20px;
 		margin-top: 7px;
+		font-size: .95em;
+		color: gray;
 
+	}
+	h4 {
+		padding-top: 20px;
+		margin-bottom: 0px;
+	}
+	ol {
+		padding-left: 25px;
 	}
 }
 
@@ -554,6 +572,7 @@ span#unpublished {
 	color: #777777;
 	&:hover {
 		color: #333333;
+		text-decoration: none;
 	}
 }
 
@@ -579,6 +598,7 @@ span#unpublished {
 	width: 100%;
 	padding-top: 15px;
 	padding-bottom: 15px;
+	list-style-type: none;
 }
 
 input[type=checkbox]
@@ -604,6 +624,9 @@ input[type=checkbox]
 	margin-top: 60px;
 	h1 {
 		margin-bottom: 10px;
+	}
+	li {
+		list-style-type: none;
 	}
 }
 
@@ -642,6 +665,9 @@ input[type=checkbox]
 
 .slogan {
 	padding-top: 13px;
+	li {
+		list-style-type: none;
+	}
 }
 
 .footer {
