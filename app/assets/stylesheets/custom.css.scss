@@ -420,12 +420,13 @@ span#unpublished {
 	li {
 		// list-style-type: disc;
 		// margin-left: 20px;
+		margin-top: 15px;
 	}
 	li li {
 		list-style-type: disc;
 		margin-left: 20px;
 		margin-top: 7px;
-		font-size: .95em;
+		font-size: .9em;
 		color: gray;
 
 	}
@@ -435,7 +436,11 @@ span#unpublished {
 	}
 	ol {
 		padding-left: 25px;
+		background: #DEEBFF;
+		padding-top: 10px;
+		padding-bottom: 10px;
 	}
+
 }
 
 .basic-info {
