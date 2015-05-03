@@ -173,6 +173,8 @@ a {
 		margin-bottom: 30px;
 		font-size: 1.2em;
 	}
+	margin-top: 40px;
+	margin-bottom: 60px;
 }
 
 
@@ -284,9 +286,9 @@ span#unpublished {
 
 .collections, .topics {
 	width: 70%;
+	padding-left: 40px;
 	// display: inline-block;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 0 auto;
 	text-align: center;
 	li {
 		width: 220px;

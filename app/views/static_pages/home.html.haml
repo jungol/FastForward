@@ -1,26 +1,31 @@
 - provide(:title, "Home")
-
 .row.heading.text-center
   .col-xs-12 
     %ul
-      %li
-        %h1 Development Economics
       %li 
-        %h4.gray Search a topic, and discover what the research tells us.
+        %h3 Explore the research frontier
+        %h4.gray Discover what we know in development economics 
 .search
   %input{autofocus: "true", autocomplete: "off", class: "instantsearch", id: "q", placeholder: "Search any topic in development economics (e.g. microcredit)", type: "text", spellcheck: "false"}
 
-%div.browsetopics
-  %span Not sure what to search for? 
-  %span#random=  link_to "Browse research questions by topic.", collections_path
+
 
 #display
+
   #hits
   :javascript
     var $inputfield = $('#q');
     var $hits = $('#hits');
   .instructions
+    %ul.collections
+      - @collections.each do |collection|
+        %li
+          %div{:class => 'bg-img', :style => %(background-image:url(/assets/#{collection.image_url}))}
 
+          / style: "background-image: url(_#{image_path image_url}_)"}
+          =link_to collection_path(collection) do
+            %span= collection.name
+            %span.question-count= "#{pluralize(collection.lists.count, 'research question')}"
 
   :javascript
     var $instructions = $('.instructions')
