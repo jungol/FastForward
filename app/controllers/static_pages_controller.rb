@@ -28,7 +28,31 @@ class StaticPagesController < ApplicationController
   end
 
   def microfinance
-    @lists = List.where(id: 0...28)
+    @lists = List.where(id: [23, 21, 90, 89, 88, 97, 96, 95])
+  end
+
+  def technologyofmicrofinance
+    @lists = List.where(id: [21, 90, 89, 88, 97, 96, 95])
+  end
+
+  def groupreputation
+    @lists = List.where(id: [21, 88, 96])
+  end
+
+  def microcreditsavings
+    @lists = List.where(id: [95])
+  end
+
+  def tdesign
+    @lists = List.where(id: [90, 89])
+  end
+
+  def mfi
+    @lists = List.where(id: [96])
+  end
+
+  def impactofmicrofinance
+    @lists = List.where(id: [23])
   end
 
   def health

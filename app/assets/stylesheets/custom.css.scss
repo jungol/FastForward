@@ -257,6 +257,16 @@ span.question-count {
 	position: relative;
 }
 
+#banner-nav {
+	height: 75px;
+}
+
+#banner-info-nav {
+	.name {
+		padding-top: 50px;
+	}
+}
+
 span#unpublished {
 	padding: 5px;
 	background: yellow;
@@ -599,14 +609,38 @@ span#unpublished {
 		margin-right: 130px;
 	}
 	margin-top: 30px;
+	div {
+		padding-left: 0px;
+	}
+	li {
+		list-style-type: none;
+		a {
+			color: blue;
+		}
+	}
+}
+
+.navigate {
+	margin-left: 100px;
+	margin-right: 100px;
+	padding-top: 20px;
+	border-bottom: 1px solid gray;
+	li {
+		list-style-type: none;
+		float:left;
+		a {
+			color: blue;
+		}
+	}
 }
 
 .feed-item {
 	border-bottom: 1px solid #e0e0e0;
 	width: 100%;
-	padding-top: 15px;
+	// padding-top: 15px;
 	padding-bottom: 15px;
 	list-style-type: none;
+	margin-bottom: 15px;
 }
 
 input[type=checkbox]

@@ -1,0 +1,15 @@
+- provide(:title, "Home")
+
+.row.navigate
+  .col-xs-12
+    %ul
+      %li= link_to "Microfinance", static_pages_microfinance_path
+      %li >>
+      %li= link_to "Technology of Microfinance", static_pages_technologyofmicrofinance_path
+      %li >>
+      %li= link_to "Group Lending & Reputation", '#'
+.row.feed
+  .col-xs-3
+  .col-xs-9
+    %ul
+      = render @lists
