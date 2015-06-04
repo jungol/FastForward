@@ -36,7 +36,7 @@
           - else
             = "We do not know of any papers that address '#{@list.title}.' If you know of some, please email us at"
             = mail_to "info@researchgps.com"
-          %h4 Contributors
+          %h4 Curators
         .col-xs-12.contributors#contributors
           - @list.users.each do |user|
             %li.byline
