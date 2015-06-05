@@ -10,21 +10,29 @@
           - if !(@list.published?)
             %span#unpublished= "DRAFT"
       .row.list-info
-        .col-xs-12
-          %ul
-            %li
-              = "Published #{time_ago_in_words(@list.created_at)} ago, Updated #{time_ago_in_words(@list.updated_at)} ago"
-            / %li
-            /   = "Viewed #{pluralize(@list.view_count, 'time')}"
-            / %li.pt10.pb10.attention
-            /   Want to contribute to this page, either by editing the summary or adding papers? Email 
-            /   = mail_to "info@researchgps.com"
-            /   and we'll be in touch. 
+        .col-xs-12.contributors#contributors
+          Curated by
+          - @list.users.each do |user|
+            %span.byline
+              =link_to user.link do
+                %span.name= "#{user.first_name} #{user.last_name}, #{user.school}"
+                %span.profile-img= image_tag("#{user.first_name}_#{user.last_name}.jpg")
+
         / .col-xs-12
-        /   %ul.table-of-contents
-        /     %li= link_to "Overview", '#overview'
-        /     %li= link_to "Relevant Papers", '#papers'
-        /     %li= link_to "Contributors", '#contributors'
+        /   %ul
+        /     %li
+        /       = "Published #{time_ago_in_words(@list.created_at)} ago, Updated #{time_ago_in_words(@list.updated_at)} ago"
+        /     / %li
+        /     /   = "Viewed #{pluralize(@list.view_count, 'time')}"
+        /     / %li.pt10.pb10.attention
+        /     /   Want to contribute to this page, either by editing the summary or adding papers? Email 
+        /     /   = mail_to "info@researchgps.com"
+        /     /   and we'll be in touch. 
+        / / .col-xs-12
+        / /   %ul.table-of-contents
+        / /     %li= link_to "Overview", '#overview'
+        / /     %li= link_to "Relevant Papers", '#papers'
+        / /     %li= link_to "Contributors", '#contributors'
       .row.content#overview
         %h4 Overview
         .col-xs-12.description
@@ -36,14 +44,14 @@
           - else
             = "We do not know of any papers that address '#{@list.title}.' If you know of some, please email us at"
             = mail_to "info@researchgps.com"
-          %h4 Curators
-        .col-xs-12.contributors#contributors
-          - @list.users.each do |user|
-            %li.byline
-              =link_to user.link do
-                %span.profile-img= image_tag("#{user.first_name}_#{user.last_name}.jpg")
-                %span.name= "#{user.first_name} #{user.last_name}, #{user.school}"
-      / .row
+          / %h4 Curators
+      /   .col-xs-12.contributors#contributors
+      /     - @list.users.each do |user|
+      /       %li.byline
+      /         =link_to user.link do
+      /           %span.profile-img= image_tag("#{user.first_name}_#{user.last_name}.jpg")
+      /           %span.name= "#{user.first_name} #{user.last_name}, #{user.school}"
+      / / .row
       /   .col-xs-12.list-info 
       /     %ul.gray
       /       %li

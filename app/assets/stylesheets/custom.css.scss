@@ -36,7 +36,7 @@ a {
 }
 
 .contributors {
-	padding-top: 20px;
+	// padding-top: 20px;
 	h4 {
 		margin-bottom: 10px;
 	}
@@ -377,6 +377,7 @@ span#unpublished {
 		color: gray;
 		list-style-type: none;
 	}
+	margin-bottom: 20px;
 }
 
 .col-xs-12 {
@@ -516,8 +517,8 @@ span#unpublished {
 	z-index: -1;
 	img {
 	border-radius: 100%;
-	width: 50px;
-	height: 50px;
+	width: 30px;
+	height: 30px;
 	// margin-top: -10px;
 	// position: absolute;
 	}
@@ -544,6 +545,15 @@ span#unpublished {
 
 .byline {
 	padding-bottom: 5px;
+	a {
+		color: blue;
+	}
+	padding-right: 10px;
+}
+.total-byline {
+	ul {
+		float:left;
+	}
 }
 
 #wrapper {
