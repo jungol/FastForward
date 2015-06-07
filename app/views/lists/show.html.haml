@@ -15,7 +15,10 @@
           - @list.users.each do |user|
             %span.byline
               =link_to user.link do
-                %span.name= "#{user.first_name} #{user.last_name}, #{user.school}"
+                %span.name= "#{user.first_name} #{user.last_name},"
+                - if user.position !=''
+                  %span.position= "#{user.position} at"
+                %span.school= "#{user.school}"
                 %span.profile-img= image_tag("#{user.first_name}_#{user.last_name}.jpg")
 
         / .col-xs-12
