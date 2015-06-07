@@ -8,3 +8,6 @@
       .item-description.gray
         %span.author="#{item.author}, "
         %span.journal="#{item.journal}"
+        - if current_user.try(:admin?)
+          %br
+          = item.id
