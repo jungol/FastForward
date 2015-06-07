@@ -18,15 +18,16 @@
     var $inputfield = $('#q');
     var $hits = $('#hits');
   .instructions
-    %ul.collections
-      - @collections.each do |collection|
-        %li
-          %div{:class => 'bg-img', :style => %(background-image:url(/assets/#{collection.image_url}))}
+    .collection-div
+      %ul.collections.pull-center
+        - @collections.each do |collection|
+          %li
+            %div{:class => 'bg-img', :style => %(background-image:url(/assets/#{collection.image_url}))}
 
-          / style: "background-image: url(_#{image_path image_url}_)"}
-          =link_to collection_path(collection) do
-            %span= collection.name
-            %span.question-count= "#{pluralize(collection.lists.count, 'research question')}"
+            / style: "background-image: url(_#{image_path image_url}_)"}
+            =link_to collection_path(collection) do
+              %span= collection.name
+              %span.question-count= "#{pluralize(collection.lists.count, 'research question')}"
 
   :javascript
     var $instructions = $('.instructions')
