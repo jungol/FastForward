@@ -8,10 +8,10 @@
     .text-right.slogan.right-header
       %ul.pull-right
         / %li= link_to "Who's contributing to this project?", static_pages_contributors_path
-        %li 
-          = "Happy #{Date.today.strftime('%A')}!"
+        / %li 
+        /   = "Happy #{Date.today.strftime('%A')}!"
         %li
-          = link_to "Learn more about DevEc GPS.", static_pages_about_path
+          = link_to "About Us", static_pages_about_path
         - if current_user.try(:admin?)
           %li= button_to "Create list", new_list_path, method: 'get'
         - if signed_in?
