@@ -294,6 +294,37 @@ span#unpublished {
 	color: blue;
 }
 
+
+#email_signup_email {
+	width: 300px;
+	padding-left: 10px;
+}
+
+.signup-form {
+	// display: inline-block;
+	height: 30px;
+	margin-top: 10px;
+	font-size: 1.1em;
+	ul {
+		display:inline-block;
+		height: 100%;
+	}
+	li {
+		// float: left;
+		list-style-type: none;
+		// display: inline-block;
+		float:left;
+		vertical-align: center;
+		padding-right: 10px;
+		line-height: 30px;
+	}
+}
+
+#submit {
+	background: #ffc31c;
+	color: black;
+}
+
 .collections, .topics {
 	// width: 70%;
 	padding-left: 8%;

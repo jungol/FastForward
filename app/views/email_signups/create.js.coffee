@@ -1,3 +1,3 @@
-$('.new_email_signup').html("Thanks for signing up!")
+$('.signup-form').html("Thanks for signing up!")
 
 

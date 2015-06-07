@@ -10,6 +10,7 @@
         / %li= link_to "Who's contributing to this project?", static_pages_contributors_path
         / %li 
         /   = "Happy #{Date.today.strftime('%A')}!"
+
         %li
           = link_to "How this works", static_pages_about_path
         - if current_user.try(:admin?)
