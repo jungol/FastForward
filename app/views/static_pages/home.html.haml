@@ -22,14 +22,15 @@
   %input{autofocus: "true", autocomplete: "off", class: "instantsearch", id: "q", placeholder: "Search your research interest (e.g. school vouchers)", type: "text", spellcheck: "false"}
 
 
-
 #display
-
   #hits
   :javascript
     var $inputfield = $('#q');
     var $hits = $('#hits');
   .instructions
+    .row.research-collection
+      .col-xs-12
+        %h3.gray Research Collections
     .collection-div
       %ul.collections.pull-center
         - @collections.each do |collection|

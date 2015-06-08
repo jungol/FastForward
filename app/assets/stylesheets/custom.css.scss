@@ -176,7 +176,10 @@ a {
 	margin-top: 40px;
 	margin-bottom: 60px;
 }
-
+.subtitle {
+	display: block;
+	margin: 0 auto;
+}
 
 #list_title {
 	width: 500px;
@@ -323,6 +326,12 @@ span#unpublished {
 #submit {
 	background: #ffc31c;
 	color: black;
+}
+
+.research-collection {
+	margin-bottom: 20px;
+	padding-left: 8%;
+	margin-left: 3px;
 }
 
 .collections, .topics {
