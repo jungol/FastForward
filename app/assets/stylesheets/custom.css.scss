@@ -157,9 +157,7 @@ a {
 	li {
 		float: left;
 		margin-left: 5px;
-		a {
-			color: blue;
-		}
+
 	}
 }
 
@@ -769,6 +767,24 @@ input[type=checkbox]
 	padding-bottom: 15px;
 	&:hover {
 		background: #e5e5e5;
+	}
+}
+
+.auth-button {
+	a {
+		color: #ffc31c;
+		padding: 20px;
+
+	}
+	background: #333333;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	&:hover {
+		background: #ffc31c;
+		a {
+			color: #333333;
+			text-decoration: none;
+		}
 	}
 }
 
