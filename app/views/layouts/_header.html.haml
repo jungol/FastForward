@@ -11,7 +11,7 @@
         / %li 
         /   = "Happy #{Date.today.strftime('%A')}!"
 
-        %li.auth-button
+        %li.auth-button#how-this-works
           = link_to "How this works", static_pages_about_path
         - if current_user.try(:admin?)
           %li= button_to "Create list", new_list_path, method: 'get'
@@ -19,6 +19,13 @@
           %li.auth-button= link_to "Sign out", destroy_user_session_path, method: 'delete'
         - else
           %li.auth-button= link_to "Sign In", new_user_session_path
+
+:javascript
+    $(document).ready( function() {
+      $('#how-this-works').click( function() {
+        mixpanel.track("Visited about page", {"age": 10});
+      });
+    });
 
 
 
