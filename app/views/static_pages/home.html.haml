@@ -1,15 +1,15 @@
 - provide(:title, "Home")
 
-/ .row.text-center
-/   .col-xs-12.signup-form
-/     %ul 
-/       %li New features are coming. Be the first to know about it.
-/       %li
-/         = form_for @email_signup, remote: true do |f|
-/           = render 'shared/error_messages', object: f.object
-/           / %div.field
-/           %li= f.text_field :email, placeholder: "What's your email?"
-/           %li= f.submit "Get updates!", class: "btn btn-large btn-primary", id: "submit"
+.row.text-center
+  .col-xs-12.signup-form
+    %ul 
+      %li New features are coming. Be the first to know about it.
+      %li
+        = form_for @email_signup, remote: true do |f|
+          = render 'shared/error_messages', object: f.object
+          / %div.field
+          %li= f.text_field :email, placeholder: "What's your email?"
+          %li= f.submit "Get updates!", class: "btn btn-large btn-primary", id: "submit"
 
 .row.heading.text-center
   .col-xs-12 
@@ -38,9 +38,15 @@
             %div{:class => 'bg-img', :style => %(background-image:url(/assets/#{collection.image_url}))}
 
             / style: "background-image: url(_#{image_path image_url}_)"}
-            =link_to collection_path(collection) do
+            =link_to collection_path(collection), class: "collection" do
               %span= collection.name
               %span.question-count= "#{pluralize(collection.lists.count, 'research question')}"
 
   :javascript
     var $instructions = $('.instructions')
+
+    $(document).ready( function() {
+      $('.collection').click( function() {
+        mixpanel.track("Visited a collection");
+      });
+    });

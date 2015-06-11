@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :new, :create, :update]
-  before_action :is_admin?, only: [:new]
+  # before_action :authenticate_user!, only: [:show, :new, :create, :update]
+  # before_action :is_admin?, only: [:new]
   # before_action :current_user.try(:admin?), only: [:show, :new, :create, :update]
 
 

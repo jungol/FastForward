@@ -14,7 +14,7 @@
           Curated by
           - @list.users.each do |user|
             %span.byline
-              =link_to user.link do
+              =link_to user.link, class: "user-link" do
                 %span.name= "#{user.first_name} #{user.last_name},"
                 - if user.position !=''
                   %span.position= "#{user.position} at"
@@ -69,3 +69,11 @@
     .right-sidebar
       %ul#sidebar-nav-right
         %li.gray#prompt Click on an article to view its abstract here
+
+
+:javascript
+    $(document).ready( function() {
+      $('.user-link').click( function() {
+        mixpanel.track("Clicked a curator");
+      });
+    });

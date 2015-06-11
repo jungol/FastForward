@@ -12,3 +12,10 @@
 %br
 %h5 Abstract
 %p.abstract= @item.abstract
+
+:javascript
+    $(document).ready( function() {
+      $('.read').click( function() {
+        mixpanel.track("Clicked to read PDF");
+      });
+    });
