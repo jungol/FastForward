@@ -10,7 +10,8 @@
           - if !(@list.published?)
             %span#unpublished= "DRAFT"
       .row.list-info
-        .col-xs-12
+        .col-xs-12.sources
+          %br
           - if @list.sources
             This entry is based on
             = raw @list.sources
