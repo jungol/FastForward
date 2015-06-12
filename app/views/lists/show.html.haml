@@ -14,16 +14,6 @@
           - if @list.sources
             This entry is based on
             = raw @list.sources
-        .col-xs-12.contributors#contributors
-          Written by
-          - @list.users.each do |user|
-            %span.byline
-              =link_to user.link, class: "user-link" do
-                %span.name= "#{user.first_name} #{user.last_name},"
-                - if user.position !=''
-                  %span.position= "#{user.position} at"
-                %span.school= "#{user.school}"
-                %span.profile-img= image_tag("#{user.first_name}_#{user.last_name}.jpg")
 
         / .col-xs-12
         /   %ul
@@ -51,13 +41,14 @@
           - else
             = "We do not know of any papers that address '#{@list.title}.' If you know of some, please email us at"
             = mail_to "info@researchgps.com"
-          / %h4 Curators
-      /   .col-xs-12.contributors#contributors
-      /     - @list.users.each do |user|
-      /       %li.byline
-      /         =link_to user.link do
-      /           %span.profile-img= image_tag("#{user.first_name}_#{user.last_name}.jpg")
-      /           %span.name= "#{user.first_name} #{user.last_name}, #{user.school}"
+          %h4 Curators
+        .col-xs-12.contributors#contributors
+          %br
+          - @list.users.each do |user|
+            %li.byline
+              =link_to user.link do
+                %span.profile-img= image_tag("#{user.first_name}_#{user.last_name}.jpg")
+                %span.name= "#{user.first_name} #{user.last_name}, #{user.school}"
       / / .row
       /   .col-xs-12.list-info 
       /     %ul.gray
