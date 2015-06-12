@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404194104) do
+ActiveRecord::Schema.define(version: 20150612133845) do
 
   create_table "collections", force: :cascade do |t|
     t.string   "name"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20150404194104) do
     t.string   "curator_url"
     t.integer  "view_count"
     t.boolean  "published"
+    t.string   "sources"
   end
 
   create_table "microposts", force: :cascade do |t|

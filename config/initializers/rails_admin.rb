@@ -31,6 +31,7 @@ RailsAdmin.config do |config|
     field :title
     field :curator
     field :curator_url
+    field :sources
     field :description
     field :tags
     field :view_count

@@ -10,8 +10,12 @@
           - if !(@list.published?)
             %span#unpublished= "DRAFT"
       .row.list-info
+        .col-xs-12
+          - if @list.sources
+            This entry is based on
+            = @list.sources
         .col-xs-12.contributors#contributors
-          Curated by
+          Written by
           - @list.users.each do |user|
             %span.byline
               =link_to user.link, class: "user-link" do
