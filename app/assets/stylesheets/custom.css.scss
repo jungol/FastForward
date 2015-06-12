@@ -743,6 +743,7 @@ input[type=checkbox]
 	li {
 		list-style-type: none;
 	}
+	text-align: center;
 }
 
 .tag {
@@ -774,6 +775,19 @@ input[type=checkbox]
 	padding-bottom: 15px;
 	&:hover {
 		background: #e5e5e5;
+	}
+}
+
+.value-prop {
+	text-align: center;
+	div {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	h3 {
+		color: #6f9a37;
+		padding-bottom: 10px;
+		border-bottom: 1px solid lightGray;
 	}
 }
 
