@@ -1,22 +1,22 @@
 - provide(:title, "Home")
 
-.row.text-center
-  .col-xs-12.signup-form
-    %ul 
-      %li New features are coming. Be the first to know about it.
-      %li
-        = form_for @email_signup, remote: true do |f|
-          = render 'shared/error_messages', object: f.object
-          / %div.field
-          %li= f.text_field :email, placeholder: "What's your email?"
-          %li= f.submit "Get updates!", class: "btn btn-large btn-primary", id: "submit"
+/ .row.text-center
+/   .col-xs-12.signup-form
+/     %ul 
+/       %li New features are coming. Be the first to know about it.
+/       %li
+/         = form_for @email_signup, remote: true do |f|
+/           = render 'shared/error_messages', object: f.object
+/           / %div.field
+/           %li= f.text_field :email, placeholder: "What's your email?"
+/           %li= f.submit "Get updates!", class: "btn btn-large btn-primary", id: "submit"
 
 .row.heading.text-center
   .col-xs-12 
     %ul
       %li 
-        %h2 Development Economics GPS
-        %h3.gray.slogan The PhD's guide to the research frontier
+        / %h3 Development Economics GPS
+        %h2 A Crowdsourced Handbook for Development Economics
 
 .search
   %input{autofocus: "true", autocomplete: "off", class: "instantsearch", id: "q", placeholder: "Search your research interest (e.g. school vouchers)", type: "text", spellcheck: "false"}
