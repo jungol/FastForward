@@ -12,8 +12,12 @@
   %ul.breadcrumb
     %li= link_to "Home", root_url
     - @collection.ancestors.each do |ancestor|
-      %li= link_to ancestor.name, ancestor
+      %li
+        = link_to ancestor.name, ancestor
+        = "(#{ancestor.lists.count})"
     %li
-      %b#current-collection= link_to @collection.name, @collection
+      %b#current-collection
+        = link_to @collection.name, @collection
+        = "(#{@collection.lists.count})"
 
   .search=render @collection.lists
