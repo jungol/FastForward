@@ -33,7 +33,9 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @items = @list.items
-    @collection = Collection.find(params[:collection])
+    if params[:collection]
+      @collection = Collection.find(params[:collection])
+    end
   end
 
   def new
