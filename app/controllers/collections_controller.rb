@@ -5,6 +5,7 @@ class CollectionsController < ApplicationController
 
   def show
     @collection = Collection.find(params[:id])
+
     
     @lists = @collection.lists
     @collection.children.each do |child|
@@ -13,5 +14,25 @@ class CollectionsController < ApplicationController
     end
   end
 
+  def new
+    @collection = Collection.new
+  end
   
+  def create
+    @collection = Collection.new(collection_params)
+    if @collection.save
+      redirect_to @collection
+    else
+      render 'new'
+    end
+  end
+
+  private
+
+    def collection_params
+      params.require(:collection).permit(
+        :name,
+        :parent_id
+      )
+    end
 end

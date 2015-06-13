@@ -36,6 +36,8 @@
       /       Log Out
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.nav.navbar-nav.side-nav
+      - if current_user.try(:admin?)
+        %li= link_to "New Collection", new_collection_path
       %li= link_to "Home", root_url
       - Collection.roots.each do |collection|
         %li= link_to collection.name, collection
@@ -44,7 +46,7 @@
 .container-fluid
   .row.child-collections
     %ul
-      -if @collection
+      -if @collection && !@collection.new_record?
         %li.child= link_to "All", @collection.root, class: ("highlight" if @collection == @collection.root)
         -@collection.root.children.each do |child|
           %li.child= link_to child.name, child, class: ("highlight" if @collection == child)
