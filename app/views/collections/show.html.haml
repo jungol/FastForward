@@ -25,7 +25,6 @@
 
 .row
   .search
-    =render :partial => "lists/list", :collection => @lists
-    / =render @collection.lists
-    / - @collection.children.each do |child|
-    /   =render child.lists
+    =render @collection.lists
+    - @collection.children.each do |child|
+      =render child.lists
