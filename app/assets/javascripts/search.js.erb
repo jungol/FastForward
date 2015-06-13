@@ -46,7 +46,7 @@ function searchCallback(err, content) {
   // Scan all hits and display them
   var html = '';
   console.log(content.hits)
-  html += '<div class="row feed"><div class="col-xs-12"><h3>Results (' + content.hits.length + ') </h3><ul>' 
+  // html += '<div class="row feed"><div class="col-xs-12"><h3>Results (' + content.hits.length + ') </h3><ul>' 
   for (var i = 0; i < content.hits.length; ++i) {
     var hit = content.hits[i];
     // console.log(hit)

@@ -1,24 +1,74 @@
-%nav.navbar.gps-nav.navbar-default.navbar-fixed-top
-  .container-fluid
-    .navbar-header
-      .navbar-brand 
-        =link_to root_path do 
-          Development Economics 
-          %span#globe GPS
-    .text-right.slogan.right-header
-      %ul.pull-right
-        / %li= link_to "Who's contributing to this project?", static_pages_contributors_path
-        / %li 
-        /   = "Happy #{Date.today.strftime('%A')}!"
 
-        %li.auth-button#how-this-works
-          = link_to "How this works", static_pages_about_path
-        - if current_user.try(:admin?)
-          %li= button_to "Create list", new_list_path, method: 'get'
-        / - if signed_in?
-        /   %li.auth-button= link_to "Sign out", destroy_user_session_path, method: 'delete'
-        / - else
-        /   %li.auth-button= link_to "Sign In", new_user_session_path
+%nav.navbar.navbar-inverse.navbar-fixed-top{role:"navigation"}
+  .navbar-header
+    %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse")
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    =link_to "Development Economics GPS", root_url, class:"navbar-brand", id:"logo"
+
+  %ul.nav.navbar-right.top-nav
+    %li.search
+      %input{autocomplete: "off", id: "q", placeholder: "Search your research interest (e.g. school vouchers)", type: "text", spellcheck: "false"}
+    %li.dropdown
+      %a.dropdown-toggle(href="#" data-toggle="dropdown")
+        %i.fa.fa-user
+        / John Smith
+        / %b.caret
+      / %ul.dropdown-menu
+      /   %li
+      /     %a{href:"#"}
+      /       %i.fa.fa-fw.fa-user
+      /       Profile
+      /   %li
+      /     %a{href:"#"}
+      /       %i.fa.fa-fw.fa-user
+      /       Profile
+      /   %li
+      /     %a{href:"#"}
+      /       %i.fa.fa-fw.fa-user
+      /       Profile
+      /   %li.divider
+      /   %li
+      /     %a{href:"#"}
+      /       %i.fa.fa-fw.fa-power-off
+      /       Log Out
+  .collapse.navbar-collapse.navbar-ex1-collapse
+    %ul.nav.navbar-nav.side-nav
+      - if @collection
+        - if @collection.parent
+          %li= link_to "Back to #{@collection.parent.name}", @collection.parent
+        - else
+          %li= link_to "Back to Home", root_url
+        - @collection.children.each do |sibling|
+          %li= link_to sibling.name, sibling
+      -else
+        - Collection.roots.each do |collection|
+          %li= link_to collection.name, collection
+
+
+/ %nav.navbar.gps-nav.navbar-default.navbar-fixed-top
+/   .container-fluid
+/     .navbar-header
+/       .navbar-brand 
+/         =link_to root_path do 
+/           Development Economics 
+/           %span#globe GPS
+/     .text-right.slogan.right-header
+/       %ul.pull-right
+/         / %li= link_to "Who's contributing to this project?", static_pages_contributors_path
+/         / %li 
+/         /   = "Happy #{Date.today.strftime('%A')}!"
+
+/         %li.auth-button#how-this-works
+/           = link_to "How this works", static_pages_about_path
+/         - if current_user.try(:admin?)
+/           %li= button_to "Create list", new_list_path, method: 'get'
+/         / - if signed_in?
+/         /   %li.auth-button= link_to "Sign out", destroy_user_session_path, method: 'delete'
+/         / - else
+/         /   %li.auth-button= link_to "Sign In", new_user_session_path
 
 :javascript
     $(document).ready( function() {

@@ -42,6 +42,8 @@ GEM
     algoliasearch-rails (1.11.18)
       algoliasearch (>= 1.2.14)
       json (>= 1.5.1)
+    ancestry (2.1.0)
+      activerecord (>= 3.0.0)
     annotate (2.6.5)
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
@@ -236,6 +238,7 @@ PLATFORMS
 
 DEPENDENCIES
   algoliasearch-rails
+  ancestry
   annotate
   bootstrap-sass
   coffee-rails (~> 4.0.0)

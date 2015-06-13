@@ -1,9 +1,19 @@
-%div{:class => 'row banner', :style => %(background-image:url(/assets/#{@collection.image_url}))}
-  .banner-info
-    .container
-      .name
-        %span= @collection.name
-.row.feed
-  .col-xs-12
-    %ul
-      =render @collection.lists
+/ %div{:class => 'row banner', :style => %(background-image:url(/assets/#{@collection.image_url}))}
+/   .banner-info
+/     .container
+/       .name
+/         %span= @collection.name
+/ .row.feed
+/   .col-xs-12
+/     %ul
+/       =render @collection.lists
+
+.row
+  %ul.breadcrumb
+    %li= link_to "Home", root_url
+    - @collection.ancestors.each do |ancestor|
+      %li= link_to ancestor.name, ancestor
+    %li
+      %b#current-collection= link_to @collection.name, @collection
+
+  .search=render @collection.lists
