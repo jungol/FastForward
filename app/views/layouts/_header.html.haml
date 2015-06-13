@@ -38,6 +38,8 @@
     %ul.nav.navbar-nav.side-nav
       - if current_user.try(:admin?)
         %li= link_to "New Collection", new_collection_path
+      - if signed_in?
+        %li= link_to "Sign out", destroy_user_session_path, method: "delete"
       %li= link_to "Home", root_url, id: ("highlight_root_collection" if request.original_url == root_url)
       - if @collection
         - Collection.roots.each do |collection|
