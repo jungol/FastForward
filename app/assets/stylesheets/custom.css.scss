@@ -66,6 +66,16 @@ li {
 	// border-bottom: 4px solid #ffc31c;
 }
 
+#highlight_root_collection {
+	border-left: 7px solid #81b71a;		
+	background: black;
+	color: white;
+	&:focus {
+		color: white;
+	}
+	padding-left: 8px;
+}
+
 .navbar-fixed-top {
     // box-shadow: 0 4px 2px -2px gray;
 }
@@ -133,7 +143,7 @@ li {
         width: 225px;
     }
 
-    .side-nav li a:hover,
+    // .side-nav li a:hover,
     .side-nav li a:focus {
         outline: none;
         background-color: #000 !important;
