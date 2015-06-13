@@ -5,6 +5,12 @@ class CollectionsController < ApplicationController
 
   def show
     @collection = Collection.find(params[:id])
+    
+    @lists = @collection.lists
+    @collection.children.each do |child|
+      @lists << child.lists
+    @lists = @lists.uniq
+    end
   end
 
   
