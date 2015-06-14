@@ -1,71 +1,61 @@
 - provide(:title, @list.title)
-.list-show 
+
+.overlay.hide
+
+.list-show
+  .modal-man.hide
+    This is my time
+    %button.ex click out
   .row
-    .col-xs-9.main-content
-      .row
-        .col-xs-12
-          %h3= @list.title
-          - if current_user.try(:admin?)
-            = button_to "Edit", edit_list_path(@list), method: "get"
-          - if !(@list.published?)
-            %span#unpublished= "DRAFT"
-      .row.list-info
-        .col-xs-12.sources
-          %br
-          - if @list.sources
-            %b Source:
-            This entry is based on
-            = raw @list.sources
+    .col-xs-12.list-title
+      %h3= @list.title
+      - if current_user.try(:admin?)
+        = button_to "Edit", edit_list_path(@list), method: "get"
+    
+  .row
+    - if @list.sources 
+      .col-xs-12.source
+        %ul
+          %li
+            %a{href:"#"}
+              %i.fa.fa-info-circle
+              =raw @list.sources
 
-        / .col-xs-12
-        /   %ul
-        /     %li
-        /       = "Published #{time_ago_in_words(@list.created_at)} ago, Updated #{time_ago_in_words(@list.updated_at)} ago"
-        /     / %li
-        /     /   = "Viewed #{pluralize(@list.view_count, 'time')}"
-        /     / %li.pt10.pb10.attention
-        /     /   Want to contribute to this page, either by editing the summary or adding papers? Email 
-        /     /   = mail_to "info@researchgps.com"
-        /     /   and we'll be in touch. 
-        / / .col-xs-12
-        / /   %ul.table-of-contents
-        / /     %li= link_to "Overview", '#overview'
-        / /     %li= link_to "Relevant Papers", '#papers'
-        / /     %li= link_to "Contributors", '#contributors'
-      .row.content#overview
-        %h4 Overview
-        .col-xs-12.description
+  .row
+    .col-xs-12
+      .overview
+        .overview-heading
+          %h4.overview-title
+            %i.fa.fa-newspaper-o
+            Overview
+        .overview-body
           = raw @list.description
-          %h4= "Recommended Papers"
-        .col-xs-12.list-wrapper#papers
-          - if @items != []
-            = render @items 
-          - else
-            = "We do not know of any papers that address '#{@list.title}.' If you know of some, please email us at"
-            = mail_to "info@researchgps.com"
-          %h4 Written By
-        .col-xs-12.contributors#contributors
-          %br
-          - @list.users.each do |user|
-            %li.byline
-              =link_to user.link do
-                %span.profile-img= image_tag("#{user.first_name}_#{user.last_name}.jpg")
-                %span.name= "#{user.first_name} #{user.last_name}, #{user.school}"
-      / / .row
-      /   .col-xs-12.list-info 
-      /     %ul.gray
-      /       %li
-      /         %span.gray Contributors: 
-      /         %ul
-      /           - @list.users.each do |user|
-      /             %li.byline
-      /               =link_to user.link do
-      /                 %span.profile-img= image_tag("#{user.first_name}_#{user.last_name}.jpg")
-      /                 %span.name= "#{user.first_name} #{user.last_name}, #{user.school}" 
 
-    .right-sidebar
-      %ul#sidebar-nav-right
-        %li.gray#prompt Click on an article to view its abstract here
+  .row
+    .col-xs-12
+      .papers
+        .papers-heading
+          %h4.papers-title
+            %i.fa.fa-newspaper-o
+            Recommended Papers
+        .papers-body
+          .table-responsive
+            %table.table.table-bordered.table-hover
+              %tr
+                %td
+                  %b Date
+                %td
+                  %b Title
+                %td 
+                  %b Authors
+                %td
+                  %b Journal
+              - @list.items.each do |item|
+                %tr.clickable-row{ "data-href" =>('/items/' + item.id.to_s) }
+                  %td= item.year
+                  %td= link_to item.title, item, "data-remote" => "true"
+                  %td= item.author
+                  %td= item.journal
 
 
 :javascript
@@ -73,4 +63,10 @@
       $('.user-link').click( function() {
         mixpanel.track("Clicked a curator");
       });
+      $('.overlay').click( function() {
+        $('.overlay').addClass('hide');
+        $('.modal-man').addClass('hide');
+      });
+
     });
+

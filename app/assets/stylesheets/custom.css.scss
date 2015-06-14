@@ -1,6 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
+html, body {
+	min-height: 100%;
+	margin: 0;
+}
 
 html {
 	overflow-y: scroll;
@@ -9,6 +15,49 @@ html {
 body {
     margin-top: 100px;
     background-color: #222;
+    position: relative;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	background-color: rgba(0,0,0,0.5);
+}
+
+.modal-man {
+	width: 500px;
+    height: 100%;
+    // line-height: 200px;
+    position: fixed;
+    // top: 0%; 
+    // left: 50%;
+    right: 0%;
+    // margin-top: -100px;
+    margin-left: -150px;
+    background-color: white;
+    // border-radius: 5px;
+    // text-align: center;
+    z-index: 11;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left: 1px solid LightGray;
+}
+
+.btn-primary-text {
+	a {
+		color: white;
+	}
+	margin-top: 10px;
+	// text-align: right;
+}
+
+ul {
+	list-style: none;
+	padding-left: 0px;
 }
 
 li {
@@ -23,6 +72,10 @@ li {
 
 #wrapper {
     padding-left: 0;
+}
+
+.gray {
+	color: gray;
 }
 
 #page-wrapper {
@@ -67,13 +120,13 @@ li {
 }
 
 #highlight_root_collection {
-	border-left: 7px solid #81b71a;		
+	border-left: 4px solid #81b71a;		
 	background: black;
 	color: white;
 	&:focus {
 		color: white;
 	}
-	padding-left: 8px;
+	padding-left: 11px;
 }
 
 .navbar-fixed-top {
@@ -199,6 +252,76 @@ li {
 #current-collection {
 	font-size: 1.2em;
 }
+
+/* List#Show */
+
+.fa-check-circle {
+	color: green;
+}
+
+.list-title, .item-author {
+	border-bottom: 1px solid #eee;
+}
+
+.item-author {
+	padding-bottom: 5px;
+}
+
+.source ul, .item-lists-header, .abstract-header {
+	background: #d9edf7;
+	color: #31708f;
+	border-color: #bce8f1;
+	border: 1px solid #bce8f1;
+	padding: 10px;
+	border-radius: 4px;
+	margin-top: 10px;
+	a {
+		font-weight: bold;
+		color: #31708f;
+	}
+}
+
+.overview, .papers {
+	border-radius: 4px;
+	border: 1px solid #ddd;
+	background-color: #f5f5f5;
+	color: black;
+	margin-bottom: 10px;
+
+}
+
+.overview-heading, .papers-heading {
+	border-bottom: 1px solid #ddd;
+	padding-left: 10px;
+
+}
+
+.papers-body, .overview-body {
+	background: white;
+}
+
+.overview-body {
+	padding-left: 10px;
+	li {
+		list-style: disc;
+		margin-bottom: 15px;
+		font-weight: bold;
+	}
+	ul {
+		padding-left: 30px;
+		li {
+			list-style: circle;
+			margin-bottom: 0px;
+			font-weight: normal;
+		}
+	}
+	ol {
+		padding-left: 20px;
+	}
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
 
 
 // body {
@@ -623,9 +746,9 @@ li {
 	// position: relative;
 }
 
-.abstract {
-	font-size: .9em;
-}
+// .abstract {
+// 	font-size: .9em;
+// }
 
 // #sidebar-nav-right {
 // 	li {

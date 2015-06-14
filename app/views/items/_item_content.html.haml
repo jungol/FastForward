@@ -1,18 +1,36 @@
-.title
-  %h4= @item.title
-%br
+.row
+  .col-xs-12
+    .item-title
+      %h4= link_to @item.title, @item.url
+
+  .col-xs-12
+    .item-author.gray= @item.author
+
+  / .col-xs-12
+  /   #read-item.btn.btn-success.btn-primary-text
+  /     =link_to @item.url do
+  /       Read Now
+
+  .col-xs-12
+    .item-lists
+      - if @item.lists.count > 1
+        %ul
+          %h5.item-lists-header= "This paper addresses #{@item.lists.count} research questions"
+          - @item.lists.each do |list|
+            %li= link_to list.title, list
+
+  .col-xs-12
+    .abstract
+      %ul
+        %h5.abstract-header Abstract
+        %li= @item.abstract
+
+
+
+
 - if current_user.try(:admin?)
   ID:
   = @item.id
-%br
-%br
-= link_to @item.url do 
-  %h6.read
-    %span Read Now
-%br
-%h5 Abstract
-%p.abstract= raw @item.abstract
-
 :javascript
     $(document).ready( function() {
       $('.read').click( function() {
