@@ -4,8 +4,9 @@
 
 .list-show
   .modal-man.hide
-    This is my time
-    %button.ex click out
+    
+    / This is my time
+    / %button.ex click out
   .row
     .col-xs-12.list-title
       %h3= @list.title
@@ -38,6 +39,11 @@
           %h4.papers-title
             %i.fa.fa-newspaper-o
             Recommended Papers
+            %button.btn.btn-info.btn-lg.recommend(data-target="#myModal" data-toggle="modal" type="button") Open Modal
+
+            #myModal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+              .modal-header
+                YOOOO MY MAN WHATUP
         .papers-body
           .table-responsive
             %table.table.table-bordered.table-hover
@@ -56,6 +62,8 @@
                   %td= link_to item.title, item, "data-remote" => "true"
                   %td= item.author
                   %td= item.journal
+
+  
 
   .row
     - @list.users.each do |curator|
@@ -99,6 +107,9 @@
         $('.overlay').addClass('hide');
         $('.modal-man').addClass('hide');
       });
-
+      $('.recommend').click(function() {
+        $('.overlay').removeClass('hide');
+        $('.modal-man').removeClass('hide');
+      })
     });
 
