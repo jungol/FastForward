@@ -24,7 +24,8 @@
 /     = "(#{@collection.lists.count})"
 
 .row
-  .search
-    =render @collection.lists
-    - @collection.children.each do |child|
-      =render child.lists
+  .col-xs-12.list-feed
+    %ul
+      =render @collection.lists
+      - @collection.children.each do |child|
+        =render child.lists

@@ -48,12 +48,11 @@
         - Collection.roots.each do |collection|
           %li= link_to collection.name, collection
 
-
-
-.container-fluid
+.container-fluid.sub-nav
   .row.child-collections
     %ul
       -if @collection && !@collection.new_record?
+      
         %li.child= link_to "All", @collection.root, class: ("highlight" if @collection == @collection.root)
         -@collection.root.children.each do |child|
           %li.child= link_to child.name, child, class: ("highlight" if @collection == child)

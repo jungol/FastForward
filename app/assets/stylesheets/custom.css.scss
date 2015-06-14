@@ -122,7 +122,8 @@ li {
     }
 
     #page-wrapper {
-        // padding: 10px;
+        padding-top: 50px;
+        padding-right: 15px;
     }
 }
 
@@ -252,7 +253,22 @@ li {
 	padding-top: 10px;
 	padding-bottom: 10px;
     background: white;
+    box-shadow: 0 3px 3px rgba(0,0,0,.075);
 
+}
+
+.sub-nav {
+	position: fixed;
+	z-index: 9;
+	width: 100%;
+	ul {
+		padding-left: 40px;
+	}
+
+}
+
+.list-feed {
+	padding-left: 40px;
 }
 
 .child {
@@ -288,6 +304,11 @@ li {
 
 .list-title, .item-author {
 	border-bottom: 1px solid #eee;
+}
+
+.list-title {
+	padding-left: 0px;
+	margin-left: 15px;
 }
 
 .item-author {
