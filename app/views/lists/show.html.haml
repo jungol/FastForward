@@ -17,9 +17,9 @@
       .col-xs-12.source
         %ul
           %li
-            %a{href:"#"}
-              %i.fa.fa-info-circle
-              =raw @list.sources
+            %i.fa.fa-info-circle
+            This entry is based on
+            =raw @list.sources
 
   .row
     .col-xs-12
@@ -56,6 +56,36 @@
                   %td= link_to item.title, item, "data-remote" => "true"
                   %td= item.author
                   %td= item.journal
+
+  .row
+    - @list.users.each do |curator|
+      = link_to curator.link do
+        .col-xs-3
+          .div.panel
+            .div.panel-main
+              .row
+                .col-xs-3
+                  = image_tag("#{curator.first_name}_#{curator.last_name}.jpg")
+                .col-xs-9
+                  %ul
+                    %li 
+                      %h4= "#{curator.first_name} #{curator.last_name}"
+                    %li
+                      - if curator.school == "Harvard University"
+                        = "Harvardian"
+                      - elsif curator.school == "Yale University" 
+                        = "Yalie"
+                      - else
+                        = curator.school
+                    %li= curator.position 
+            .div.panel-sub
+              .row
+                .col-xs-12
+                  - if curator.lists.count > 1
+                    = "Helped write this and #{pluralize (curator.lists.count - 1), 'other'}"
+                  - else
+                    = "Helped write this entry"
+    
 
 
 :javascript
