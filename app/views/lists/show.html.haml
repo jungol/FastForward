@@ -1,10 +1,11 @@
 - provide(:title, @list.title)
 
 .overlay.hide
+.recommendation-modal.hide
 
 .list-show
-  .modal-man.hide
-    
+  .item-modal.hide
+
     / This is my time
     / %button.ex click out
   .row
@@ -39,11 +40,8 @@
           %h4.papers-title
             %i.fa.fa-newspaper-o
             Recommended Papers
-            %button.btn.btn-info.btn-lg.recommend(data-target="#myModal" data-toggle="modal" type="button") Open Modal
+            .btn-primary.btn.btn-primary-text= link_to "Recommend a Paper", new_recommendation_path, remote: true
 
-            #myModal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
-              .modal-header
-                YOOOO MY MAN WHATUP
         .papers-body
           .table-responsive
             %table.table.table-bordered.table-hover
@@ -98,18 +96,16 @@
     
 
 
+
 :javascript
     $(document).ready( function() {
       $('.user-link').click( function() {
         mixpanel.track("Clicked a curator");
       });
       $('.overlay').click( function() {
-        $('.overlay').addClass('hide');
-        $('.modal-man').addClass('hide');
-      });
-      $('.recommend').click(function() {
-        $('.overlay').removeClass('hide');
-        $('.modal-man').removeClass('hide');
+        $('.overlay').toggleClass('hide');
+        $('.item-modal').addClass('hide');
+        $('.recommendation-modal').addClass('hide')
       })
     });
 

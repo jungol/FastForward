@@ -28,7 +28,7 @@ body {
 	background-color: rgba(0,0,0,0.5);
 }
 
-.modal-man {
+.item-modal {
 	width: 500px;
     height: 100%;
     // line-height: 200px;
@@ -46,6 +46,36 @@ body {
     padding-right: 10px;
     border-left: 1px solid LightGray;
 }
+
+.recommendation-modal {
+	width: 445px;
+    // height: 30%;
+    // line-height: 200px;
+    position: fixed;
+    top: 25%; 
+    left: 40%;
+    // right: 100%;
+    // margin-top: -100px;
+    // margin-left: -150px;
+    background-color: white;
+    // border-radius: 5px;
+    // text-align: center;
+    z-index: 11;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    border-left: 1px solid LightGray;
+    form {
+    	input, textarea {
+    		width: 400px;
+    	}
+    	textarea {
+    		height: 100px;
+    	}
+    }
+}
+
+
 
 .panel-main {
 	img {
@@ -78,7 +108,7 @@ body {
 	a {
 		color: white;
 	}
-	margin-top: 10px;
+	// margin-top: 10px;
 	// text-align: right;
 }
 
@@ -346,6 +376,10 @@ li {
 
 .papers-body, .overview-body {
 	background: white;
+}
+
+.papers-heading .btn {
+	margin-left: 10px;
 }
 
 .overview-body {

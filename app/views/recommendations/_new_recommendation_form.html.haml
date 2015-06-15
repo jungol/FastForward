@@ -1,0 +1,16 @@
+.row
+  .col-xs-12
+    %h3 Recommend a paper you love
+    .gray Published and working papers are both welcome. We'll review your recommendation and be in touch. 
+    %br
+
+  .col-xs-12
+    = form_tag( {controller: "recommendations", action: "create"}, method: "post", remote:true) do
+      %ul
+        %li=label_tag "How can we reach you?"
+        %li=text_field_tag( :email, params[:email], placeholder: "Email", autofocus: true)
+        %br
+        %li=label_tag 'What paper(s) would you recommend?'
+        %li=text_area_tag(:recommendation, params[:recommendation], placeholder: "E.g. Author, Date, Title, Journal — or whatever you can remember!")
+
+      .submit-recommendation= submit_tag "Recommend", class: "btn btn-large btn-primary"
