@@ -1,11 +1,11 @@
 - provide(:title, "About")
 
 
-.row.section
+.row.people
   - User.all.each do |curator|
     - if curator.lists.count > 0
       = link_to curator.link do
-        .col-xs-3
+        .col-md-3
           .div.panel
             .div.panel-main
               .row
