@@ -39,13 +39,22 @@
         %li= link_to "New Collection", new_collection_path
       - if signed_in?
         %li= link_to "Sign out", destroy_user_session_path, method: "delete"
-      %li= link_to "Home", root_url, id: ("highlight_root_collection" if request.original_url == root_url)
+      %li
+        = link_to root_url, id: ("highlight_root_collection" if request.original_url == root_url) do
+          %i.fa.fa-home
+          HOME
       - if @collection
         - Collection.roots.each do |collection|
-          %li= link_to collection.name, collection, id: ("highlight_root_collection" if @collection.root == collection)
+          %li
+            = link_to collection, id: ("highlight_root_collection" if @collection.root == collection) do
+              %i.fa.fa-folder
+              = collection.name
       -else
         - Collection.roots.each do |collection|
-          %li= link_to collection.name, collection
+          %li
+            = link_to collection do
+              %i.fa.fa-folder
+              = collection.name
 
 .container-fluid.sub-nav
   .row.child-collections
