@@ -52,7 +52,8 @@
     %ul
       -if @collection && !@collection.new_record?
       
-        %li.child= link_to "All", @collection.root, class: ("highlight" if @collection == @collection.root)
+        %li.child
+          = link_to "All", @collection.root, class: ("highlight" if @collection == @collection.root)
         -@collection.root.children.each do |child|
           %li.child= link_to child.name, child, class: ("highlight" if @collection == child)
       -else
