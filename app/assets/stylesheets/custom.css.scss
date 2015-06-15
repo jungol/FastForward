@@ -843,6 +843,15 @@ li {
 	// margin-top: 25px;
 }
 
+.collection-instructions {
+	background: #d9edf7;
+	color: #31708f;
+	border: 1px solid #bce8f1;
+	border-radius: 4px;
+	margin-bottom: 15px;
+	padding-left: 10px;
+}
+
 // .abstract {
 // 	font-size: .9em;
 // }
@@ -1091,6 +1100,9 @@ li {
 	list-style-type: none;
 	margin-bottom: 15px;
 	color: #333;
+	h5 {
+		font-size: 1.2em;
+	}
 }
 
 // input[type=checkbox]

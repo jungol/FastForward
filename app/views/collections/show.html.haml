@@ -27,8 +27,10 @@
 .row
   .col-xs-12.list-feed
     %ul
-      %li
-        %h3 Click on a research question below to learn about it
+      %li.collection-instructions
+        %h4
+          %i.fa.fa-info-circle
+          Click on a research question below to learn about it
       =render @collection.lists
       - @collection.children.each do |child|
         =render child.lists

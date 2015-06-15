@@ -2,7 +2,7 @@
   %li.feed-item
     .row
       .col-xs-8.basic-info
-        %h4= list.title
+        %h5= list.title
       /   %span.timestamp.gray= "Last updated #{time_ago_in_words(list.updated_at)} ago;"
       /   %span.item-count.gray=pluralize(list.items.count, 'paper')
       /   - list.tags.each do |tag|
