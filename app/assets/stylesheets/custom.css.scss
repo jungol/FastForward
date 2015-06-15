@@ -865,6 +865,9 @@ li {
 .list-show {
 	margin-left: 20px;
 	// position: relative;
+	.row.section {
+		margin-bottom: 20px;
+	}
 }
 
 #hits {

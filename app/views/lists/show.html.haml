@@ -9,7 +9,7 @@
       - if current_user.try(:admin?)
         = button_to "Edit", edit_list_path(@list), method: "get"
     
-  .row
+  .row.section
     - if @list.sources 
       .col-xs-12.source
         %ul
@@ -18,7 +18,7 @@
             This entry is based on
             =raw @list.sources
 
-  .row
+  .row.section
     .col-xs-12
       .overview
         .overview-heading
@@ -28,7 +28,7 @@
         .overview-body
           = raw @list.description
 
-  .row
+  .row.section
     .col-xs-12
       .papers
         .papers-heading
@@ -61,7 +61,7 @@
 
   
 
-  .row
+  .row.section
     - @list.users.each do |curator|
       = link_to curator.link do
         .col-xs-3
