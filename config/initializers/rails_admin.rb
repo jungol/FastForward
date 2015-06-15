@@ -47,6 +47,7 @@ RailsAdmin.config do |config|
     field :author
     field :journal
     field :lists
+    field :syllabus
   end
     ## With an audit adapter, you can add:
     # history_index

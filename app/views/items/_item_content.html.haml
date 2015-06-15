@@ -11,6 +11,11 @@
   /     =link_to @item.url do
   /       Read Now
 
+  - if @item.syllabus
+    .col-xs-12
+      .syllabus#syllabus-explanation
+        This paper is on a graduate course syllabus at Harvard or MIT
+
   .col-xs-12
     .item-lists
       - if @item.lists.count > 1

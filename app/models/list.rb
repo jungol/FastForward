@@ -12,6 +12,7 @@
 #  curator_url   :string
 #  view_count    :integer
 #  published     :boolean
+#  sources       :string
 #
 
 class List < ActiveRecord::Base

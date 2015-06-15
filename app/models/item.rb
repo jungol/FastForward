@@ -14,6 +14,7 @@
 #  author        :string
 #  journal       :string
 #  abstract      :text
+#  syllabus      :boolean          default("f")
 #
 
 class Item < ActiveRecord::Base
