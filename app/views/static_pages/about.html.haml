@@ -1,140 +1,165 @@
 - provide(:title, "About")
 
-%div{:class => 'row banner', :style => %(background-image:url(/assets/library-d5ccedffb00736fb55440d57db17ea46.jpg))}
-  .banner-info
-    .container
-      .name
-        %span Here's how this works
 
-.row
-  .col-xs-6
-    .about.pull-center
-      %h3.pull-center What Is Development Economics GPS?
-      Development Economics GPS is the PhD's handbook to research. Here's how it works:
+.row.section
+  - User.all.each do |curator|
+    - if curator.lists.count > 0
+      = link_to curator.link do
+        .col-xs-3
+          .div.panel
+            .div.panel-main
+              .row
+                .col-xs-3
+                  = image_tag("#{curator.first_name}_#{curator.last_name}.jpg")
+                .col-xs-9
+                  %ul
+                    %li 
+                      %h4= "#{curator.first_name} #{curator.last_name}"
+                    %li
+                      = curator.school
+                    %li= curator.position 
+            .div.panel-sub
+              .row
+                .col-xs-12
+                  - if curator.lists.count > 1
+                    = "Helped write #{pluralize (curator.lists.count - 1), 'entry'}"
 
-      %ol
-        %li Find a research question you're interested in
-        %li 
-          Instantly see the 
-          %b top papers 
-          in the literature
-        %li 
-          Read a crowdsourced synopsis of the 
-          %b latest developments 
-          and 
-          %b open questions 
-          for future research 
+
+/ %div{:class => 'row banner', :style => %(background-image:url(/assets/library-d5ccedffb00736fb55440d57db17ea46.jpg))}
+/ .banner-info
+/   .container
+/     .name
+/       %span Here's how this works
+
+/ .row
+/   .col-xs-6
+/     .about.pull-center
+/       %h3.pull-center What Is Development Economics GPS?
+/       Development Economics GPS is the PhD's handbook to research. Here's how it works:
+
+/       %ol
+/         %li Find a research question you're interested in
+/         %li 
+/           Instantly see the 
+/           %b top papers 
+/           in the literature
+/         %li 
+/           Read a crowdsourced synopsis of the 
+/           %b latest developments 
+/           and 
+/           %b open questions 
+/           for future research 
      
-      With DevEc GPS, you don’t have to spend hours scouring Google Scholar results or citation-hopping through the literature. You don’t have to worry about missing important papers or duplicating research that’s already been done. You can spend your time making a novel contribution to the field. DevEc GPS is fast, comprehensive, and up to date.
+/       With DevEc GPS, you don’t have to spend hours scouring Google Scholar results or citation-hopping through the literature. You don’t have to worry about missing important papers or duplicating research that’s already been done. You can spend your time making a novel contribution to the field. DevEc GPS is fast, comprehensive, and up to date.
 
-      %h3 Who curates the research questions?
-      Questions are crowdsourced (“scholar-sourced”, if you will) from a community of researchers. Most curators are PhD students studying development economics, but there are also a couple of professors contributing. If you’d like to help curate, email 
-      =mail_to "info@devecgps.com"
+/       %h3 Who curates the research questions?
+/       Questions are crowdsourced (“scholar-sourced”, if you will) from a community of researchers. Most curators are PhD students studying development economics, but there are also a couple of professors contributing. If you’d like to help curate, email 
+/       =mail_to "info@devecgps.com"
 
-      %h3 Can I trust the information?
-      All of the papers come recommended by curators. It’s just like a colleague recommending a paper, except via the Interwebs. So it mostly depends on how much you trust your colleagues! (If you don't trust your colleagues,
-      =link_to "your country may be to blame", '/lists/154'
-      ). Many of the papers are working papers because that’s where the cutting-edge discussions are taking place. The information will also get better over time as more researchers help scrutinize the entries. 
+/       %h3 Can I trust the information?
+/       All of the papers come recommended by curators. It’s just like a colleague recommending a paper, except via the Interwebs. So it mostly depends on how much you trust your colleagues! (If you don't trust your colleagues,
+/       =link_to "your country may be to blame", '/lists/154'
+/       ). Many of the papers are working papers because that’s where the cutting-edge discussions are taking place. The information will also get better over time as more researchers help scrutinize the entries. 
 
-      %h3 Where can I send feedback?
-      Feedback / ideas / critiques are more than welcome. Just email
-      =mail_to "info@devecgps.com" 
-
-
-  .col-xs-6
-    %ul.people
-      %h3 Curators
-
-      =link_to "https://www.linkedin.com/pub/juan-pablo-chauvin/3/434/704" do
-        %li 
-          / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
-
-          %div= image_tag("juan_pablo_chauvin.jpg")
-          / # %span.profile-img= image_tag("Siddharth_George.jpg")
-          %div.name= "Juan Pablo Chauvin "
-          %span.position= "PhD, Economics (Harvard University)"
-
-      =link_to "http://www.iq.harvard.edu/people/siddharth-eapen-george" do
-        %li 
-          / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
-
-          %div= image_tag("Siddharth_George.jpg")
-          / # %span.profile-img= image_tag("Siddharth_George.jpg")
-          %div.name= "Siddharth George"
-          %span.position= "PhD, Economics (Harvard University)"
-
-      =link_to "https://www.linkedin.com/in/gauravchiplunkar" do
-        %li 
-          / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
-
-          %div= image_tag("Gaurav_Chiplunkar2.jpg")
-          / # %span.profile-img= image_tag("Siddharth_George.jpg")
-          %div.name= "Gaurav Chiplunkar"
-          %span.position= "PhD, Economics (Yale University)"
-
-      =link_to "http://scholar.harvard.edu/abel/home" do
-        %li 
-          / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
-
-          %div= image_tag("Martin_Abel.jpg")
-          / # %span.profile-img= image_tag("Siddharth_George.jpg")
-          %div.name= "Martin Abel"
-          %span.position= "PhD, Economics (Harvard University)"
+/       %h3 Where can I send feedback?
+/       Feedback / ideas / critiques are more than welcome. Just email
+/       =mail_to "info@devecgps.com" 
 
 
-      =link_to "http://www.iq.harvard.edu/people/tomoko-harigaya" do
-        %li 
-          / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
+/   .col-xs-6
+/     %ul.people
+/       %h3 Curators
 
-          %div= image_tag("Tomoko_Harigaya.jpg")
-          / # %span.profile-img= image_tag("Siddharth_George.jpg")
-          %div.name= "Tomoko Harigaya"
-          %span.position= "PhD, Economics (Harvard University)"
+/       =link_to "https://www.linkedin.com/pub/juan-pablo-chauvin/3/434/704" do
+/         %li 
+/           / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
 
-      =link_to "https://www.linkedin.com/in/nhagerty" do
-        %li 
-          / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
+/           %div= image_tag("juan_pablo_chauvin.jpg")
+/           / # %span.profile-img= image_tag("Siddharth_George.jpg")
+/           %div.name= "Juan Pablo Chauvin "
+/           %span.position= "PhD, Economics (Harvard University)"
 
-          %div= image_tag("Nick_Hagerty.jpg")
-          / # %span.profile-img= image_tag("Siddharth_George.jpg")
-          %div.name= "Nick Hagerty"
-          %span.position= "PhD, Economics (MIT)"
+/       =link_to "http://www.iq.harvard.edu/people/siddharth-eapen-george" do
+/         %li 
+/           / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
 
-      =link_to "http://scholar.harvard.edu/emontero/home" do
-        %li 
-          / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
+/           %div= image_tag("Siddharth_George.jpg")
+/           / # %span.profile-img= image_tag("Siddharth_George.jpg")
+/           %div.name= "Siddharth George"
+/           %span.position= "PhD, Economics (Harvard University)"
 
-          %div= image_tag("Eduardo_Montero.jpg")
-          / # %span.profile-img= image_tag("Siddharth_George.jpg")
-          %div.name= "Eduardo Montero"
-          %span.position= "PhD, Economics (Harvard University)"
+/       =link_to "https://www.linkedin.com/in/gauravchiplunkar" do
+/         %li 
+/           / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
 
-      =link_to "http://economics.mit.edu/graduate/gea/directory" do
-        %li 
-          / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
+/           %div= image_tag("Gaurav_Chiplunkar2.jpg")
+/           / # %span.profile-img= image_tag("Siddharth_George.jpg")
+/           %div.name= "Gaurav Chiplunkar"
+/           %span.position= "PhD, Economics (Yale University)"
 
-          %div= image_tag("Ben_Roth.jpg")
-          / # %span.profile-img= image_tag("Siddharth_George.jpg")
-          %div.name= "Ben Roth"
-          %span.position= "PhD, Economics (MIT)"
+/       =link_to "http://scholar.harvard.edu/abel/home" do
+/         %li 
+/           / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
 
-      =link_to "http://scholar.harvard.edu/nbau/home" do
-        %li 
-          / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
+/           %div= image_tag("Martin_Abel.jpg")
+/           / # %span.profile-img= image_tag("Siddharth_George.jpg")
+/           %div.name= "Martin Abel"
+/           %span.position= "PhD, Economics (Harvard University)"
 
-          %div= image_tag("Natalie_Bau.jpg")
-          / # %span.profile-img= image_tag("Siddharth_George.jpg")
-          %div.name= "Natalie Bau"
-          %span.position= "PhD, Economics (Harvard University)"
 
-      =link_to "http://economics.mit.edu/graduate/gea/directory" do
-        %li 
-          / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
+/       =link_to "http://www.iq.harvard.edu/people/tomoko-harigaya" do
+/         %li 
+/           / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
 
-          %div= image_tag("Donghee_Jo.jpg")
-          / # %span.profile-img= image_tag("Siddharth_George.jpg")
-          %div.name= "Donghee Jo"
-          %span.position= "PhD, Economics (MIT)"
+/           %div= image_tag("Tomoko_Harigaya.jpg")
+/           / # %span.profile-img= image_tag("Siddharth_George.jpg")
+/           %div.name= "Tomoko Harigaya"
+/           %span.position= "PhD, Economics (Harvard University)"
+
+/       =link_to "https://www.linkedin.com/in/nhagerty" do
+/         %li 
+/           / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
+
+/           %div= image_tag("Nick_Hagerty.jpg")
+/           / # %span.profile-img= image_tag("Siddharth_George.jpg")
+/           %div.name= "Nick Hagerty"
+/           %span.position= "PhD, Economics (MIT)"
+
+/       =link_to "http://scholar.harvard.edu/emontero/home" do
+/         %li 
+/           / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
+
+/           %div= image_tag("Eduardo_Montero.jpg")
+/           / # %span.profile-img= image_tag("Siddharth_George.jpg")
+/           %div.name= "Eduardo Montero"
+/           %span.position= "PhD, Economics (Harvard University)"
+
+/       =link_to "http://economics.mit.edu/graduate/gea/directory" do
+/         %li 
+/           / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
+
+/           %div= image_tag("Ben_Roth.jpg")
+/           / # %span.profile-img= image_tag("Siddharth_George.jpg")
+/           %div.name= "Ben Roth"
+/           %span.position= "PhD, Economics (MIT)"
+
+/       =link_to "http://scholar.harvard.edu/nbau/home" do
+/         %li 
+/           / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
+
+/           %div= image_tag("Natalie_Bau.jpg")
+/           / # %span.profile-img= image_tag("Siddharth_George.jpg")
+/           %div.name= "Natalie Bau"
+/           %span.position= "PhD, Economics (Harvard University)"
+
+/       =link_to "http://economics.mit.edu/graduate/gea/directory" do
+/         %li 
+/           / %div{:class => 'bg-img profile-bg-img', :style => %(background-image:url(/assets/Siddharth_George.jpg))}
+
+/           %div= image_tag("Donghee_Jo.jpg")
+/           / # %span.profile-img= image_tag("Siddharth_George.jpg")
+/           %div.name= "Donghee Jo"
+/           %span.position= "PhD, Economics (MIT)"
 
 
 

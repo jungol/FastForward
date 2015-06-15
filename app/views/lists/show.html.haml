@@ -75,14 +75,7 @@
                     %li 
                       %h4= "#{curator.first_name} #{curator.last_name}"
                     %li
-                      - if curator.school == "Harvard University"
-                        = "Harvardian"
-                      - elsif curator.school == "Yale University" 
-                        = "Yalie"
-                      - elsif curator.school == "MIT"
-                        = "MIT'er"
-                      - else
-                        = curator.school
+                      = curator.school
                     %li= curator.position 
             .div.panel-sub
               .row

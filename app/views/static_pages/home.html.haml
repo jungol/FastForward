@@ -20,25 +20,23 @@
 /           %li= f.submit "Get updates!", class: "btn btn-large btn-primary", id: "submit"
 
 .row.homepage-copy
+
   .col-xs-12
-    %ul
-      %li 
-        / %h3 Development Economics GPS
-        %h2 A Crowdsourced Handbook for Development Economics
+    %h2 A Crowdsourced Handbook for Development Economics
 
 
-  .col-xs-4
+  .col-md-4
     %h3
       %i.fa.fa-compass 
       The frontier research
     The research frontier, now accessible to you in one click. Use the “search-as-you-type” search bar or navigate the directory below. 
 
-  .col-xs-4
+  .col-md-4
     %h3 
       %i.fa.fa-map-marker 
       All in one place
     It’s a growing repository built to cover all subfields in development economics. New questions and topics are added every day.
-  .col-xs-4
+  .col-md-4
     %h3 
       %i.fa.fa-university
       From sources you trust
@@ -54,19 +52,19 @@
   /       var $inputfield = $('#q');
   /       var $hits = $('#hits');
   / .instructions
-  /   .row.research-collection
-  /     .col-xs-12
-  /       %h3.gray Research Collections (8)
-  /   .collection-div
-  /     %ul.collections.pull-center
-  /       - @collections.each do |collection|
-  /         %li
-  /           %div{:class => 'bg-img', :style => %(background-image:url(/assets/#{collection.image_url}))}
+  / .row.research-collection
+  /   .col-xs-12
+  /     %h3.gray Research Collections (8)
+  / .collection-div
+  /   %ul.collections.pull-center
+  /     - @collections.each do |collection|
+  /       %li
+  /         %div{:class => 'bg-img', :style => %(background-image:url(/assets/#{collection.image_url}))}
 
-  /           / style: "background-image: url(_#{image_path image_url}_)"}
-  /           =link_to collection_path(collection), class: "collection" do
-  /             %span= collection.name
-  /             %span.question-count= "#{pluralize(collection.lists.count, 'research question')}"
+  /         / style: "background-image: url(_#{image_path image_url}_)"}
+  /         =link_to collection_path(collection), class: "collection" do
+  /           %span= collection.name
+  /           %span.question-count= "#{pluralize(collection.lists.count, 'research question')}"
 
 :javascript
   document.ready(function(){
