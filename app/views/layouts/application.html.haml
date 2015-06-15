@@ -25,7 +25,13 @@
       / - flash.each do |key, value|
       /   = content_tag(:div, value.to_s, class: "alert alert-#{key}")
       #page-wrapper
-        .container-fluid
+        .container-fluid#pagecontent
+          .search
+            #display
+              #hits
+              :javascript
+                var $inputfield = $('#q');
+                var $hits = $('#hits');
           = yield
     
     %footer.footer
@@ -37,3 +43,5 @@
   /   .container-fluid
   /     .pull-right
   /       Research GPS 2015
+:javascript
+  var $pagecontent = $('#page-wrapper').html();

@@ -10,12 +10,11 @@
 
   %ul.nav.navbar-right.top-nav
     %li.search
-      %input{autocomplete: "off", id: "q", placeholder: "Search your research interest (e.g. school vouchers)", type: "text", spellcheck: "false"}
+      %input.search-bar{autocomplete: "off", id: "q", placeholder: "Search your research interest (e.g. school vouchers)", type: "text", spellcheck: "false"}
     %li.dropdown
       %a.dropdown-toggle(href="#" data-toggle="dropdown")
-        %i.fa.fa-user
-        / John Smith
-        / %b.caret
+      / John Smith
+      / %b.caret
       / %ul.dropdown-menu
       /   %li
       /     %a{href:"#"}

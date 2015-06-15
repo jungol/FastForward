@@ -18,7 +18,7 @@ function searchCallback(err, content) {
   }
 
   if ($inputfield.val() == "") {
-    $('#display').html($instructions)
+    $('#page-wrapper').html($pagecontent)
     return
 
   }
@@ -33,7 +33,7 @@ function searchCallback(err, content) {
     $hits.empty();
     var $inputfieldArray = $inputfield.val().split(" ");
     var searchInput = "https://scholar.google.com/scholar?hl=en&q=" + $inputfieldArray.join("+") + "&btnG=&as_sdt=1%2C22&as_sdtp=";
-    $('#display').html('<div class="noresults"> \
+    $('#page-wrapper').html('<div class="noresults"> \
       <span>Sorry! We couldn\'t find any research questions for you.</br> \
       Want to try <a href="' + searchInput + '">searching for <i>' + $inputfield.val() + '</i> on Google Scholar?</a> \
       </span> \
@@ -68,5 +68,16 @@ function searchCallback(err, content) {
   html += '</ul></div></div>';
 
   $hits.html(html);
-  $('#display').html($hits)
+  $('#page-wrapper').html($hits)
+
+
+
+
+
+
+
+
+
+
+
 }

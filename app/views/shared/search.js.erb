@@ -1,52 +1,52 @@
-$(document).ready(function() {
-  alert("read")
-  var client = algoliasearch("0949R8OD7S", "b954bfc9213c62c07a0b12019213ec4a");
-  var index = client.initIndex("List_<%= Rails.env %>");
+// $(document).ready(function() {
+//   alert("read")
+//   var client = algoliasearch("0949R8OD7S", "b954bfc9213c62c07a0b12019213ec4a");
+//   var index = client.initIndex("List_<%= Rails.env %>");
 
 
-  $inputfield.keyup(function() {
-    index.search($inputfield.val(), searchCallback);
-  }).focus();
-});
+//   $inputfield.keyup(function() {
+//     index.search($inputfield.val(), searchCallback);
+//   }).focus();
+// });
 
-function searchCallback(err, content) {
-  if (err) {
-    console.error(err);
-    return;
-  }
+// function searchCallback(err, content) {
+//   if (err) {
+//     console.error(err);
+//     return;
+//   }
 
-  if ($inputfield.val() == "") {
-    $('#display').html($collections)
-    return
+//   if ($inputfield.val() == "") {
+//     $('#display').html($collections)
+//     return
 
-  }
+//   }
 
-  if (content.query !== $inputfield.val()) {
-    // do not take out-dated answers into account
-    return;
-  }
+//   if (content.query !== $inputfield.val()) {
+//     // do not take out-dated answers into account
+//     return;
+//   }
 
-  if (content.hits.length === 0) {
-    // no results
-    $hits.empty();
-    $hits.html("Sorry! We couldn't find any research questions for you.")
-    return;
-  }
+//   if (content.hits.length === 0) {
+//     // no results
+//     $hits.empty();
+//     $hits.html("Sorry! We couldn't find any research questions for you.")
+//     return;
+//   }
 
-  // Scan all hits and display them
-  var html = '';
-  for (var i = 0; i < content.hits.length; ++i) {
-    var hit = content.hits[i];
-    console.log(hit)
-    // console.log(hit)
-    // For example, display all properties that have at least
-    // one highlighted word (matchLevel = full or partial)
-    html += '<div class="row feed"><div class="col-xs-12"><ul>'
-    console.log(hit._highlightResult["title"]["value"]);
-    html += '<a href="/lists/' + hit.objectID + '"><li class="feed-item"><div class="row"><div class="col-xs-8 basic-info"><h5>' + hit._highlightResult["title"]["value"] + '</h5></div></div></li></a>'
-    html += '</ul></div></div>';
-  }
+//   // Scan all hits and display them
+//   var html = '';
+//   for (var i = 0; i < content.hits.length; ++i) {
+//     var hit = content.hits[i];
+//     console.log(hit)
+//     // console.log(hit)
+//     // For example, display all properties that have at least
+//     // one highlighted word (matchLevel = full or partial)
+//     html += '<div class="row feed"><div class="col-xs-12"><ul>'
+//     console.log(hit._highlightResult["title"]["value"]);
+//     html += '<a href="/lists/' + hit.objectID + '"><li class="feed-item"><div class="row"><div class="col-xs-8 basic-info"><h5>' + hit._highlightResult["title"]["value"] + '</h5></div></div></li></a>'
+//     html += '</ul></div></div>';
+//   }
 
-  $hits.html(html);
-  $('#display').html($hits)
-}
+//   $hits.html(html);
+//   $('#display').html($hits)
+// }

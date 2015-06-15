@@ -41,32 +41,33 @@
   / .search
   /   %input{autofocus: "true", autocomplete: "off", class: "instantsearch", id: "q", placeholder: "Search your research interest (e.g. school vouchers)", type: "text", spellcheck: "false"}
 
-  .search
-    #display
-      #hits
-      :javascript
-        var $inputfield = $('#q');
-        var $hits = $('#hits');
-      / .instructions
-      /   .row.research-collection
-      /     .col-xs-12
-      /       %h3.gray Research Collections (8)
-      /   .collection-div
-      /     %ul.collections.pull-center
-      /       - @collections.each do |collection|
-      /         %li
-      /           %div{:class => 'bg-img', :style => %(background-image:url(/assets/#{collection.image_url}))}
+  / .search
+  /   #display
+  /     #hits
+  /     :javascript
+  /       var $inputfield = $('#q');
+  /       var $hits = $('#hits');
+  / .instructions
+  /   .row.research-collection
+  /     .col-xs-12
+  /       %h3.gray Research Collections (8)
+  /   .collection-div
+  /     %ul.collections.pull-center
+  /       - @collections.each do |collection|
+  /         %li
+  /           %div{:class => 'bg-img', :style => %(background-image:url(/assets/#{collection.image_url}))}
 
-      /           / style: "background-image: url(_#{image_path image_url}_)"}
-      /           =link_to collection_path(collection), class: "collection" do
-      /             %span= collection.name
-      /             %span.question-count= "#{pluralize(collection.lists.count, 'research question')}"
+  /           / style: "background-image: url(_#{image_path image_url}_)"}
+  /           =link_to collection_path(collection), class: "collection" do
+  /             %span= collection.name
+  /             %span.question-count= "#{pluralize(collection.lists.count, 'research question')}"
 
 :javascript
-  var $instructions = $('.instructions')
-
-  $(document).ready( function() {
+  document.ready(function(){
     $('.collection').click( function() {
       mixpanel.track("Visited a collection");
     });
   });
+
+
+
