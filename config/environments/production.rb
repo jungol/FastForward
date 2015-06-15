@@ -73,7 +73,7 @@ Sylaby::Application.configure do
  :port                 => 587,
  :domain               => 'gmail.com',
  :user_name            => 'ethanbarhydt@gmail.com',
- :password             => 'Sufjan1991',
+ :password             => 'iizflucgwbleftmd',
  :authentication       => "login",
 :enable_starttls_auto => true
 }
