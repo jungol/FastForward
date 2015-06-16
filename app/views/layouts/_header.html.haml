@@ -1,12 +1,9 @@
 
 %nav.navbar.navbar-inverse.navbar-fixed-top{role:"navigation"}
   .navbar-header
-    %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse")
-      %span.sr-only Toggle navigation
-      %span.icon-bar
-      %span.icon-bar
-      %span.icon-bar
-    =link_to "Development Economics GPS", root_url, class:"navbar-brand", id:"logo"
+    =link_to root_url, class:"navbar-brand", id:"logo" do
+      %i.fa.fa-globe
+      Development Economics GPS
 
   %ul.nav.navbar-right.top-nav
     %li.search
@@ -60,14 +57,15 @@
   .row.child-collections
     %ul
       -if @collection && !@collection.new_record?
-      
+
         %li.child
           = link_to "All", @collection.root, class: ("highlight" if @collection == @collection.root)
         -@collection.root.children.each do |child|
           %li.child= link_to child.name, child, class: ("highlight" if @collection == child)
       -else
         %li.child= link_to "Home", root_url, class: ("highlight" if request.original_url == root_url)
-        %li.child= link_to "People", static_pages_about_url, class: ("highlight" if request.original_url == static_pages_about_url)
+        %li.child= link_to "About", static_pages_about_url, class: ("highlight" if request.original_url == static_pages_about_url)
+        %li.child= link_to "People", static_pages_people_url, class: ("highlight" if request.original_url == static_pages_people_url)
 / %nav.navbar.gps-nav.navbar-default.navbar-fixed-top
 /   .container-fluid
 /     .navbar-header

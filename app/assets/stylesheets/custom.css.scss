@@ -16,6 +16,7 @@ body {
     margin-top: 100px;
     background-color: white;
     position: relative;
+    min-height: 500px;
 }
 
 em {
@@ -40,6 +41,10 @@ em {
 	height: 100%;
 	z-index: 15;
 	background-color: rgba(0,0,0,0.5);
+}
+
+.about {
+	margin-left: 20px;
 }
 
 .item-modal {
@@ -178,9 +183,14 @@ li {
 
 /* Top Navigation */
 
+.fa-globe {
+	font-size: 1.3em;
+}
+
 #logo {
 	// color: #ffc31c;
 	color: white;
+	font-family: "Tahoma";
 }
 
 .search {
@@ -334,8 +344,12 @@ li {
 	background: white;
 	border-bottom: 1px solid lightgray;
 	margin-left: 35px;
-
+	// height: 100px;
+	// width: 70%;
+	// padding-left: 8%;
+	// display: inline-block;
 }
+
 
 .list-feed {
 	padding-left: 40px;
@@ -1197,8 +1211,6 @@ li {
 //      border-right: 1px solid black;
 //      background: #e7e7e7;
 //  }
-
-
 
 
 

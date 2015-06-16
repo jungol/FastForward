@@ -22,7 +22,7 @@
         %ul
           %h5.item-lists-header= "This paper addresses #{@item.lists.count} research questions"
           - @item.lists.each do |list|
-            %li= link_to list.title, list, class: ("strong" if list == @list)
+            %li= link_to list.title, list
 
   .col-xs-12
     .abstract
