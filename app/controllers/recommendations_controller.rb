@@ -1,6 +1,6 @@
 class RecommendationsController < ApplicationController
   def new
-    @list = List.find_by(params[:list])
+    @list = List.find_by(id: params[:list])
     respond_to do |format|
       format.html
       format.js {@list}
