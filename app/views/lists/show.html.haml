@@ -35,7 +35,7 @@
           %h4.papers-title
             %i.fa.fa-newspaper-o
             Recommended Papers
-            .btn-primary.btn.btn-primary-text= link_to "Recommend a Paper", new_recommendation_path, remote: true
+            .btn-primary.btn.btn-primary-text= link_to "Recommend a Paper",new_recommendation_path(list: @list), remote:true
 
         .papers-body
           .table-responsive

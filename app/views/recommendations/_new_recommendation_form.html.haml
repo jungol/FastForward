@@ -12,5 +12,6 @@
         %br
         %li=label_tag 'What paper(s) would you recommend?'
         %li=text_area_tag(:recommendation, params[:recommendation], placeholder: "E.g. Author, Date, Title, Journal — or whatever you can remember!")
+        = hidden_field_tag :list, @list.title
 
       .submit-recommendation= submit_tag "Recommend", class: "btn btn-large btn-primary"
