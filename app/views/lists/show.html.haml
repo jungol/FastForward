@@ -91,9 +91,9 @@
 
 :javascript
     $(document).ready( function() {
-      $('.user-link').click( function() {
-        mixpanel.track("Clicked a curator");
-      });
+      / $('.user-link').click( function() {
+      /   mixpanel.track("Clicked a curator");
+      / });
       $('.overlay').click( function() {
         $('.overlay').toggleClass('hide');
         $('.item-modal').addClass('hide');
