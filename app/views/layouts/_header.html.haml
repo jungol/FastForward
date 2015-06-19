@@ -8,6 +8,11 @@
   %ul.nav.navbar-right.top-nav
     %li.search
       %input.search-bar{autocomplete: "off", id: "q", placeholder: "Search your research interest (e.g. school vouchers)", type: "text", spellcheck: "false"}
+    - if current_user.try(:admin?)
+      %li.btn.btn-default.btn-primary= link_to "Sign out", destroy_user_session_path, method: 'delete'
+
+
+
     %li.dropdown
       %a.dropdown-toggle(href="#" data-toggle="dropdown")
       / John Smith
@@ -89,7 +94,7 @@
 /         - if current_user.try(:admin?)
 /           %li= button_to "Create list", new_list_path, method: 'get'
 /         / - if signed_in?
-/         /   %li.auth-button= link_to "Sign out", destroy_user_session_path, method: 'delete'
+/ %li.auth-button= link_to "Sign out", destroy_user_session_path, method: 'delete'
 /         / - else
 /         /   %li.auth-button= link_to "Sign In", new_user_session_path
 
