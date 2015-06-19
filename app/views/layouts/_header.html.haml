@@ -38,6 +38,7 @@
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.nav.navbar-nav.side-nav
       - if current_user.try(:admin?)
+        %li= link_to "New List", new_list_path
         %li= link_to "New Collection", new_collection_path
       - if signed_in?
         %li= link_to "Sign out", destroy_user_session_path, method: "delete"
