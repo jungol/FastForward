@@ -46,12 +46,17 @@
             = link_to collection, id: ("highlight_root_collection" if @collection.root == collection) do
               %i.fa.fa-folder
               = collection.name
+        %li 
+          %a More categories coming soon...
       -else
         - Collection.roots.each do |collection|
           %li
             = link_to collection do
               %i.fa.fa-folder
               = collection.name
+          %li
+            %a More categories coming soon...
+
 
 .container-fluid.sub-nav
   .row.child-collections
