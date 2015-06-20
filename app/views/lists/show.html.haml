@@ -43,6 +43,9 @@
               %tr
                 %td
                   %b Date
+                - if current_user.try(:admin?)
+                  %td
+                    %b ID
                 %td
                   %b Title
                 %td 
@@ -52,6 +55,8 @@
               - @list.items.each do |item|
                 %tr.clickable-row{ "data-href" =>('/items/' + item.id.to_s) }
                   %td= item.year
+                  - if current_user.try(:admin?)
+                    %td= item.id
                   %td
                     = link_to item.title, item, "data-remote" => "true"
                     - if item.syllabus
