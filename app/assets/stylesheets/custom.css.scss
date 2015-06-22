@@ -327,10 +327,10 @@ li {
 	// border-bottom: 1px solid LightGray;
 	// font-size: 1.2em;
 	padding-top: 10px;
-	padding-bottom: 10px;
 	li {
 		// line-height: 100px;
 		// margin-top: 10px;
+		margin-bottom: 10px;
 	}
 	// margin-right: 120px;
     // background: #b92b27;
@@ -358,6 +358,7 @@ li {
 
 .list-feed {
 	padding-left: 40px;
+	margin-top: 10px;
 }
 
 .child {
