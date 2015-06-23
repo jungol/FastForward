@@ -48,7 +48,7 @@
           HOME
       - if @collection
         - Collection.roots.each do |collection|
-          %li
+          %li.collection
             = link_to collection, id: ("highlight_root_collection" if @collection.root == collection) do
               %i.fa.fa-folder
               = collection.name
@@ -56,7 +56,7 @@
           %a More categories coming soon...
       -else
         - Collection.roots.each do |collection|
-          %li
+          %li.collection
             = link_to collection do
               %i.fa.fa-folder
               = collection.name
@@ -105,6 +105,14 @@
 /         mixpanel.track("Visited about page", {"age": 10});
 /       });
 /     });
+
+:javascript
+  / document.ready(function(){
+  /   $('.collection').click( function() {
+  /     mixpanel.track("Visited a collection");
+  /   });
+  / });
+
 
 
 

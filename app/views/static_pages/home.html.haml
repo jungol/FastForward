@@ -66,12 +66,6 @@
   /           %span= collection.name
   /           %span.question-count= "#{pluralize(collection.lists.count, 'research question')}"
 
-:javascript
-  document.ready(function(){
-    $('.collection').click( function() {
-      mixpanel.track("Visited a collection");
-    });
-  });
 
 
 
