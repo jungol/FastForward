@@ -61,7 +61,9 @@
                     = link_to item.title, item, "data-remote" => "true"
                     - if item.syllabus
                       %br
-                      %span.syllabus= "ON A SYLLABUS"
+                      %span.flag.flag-syllabus= "ON A SYLLABUS"
+                    - if item.user_items.where(recommend: true).count > 0
+                      %span.flag.flag-recommend= "RECOMMENDED"
                   %td= item.author
                   %td= item.journal
 

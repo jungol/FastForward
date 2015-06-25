@@ -1165,7 +1165,7 @@ li {
 // 			padding-left: 5px;
 // 		}
 // 	}
-// 	background: #ffc31c;
+// 	background: #ffc31c; 
 // 	padding: 10px;
 // }
 
@@ -1177,18 +1177,28 @@ li {
 	}
 }
 
-.syllabus {
+.flag {
 	font-size: .7em;
-	background: #81b71a;
 	color: white;
 	padding: 3px;
 	font-weight: bold;
 	border-radius: 3px;
 }
-#syllabus-explanation {
+
+.flag-syllabus {
+	background: #81b71a;
+}
+
+.flag-recommend {
+	background: #337ab7;
+}
+.flag-explanation {
 	font-size: 1em;
 	font-weight: normal;
 	margin-top: 10px;
+	li {
+		margin-top: 5px;
+	}
 }
 
 
