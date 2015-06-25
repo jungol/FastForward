@@ -49,6 +49,12 @@ RailsAdmin.config do |config|
     field :lists
     field :syllabus
   end
+
+  config.model UserItem do
+    field :user
+    field :item
+    field :recommend
+  end
     ## With an audit adapter, you can add:
     # history_index
     # history_show
