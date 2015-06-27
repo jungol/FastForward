@@ -58,7 +58,7 @@
                   - if current_user.try(:admin?)
                     %td= item.id
                   %td
-                    = link_to item.title, item, "data-remote" => "true"
+                    = link_to item.title, item, "data-remote" => "true", class: "item-remote-link"
                     - if item.syllabus
                       %br
                       %span.flag.flag-syllabus= "ON A SYLLABUS"
@@ -97,11 +97,35 @@
 
 
 :javascript
-    $(document).ready( function() {
-      $('.overlay').click( function() {
-        $('.overlay').toggleClass('hide');
-        $('.item-modal').addClass('hide');
-        $('.recommendation-modal').addClass('hide')
-      })
+  $(document).ready( function() {
+    $('.overlay').click( function() {
+      $('.overlay').toggleClass('hide');
+      $('.item-modal').addClass('hide');
+      $('.recommendation-modal').addClass('hide')
+    })
+  });
+  $('.item-remote-link').click( function() {
+    $text = ($(this).text());
+    mixpanel.track("Visited item", {
+      "Item": $text,
+      "Collection": $('.list-title').text(),
+      "Location": "Recommended Papers"
     });
+  });
+  $('.overview-body a').click(function() {
+    mixpanel.track("Visited item", {
+      "Collection": $('.list-title').text(),
+      "Location": "Overview"
+    })
+  })
+  $('.pdf').click(function(){
+    $text = ($(this).text());
+    mixpanel.track("Visited item pdf", {
+      "Item": $text
+    });
+  });
+
+
+
+
 

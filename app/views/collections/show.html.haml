@@ -34,3 +34,11 @@
       =render @collection.lists
       - @collection.children.each do |child|
         =render child.lists
+
+:javascript
+  $('.feed-item').click( function() {
+    $text = $(this).text();
+    mixpanel.track("Visited list", {
+      "List": $text
+    });
+  });

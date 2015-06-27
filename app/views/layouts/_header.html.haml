@@ -107,11 +107,20 @@
 /     });
 
 :javascript
-  / document.ready(function(){
-  /   $('.collection').click( function() {
-  /     mixpanel.track("Visited a collection");
-  /   });
-  / });
+  $('.collection').click( function() {
+    $text =($(this).text());
+    mixpanel.track("Visited collection", {
+      "Collection": $text,
+      "Relation": "Root"
+    });
+  });
+  $('.child').click( function() {
+    $text = ($(this).text());
+    mixpanel.track("Visited collection", {
+      "Collection": $text,
+      "Relation": "Child"
+    })
+  })
 
 
 
