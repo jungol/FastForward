@@ -55,7 +55,7 @@ function searchCallback(err, content) {
     // one highlighted word (matchLevel = full or partial)
     
     if (hit._snippetResult["description"]["matchLevel"] != "none") {
-          $snippet = hit._snippetResult["description"]["value"];
+          $snippet = hit._snippetResult["description"]["value"] + "...";
         } 
     html += '<a href="/lists/' + hit.objectID + '"> \
       <li class="feed-item"> \
