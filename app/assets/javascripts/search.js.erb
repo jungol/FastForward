@@ -48,19 +48,27 @@ function searchCallback(err, content) {
   console.log(content.hits)
   // html += '<div class="row feed"><div class="col-xs-12"><h3>Results (' + content.hits.length + ') </h3><ul>' 
   for (var i = 0; i < content.hits.length; ++i) {
+    var $snippet = '';
     var hit = content.hits[i];
     // console.log(hit)
     // For example, display all properties that have at least
     // one highlighted word (matchLevel = full or partial)
     
+    if (hit._snippetResult["description"]["matchLevel"] != "none") {
+          $snippet = hit._snippetResult["description"]["value"];
+        } 
     html += '<a href="/lists/' + hit.objectID + '"> \
       <li class="feed-item"> \
         <div class="row"> \
           <div class="col-xs-12"> \
             <h5>' 
-              + hit._highlightResult["title"]["value"] + 
+              + hit._highlightResult["title"]["value"] +
             '</h5> \
           </div> \
+          <div class="col-xs-12"> \
+            <span class="desc_preview">'
+              + $snippet +
+            '</span> \
         </div> \
       </li> \
     </a>'
