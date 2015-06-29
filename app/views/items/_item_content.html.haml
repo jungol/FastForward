@@ -16,17 +16,6 @@
       .flag.flag-syllabus.flag-explanation
         This paper is on a graduate course syllabus at Harvard or MIT
 
-  - if @item.user_items.where(recommend: true).count > 0
-    .col-xs-12
-      .flag-explanation
-        %ul
-          %li.flag.flag-recommend.flag-explanation This paper has been recommended by
-          - @item.user_items.each do |user_item|
-            - if user_item.recommend?
-              %li
-                %span.profile-img= image_tag("#{user_item.user.first_name}_#{user_item.user.last_name}.jpg")
-                %span= "#{user_item.user.first_name} #{user_item.user.last_name}, #{user_item.user.position} at #{user_item.user.school}"
-
 
   .col-xs-12
     .item-lists
