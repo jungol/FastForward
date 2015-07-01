@@ -88,10 +88,7 @@
             .div.panel-sub
               .row
                 .col-xs-12
-                  - if curator.lists.count > 1
-                    = "Helped write this and #{pluralize (curator.lists.count - 1), 'other entry'}"
-                  - else
-                    = "Helped write this entry"
+                  = "Helped write this entry"
     
 
 
