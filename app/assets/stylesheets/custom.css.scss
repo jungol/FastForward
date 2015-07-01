@@ -296,6 +296,40 @@ li {
 .homepage-copy {
 	margin-left: 10px;
 	min-height: 500px;
+	#catchphrase {
+		text-align: center;
+
+	}
+	#sub-slogan {
+		text-align: center;
+		margin-left: 15%;
+		margin-right: 15%;
+		font-weight: normal;
+		font-size: 1.4em;
+		line-height: 1.4em;
+	}
+	.value {
+		// margin-left: 10%;
+		// margin-right: 10%;
+		margin-top: 20px;
+		h3 {
+			text-align: center;
+			// border-bottom: 1px solid black;
+			padding-bottom: 5px;
+		}
+		text-align: center;
+	}
+	#sample-question {
+		text-align: center;
+		.btn {
+			font-size: 1.3em;
+		}
+		margin-top: 20px;
+		padding-bottom: 10px;
+	}
+	.fa-arrow-circle-o-right {
+		font-size: 1.2em;
+	}
 }
 
 
@@ -475,6 +509,7 @@ li {
 
 .desc_preview {
 	color: gray;
+	
 }
 
 

@@ -20,27 +20,36 @@
 /           %li= f.submit "Get updates!", class: "btn btn-large btn-primary", id: "submit"
 
 .row.homepage-copy
+  .col-xs-12
+    %h2#catchphrase Powerboost your research
 
   .col-xs-12
-    %h2 A Digital Handbook for Development Economics
+    %h4#sub-slogan DevEc GPS is a place for development economists to collect the latest findings and ideas about high-impact research questions
 
+  .col-xs-12#sample-question
+    .btn.btn-primary.btn-default.btn-primary-text
+      = link_to "Take me to a research question", '/lists/144' 
+      %i.fa.fa-arrow-circle-o-right 
 
-  .col-md-4
+  .col-md-4.value
     %h3
       %i.fa.fa-compass 
-      The frontier research
-    The research frontier, now accessible to you in one click. Use the “search-as-you-type” search bar or navigate the directory to the left. 
+      Get the latest
+    Read a two-minute summary of the latest findings on any research question. 
 
-  .col-md-4
+  .col-md-4.value
     %h3 
       %i.fa.fa-map-marker 
-      All in one place
-    It’s a growing repository built to cover all subfields in development economics. New questions and topics are added every day.
-  .col-md-4
+      Stay in the know
+    Subscribe to research questions and be notified when a discovery is made.
+  .col-md-4.value
     %h3 
       %i.fa.fa-university
-      From sources you trust
-    Entries are based on review articles or handbook chapters. When there isn’t a review article out there (or it’s dated, as many are), we call in the experts — late-stage PhD students, postdocs, faculty. 
+      Build your reputation
+    Publish updates about your own research, and establish expertise.
+
+  
+    
 
   / .search
   /   %input{autofocus: "true", autocomplete: "off", class: "instantsearch", id: "q", placeholder: "Search your research interest (e.g. school vouchers)", type: "text", spellcheck: "false"}
