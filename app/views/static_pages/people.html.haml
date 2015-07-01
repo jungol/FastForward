@@ -23,8 +23,8 @@
                     %li
                       = curator.school
                     %li= curator.position 
-            .div.panel-sub
-              .row
-                .col-xs-12
-                  - if curator.lists.count > 1
-                    = "Helped write #{pluralize (curator.lists.count - 1), 'entry'}"
+            / .div.panel-sub
+            /   .row
+            /     .col-xs-12
+            /       - if curator.lists.count > 1
+            /         = "Helped write #{pluralize (curator.lists.count - 1), 'entry'}"
