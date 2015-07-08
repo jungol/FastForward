@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150625140955) do
+ActiveRecord::Schema.define(version: 20150615181813) do
 
   create_table "collections", force: :cascade do |t|
     t.string   "name"
@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 20150625140955) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.integer  "upvotes_count", default: 0
-    t.date     "date"
     t.integer  "year"
     t.string   "author"
     t.string   "journal"
@@ -62,24 +61,14 @@ ActiveRecord::Schema.define(version: 20150625140955) do
 
   create_table "lists", force: :cascade do |t|
     t.text     "description"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "title"
-    t.integer  "upvotes_count"
     t.string   "curator"
     t.string   "curator_url"
     t.integer  "view_count"
     t.boolean  "published"
     t.string   "sources"
-  end
-
-  create_table "microposts", force: :cascade do |t|
-    t.string   "title"
-    t.string   "url"
-    t.string   "description"
-    t.integer  "votes"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -93,21 +82,6 @@ ActiveRecord::Schema.define(version: 20150625140955) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "upvotes", force: :cascade do |t|
-    t.integer  "count"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "list_id"
-  end
-
-  create_table "user_items", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "item_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "recommend",  default: false
   end
 
   create_table "user_lists", force: :cascade do |t|

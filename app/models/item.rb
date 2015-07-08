@@ -29,7 +29,6 @@ class Item < ActiveRecord::Base
 
   # before_create :already_exists?
 
-  # has_many :upvotes, dependent: :destroy
   has_many :user_items
   has_many :item_lists
   has_many :users, :through => :user_items
