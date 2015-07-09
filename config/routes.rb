@@ -9,7 +9,6 @@ Sylaby::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   resources :recommendations
   resources :users, only: [:show]
-  resources :user_items, only: [:create, :destroy]
   resources :lists
   resources :collections
   resources :items, only: [:show]
