@@ -13,6 +13,8 @@ gem 'rails_admin'
 gem 'algoliasearch-rails'
 gem 'ancestry'
 gem 'font-awesome-sass'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

@@ -4,23 +4,9 @@ Sylaby::Application.routes.draw do
 
 
 
-  get 'subscriptions/create'
-
-  get 'subscriptions/destory'
-
-  get 'rails/g'
-
-  get 'rails/controller'
-
-  get 'rails/Subscriptions'
-
-  get 'rails/create'
-
-  get 'rails/destroy'
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   resources :recommendations
   resources :users, only: [:show]
   resources :user_items, only: [:create, :destroy]
