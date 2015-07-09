@@ -15,18 +15,19 @@ class ListsController < ApplicationController
     # @checked_tags = Hash[Tag.hash_of_checked_tags(@tags)]
     # @tags = Tag.all
 
-    @tag = Tag.find_by_name(params[:topic])
-    # don't forget to fix this so it just does this for admins
-    if current_user.try(:admin?)
-      @lists = @tag.lists
-    else
-      @lists = @tag.lists.where(published: true)
-    end
-    if @tag.name == 'Education'
-      @tag_image = 'education.jpg'
-    else
-      @tag_image = 'microfinance.png'
-    end
+    # @tag = Tag.find_by_name(params[:topic])
+    # # don't forget to fix this so it just does this for admins
+    # if current_user.try(:admin?)
+    #   @lists = @tag.lists
+    # else
+    #   @lists = @tag.lists.where(published: true)
+    # end
+    # if @tag.name == 'Education'
+    #   @tag_image = 'education.jpg'
+    # else
+    #   @tag_image = 'microfinance.png'
+    # end
+    @lists = List.all
 
   end
 

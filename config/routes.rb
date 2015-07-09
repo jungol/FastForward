@@ -4,6 +4,20 @@ Sylaby::Application.routes.draw do
 
 
 
+  get 'subscriptions/create'
+
+  get 'subscriptions/destory'
+
+  get 'rails/g'
+
+  get 'rails/controller'
+
+  get 'rails/Subscriptions'
+
+  get 'rails/create'
+
+  get 'rails/destroy'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users
@@ -13,7 +27,8 @@ Sylaby::Application.routes.draw do
   resources :lists
   resources :collections
   resources :items, only: [:show]
-  root to: 'static_pages#home'
+  resources :subscriptions, only: [:create, :destroy, :index]
+  root to: 'lists#index'
   get 'static_pages/design'
   get 'static_pages/design2'
   get 'static_pages/design3'

@@ -7,11 +7,11 @@
         Keep track of the research you're interested in.
         %br
         Collections Stats:
-        = current_user.items.count
+        / # = current_user.items.count
         Articles
 
 
 
-- current_user.items.each do |item|
-  %ul.list
-    = render item
+/ - current_user.items.each do |item|
+/   %ul.list
+/     = render item

@@ -25,8 +25,8 @@ class List < ActiveRecord::Base
     attributesToIndex ['unordered(title)', 'unordered(description)']
   end
 
-  validates :title, presence: true
-  validates_presence_of :description
+  # validates :title, presence: true
+  # validates_presence_of :description
 
   has_many :item_lists
   has_many :items, :through => :item_lists
@@ -36,6 +36,8 @@ class List < ActiveRecord::Base
   has_many :users, :through => :user_lists
   has_many :list_collections
   has_many :collections, :through => :list_collections
+  has_many :subscriptions
+  has_many :users, through: :subscriptions
 
   accepts_nested_attributes_for :items
 

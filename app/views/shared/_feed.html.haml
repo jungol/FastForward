@@ -1,5 +1,15 @@
-%ul.list
-  = render @lists
+=provide(:heading, heading)
+=provide(:date, date)
+%ul.featured-feed
+  .day
+    %h4.title.v-big 
+      %span=yield(:heading) 
+      %span.title--subtext
+        =yield(:date) unless date==nil
+  .posts--group--header
+  .container
+    %ul.posts--group
+      = render @lists
 
 
   / - @lists.group_by(&:date).sort.reverse.each do |date, lists|

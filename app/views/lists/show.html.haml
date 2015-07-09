@@ -1,126 +1,185 @@
 - provide(:title, @list.title)
 
-/ .overlay.hide
-.recommendation-modal.hide
-.list-show
-  .row
-    .col-xs-12.list-title
-      %h3= @list.title
-      - if current_user.try(:admin?)
-        = button_to "Edit", edit_list_path(@list), method: "get"
+.page-header.v-collections.v-brown{style: %(background-image:url(/assets/#{@list.image_url}))}
+  .page-header--shadow
+    .container
+      .page-header--info
+        %h1.page-header--title
+          = @list.title
+        %h2.page-header--subtitle
+          = raw @list.subtitle
+      .page-header--buttons
+        = render partial: 'lists/follow_form', locals: {list: @list}
+        %span.follow-count 
+          You and 
+          = @list.users.count
+          other people are following this research question
+
+.container
+  .overview
+    .overview-heading
+      %h4.overview-title
+        %i.fa.fa-comments-o
+          What we know so far
+    .overview-body
+      = raw @list.description
+
+  .papers
+    .papers-heading
+      %h4.papers-title
+        %i.fa.fa-newspaper-o
+        Papers that contribute to this discussion
+
+    .papers-body
+      .table-responsive
+        %table.table.table-bordered.table-hover
+          %tr
+            %td
+              %b Date
+            - if current_user.try(:admin?)
+              %td
+                %b ID
+            %td
+              %b Title
+            %td 
+              %b Authors
+            %td
+              %b Journal
+          - @list.items.each do |item|
+            %tr.clickable-row{ "data-href" =>('/items/' + item.id.to_s) }
+              %td= item.year
+              - if current_user.try(:admin?)
+                %td= item.id
+              %td
+                = link_to item.title, item, "data-remote" => "true", class: "item-remote-link"
+                - if item.syllabus
+                  %br
+                  %span.flag.flag-syllabus= "ON A SYLLABUS"
+                / - if item.user_items.where(recommend: true).count > 0
+                /   %span.flag.flag-recommend= "RECOMMENDED"
+              %td= item.author
+              %td= item.journal
+
+/   .recommendation-modal.hide
+/   .list-show
+/     .row
+/       .col-xs-12.list-title
+/         %h3= @list.title
+/         - if current_user.try(:admin?)
+/           = button_to "Edit", edit_list_path(@list), method: "get"
+      
+/     .row.section
+/       - if @list.sources 
+/         .col-xs-12.source
+/           %ul
+/             %li
+/               %i.fa.fa-info-circle
+/               We'll always tell you where our information comes from, so that you can evaluate it for yourself. This entry is based on
+/               =raw @list.sources
+
+/     .row.section
+/       .col-xs-12
+/         .overview
+/           .overview-heading
+/             %h4.overview-title
+/               %i.fa.fa-comments-o
+/               Overview
+/           .overview-body
+/             = raw @list.description
+
+/     .row.section
+/       .col-xs-12
+/         .papers
+/           .papers-heading
+/             %h4.papers-title
+/               %i.fa.fa-newspaper-o
+/               Recommended Papers
+/               .btn-primary.btn.btn-primary-text= link_to "Recommend a Paper",new_recommendation_path(list: @list), remote:true
+
+/           .papers-body
+/             .table-responsive
+/               %table.table.table-bordered.table-hover
+/                 %tr
+/                   %td
+/                     %b Date
+/                   - if current_user.try(:admin?)
+/                     %td
+/                       %b ID
+/                   %td
+/                     %b Title
+/                   %td 
+/                     %b Authors
+/                   %td
+/                     %b Journal
+/                 - @list.items.each do |item|
+/                   %tr.clickable-row{ "data-href" =>('/items/' + item.id.to_s) }
+/                     %td= item.year
+/                     - if current_user.try(:admin?)
+/                       %td= item.id
+/                     %td
+/                       = link_to item.title, item, "data-remote" => "true", class: "item-remote-link"
+/                       - if item.syllabus
+/                         %br
+/                         %span.flag.flag-syllabus= "ON A SYLLABUS"
+/                       / - if item.user_items.where(recommend: true).count > 0
+/                       /   %span.flag.flag-recommend= "RECOMMENDED"
+/                     %td= item.author
+/                     %td= item.journal
+
     
-  .row.section
-    - if @list.sources 
-      .col-xs-12.source
-        %ul
-          %li
-            %i.fa.fa-info-circle
-            We'll always tell you where our information comes from, so that you can evaluate it for yourself. This entry is based on
-            =raw @list.sources
 
-  .row.section
-    .col-xs-12
-      .overview
-        .overview-heading
-          %h4.overview-title
-            %i.fa.fa-comments-o
-            Overview
-        .overview-body
-          = raw @list.description
-
-  .row.section
-    .col-xs-12
-      .papers
-        .papers-heading
-          %h4.papers-title
-            %i.fa.fa-newspaper-o
-            Recommended Papers
-            .btn-primary.btn.btn-primary-text= link_to "Recommend a Paper",new_recommendation_path(list: @list), remote:true
-
-        .papers-body
-          .table-responsive
-            %table.table.table-bordered.table-hover
-              %tr
-                %td
-                  %b Date
-                - if current_user.try(:admin?)
-                  %td
-                    %b ID
-                %td
-                  %b Title
-                %td 
-                  %b Authors
-                %td
-                  %b Journal
-              - @list.items.each do |item|
-                %tr.clickable-row{ "data-href" =>('/items/' + item.id.to_s) }
-                  %td= item.year
-                  - if current_user.try(:admin?)
-                    %td= item.id
-                  %td
-                    = link_to item.title, item, "data-remote" => "true", class: "item-remote-link"
-                    - if item.syllabus
-                      %br
-                      %span.flag.flag-syllabus= "ON A SYLLABUS"
-                    / - if item.user_items.where(recommend: true).count > 0
-                    /   %span.flag.flag-recommend= "RECOMMENDED"
-                  %td= item.author
-                  %td= item.journal
-
-  
-
-  .row.section
-    - @list.users.each do |curator|
-      = link_to curator.link do
-        .col-xs-3
-          .div.panel
-            .div.panel-main
-              .row
-                .col-xs-3
-                  = image_tag("#{curator.first_name}_#{curator.last_name}.jpg")
-                .col-xs-9
-                  %ul
-                    %li 
-                      %h4= "#{curator.first_name} #{curator.last_name}"
-                    %li
-                      = curator.school
-                    %li= curator.position 
-            .div.panel-sub
-              .row
-                .col-xs-12
-                  = "Helped write this entry"
-    
+/     .row.section
+/       - @list.users.each do |curator|
+/         = link_to curator.link do
+/           .col-xs-3
+/             .div.panel
+/               .div.panel-main
+/                 .row
+/                   .col-xs-3
+/                     = image_tag("#{curator.first_name}_#{curator.last_name}.jpg")
+/                   .col-xs-9
+/                     %ul
+/                       %li 
+/                         %h4= "#{curator.first_name} #{curator.last_name}"
+/                       %li
+/                         = curator.school
+/                       %li= curator.position 
+/               .div.panel-sub
+/                 .row
+/                   .col-xs-12
+/                     = "Helped write this entry"
+      
 
 
 
-:javascript
-  $(document).ready( function() {
-    $('.overlay').click( function() {
-      $('.overlay').toggleClass('hide');
-      $('.item-modal').addClass('hide');
-      $('.recommendation-modal').addClass('hide')
-    })
-  });
-  $('.item-remote-link').click( function() {
-    $text = ($(this).text());
-    mixpanel.track("Visited item", {
-      "Item": $text,
-      "Collection": $('.list-title').text(),
-      "Location": "Recommended Papers"
-    });
-  });
-  $('.overview-body a').click(function() {
-    mixpanel.track("Visited item", {
-      "Collection": $('.list-title').text(),
-      "Location": "Overview"
-    })
-  })
-  $('.pdf').click(function(){
-    $text = ($(this).text());
-    mixpanel.track("Visited item pdf", {
-      "Item": $text
-    });
-  });
+
+/   $(document).ready( function() {
+/     $('.overlay').click( function() {
+/       $('.overlay').toggleClass('hide');
+/       $('.item-modal').addClass('hide');
+/       $('.recommendation-modal').addClass('hide')
+/     })
+/   });
+/   $('.item-remote-link').click( function() {
+/     $text = ($(this).text());
+/     mixpanel.track("Visited item", {
+/       "Item": $text,
+/       "Collection": $('.list-title').text(),
+/       "Location": "Recommended Papers"
+/     });
+/   });
+/   $('.overview-body a').click(function() {
+/     mixpanel.track("Visited item", {
+/       "Collection": $('.list-title').text(),
+/       "Location": "Overview"
+/     })
+/   })
+/   $('.pdf').click(function(){
+/     $text = ($(this).text());
+/     mixpanel.track("Visited item pdf", {
+/       "Item": $text
+/     });
+/   });
 
 
 

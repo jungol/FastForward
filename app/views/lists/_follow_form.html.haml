@@ -1,0 +1,10 @@
+.follow-form#follow_form{id: "list-" + list.id.to_s}
+  .list--badge.v-small-text#follow-count-list_{id:list.id}
+  = list.users.count.to_s
+  - if !(user_signed_in?)
+    = form_for(Subscription.new) do |f|
+      = f.submit 'Follow', class: "btn btn-large btn-primary"
+  - elsif current_user.following?(list)
+    = render partial: 'lists/unfollow', locals: {list: list}
+  - else
+    = render partial: 'lists/follow', locals: {list: list}

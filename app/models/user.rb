@@ -29,6 +29,8 @@ class User < ActiveRecord::Base
   has_many :items, :through => :user_items
   has_many :user_lists
   has_many :lists, :through => :user_lists
+  has_many :subscriptions
+  has_many :lists, through: :subscriptions
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -37,6 +39,18 @@ class User < ActiveRecord::Base
 
   def has_item?(item)
     user_items.find_by(item_id: item.id)
+  end
+
+  def follow!(list)
+    subscriptions.create!(list_id: list.id)
+  end
+
+  def unfollow!(list)
+    subscriptions.find_by(list_id: list.id).destroy
+  end
+
+  def following?(list)
+    subscriptions.find_by(list_id: list.id)
   end
 
 end

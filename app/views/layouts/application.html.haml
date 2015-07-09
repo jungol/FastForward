@@ -21,32 +21,32 @@
     .overlay.hide
     .item-modal.hide
 
-    #wrapper  
-      = render 'layouts/header'
-      / # = debug(params) if Rails.env.development?
+    = render 'layouts/header'
+    / # = debug(params) if Rails.env.development?
 
-      / - flash.each do |key, value|
-      /   = content_tag(:div, value.to_s, class: "alert alert-#{key}")
-      #page-wrapper
-        / .overlay.hide
-        .container-fluid#pagecontent
-          .search
-            #display
-              #hits
-              :javascript
-                var $inputfield = $('#q');
-                var $hits = $('#hits');
-          
-          = yield
-    
-    / %footer.footer
-    /   %small
-    /     Want to get in touch? Email
-    /     =mail_to "info@researchgps.com"
-    = debug(params) if Rails.env.development?
-  / .footer 
-  /   .container-fluid
-  /     .pull-right
-  /       Research GPS 2015
+    / - flash.each do |key, value|
+    /   = content_tag(:div, value.to_s, class: "alert alert-#{key}")
+    / #page-wrapper
+    /   / .overlay.hide
+    /   .container-fluid#pagecontent
+    /     .search
+    /       #display
+    /         #hits
+    /         :javascript
+    /           var $inputfield = $('#q');
+    /           var $hits = $('#hits');
+    %main.page-main
+      .main-content
+        = yield
+  
+  / %footer.footer
+  /   %small
+  /     Want to get in touch? Email
+  /     =mail_to "info@researchgps.com"
+  = debug(params) if Rails.env.development?
+/ .footer 
+/   .container-fluid
+/     .pull-right
+/       Research GPS 2015
 :javascript
   var $pagecontent = $('#page-wrapper').html();

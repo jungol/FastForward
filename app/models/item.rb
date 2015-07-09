@@ -29,9 +29,9 @@ class Item < ActiveRecord::Base
 
   # before_create :already_exists?
 
-  has_many :user_items
+  # has_many :user_items
   has_many :item_lists
-  has_many :users, :through => :user_items
+  # has_many :users, :through => :user_items
   has_many :lists, :through => :item_lists
 
   before_create :already_exists?

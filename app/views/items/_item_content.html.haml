@@ -1,10 +1,15 @@
+%button.close-item-modal
+  %i.fa.fa-times
 .row
   .col-xs-12
     .item-title
       %h4.pdf= link_to @item.title, @item.url
-
+  .col-xs-12 
+    .item-journal.gray= @item.journal
   .col-xs-12
     .item-author.gray= @item.author
+
+
 
   / .col-xs-12
   /   #read-item.btn.btn-success.btn-primary-text
@@ -43,3 +48,10 @@
         mixpanel.track("Clicked to read PDF");
       });
     });
+
+:javascript
+  $(document).ready(function() {
+    $('.close-item-modal').click(function() {
+      $('.item-modal').toggleClass('hide');
+    });
+  });

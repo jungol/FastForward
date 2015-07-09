@@ -29,6 +29,8 @@ RailsAdmin.config do |config|
 
   config.model List do
     field :title
+    field :subtitle
+    field :image_url
     field :curator
     field :curator_url
     field :sources
