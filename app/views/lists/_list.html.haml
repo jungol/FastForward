@@ -19,7 +19,7 @@
       .post-item--text--name
         = link_to list.title, list_path(list)
       .post-item--subtext
-        The World Bank alone spend nearly $1 Billion a year on job training programs, but the evidence to date provides a bleak view of their effectiveness.
+        =raw list.subtitle
       .post-item--text-tags
         - list.tags.each do |tag| 
           %span.post-item--text-tag{class: "tag-" + tag.name}= tag.name
