@@ -14,6 +14,7 @@ Sylaby::Application.routes.draw do
   resources :items, only: [:show]
   resources :subscriptions, only: [:create, :destroy, :index]
   root to: 'lists#index'
+  get 'tags/:tag', to: 'lists#index', as: :tag
   get 'static_pages/design'
   get 'static_pages/design2'
   get 'static_pages/design3'

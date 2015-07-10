@@ -3,6 +3,11 @@
 .page-header.v-collections.v-brown{style: %(background-image:url(/assets/#{@list.image_url}))}
   .page-header--shadow
     .container
+      .submitter
+        .profile-img= image_tag(@submitter.image)
+        %span 
+          Submitted by
+          = "#{@submitter.first_name} #{@submitter.last_name}, a PhD student at #{@submitter.school}"
       .page-header--info
         %h1.page-header--title
           = @list.title
@@ -10,19 +15,27 @@
           = raw @list.subtitle
       .page-header--buttons
         = render partial: 'lists/follow_form', locals: {list: @list}
-        %span.follow-count 
-          You and 
-          = @list.users.count
-          other people are following this research question
+        %button.btn.btn-large.btn-primary#post-new-finding-button{{"data-target" => "#newFindingModal", "data-toggle" => "modal", :type => "button"}}
+          Post a new finding
+        = render partial: 'shared/new_finding_modal'
+
 
 .container
-  .overview
-    .overview-heading
-      %h4.overview-title
-        %i.fa.fa-comments-o
-          What we know so far
-    .overview-body
-      = raw @list.description
+  %ul.bottom-line
+    %li 
+      %h4
+        %i.fa.fa-arrow-circle-o-right
+        The first experimental study of this question, conducted in 2014, found that exporting does actually increase firm productivity
+    %li
+      %h4 
+        %i.fa.fa-arrow-circle-o-right
+        But this study only looked at rug manufacturers in Egypt, so more studies are needed to test in other settings
+    %li
+      %h4 
+        %i.fa.fa-arrow-circle-o-right
+        %span.top-bullet One reason firms might become more productive is because exporting facilitates knowledge transfers between developed and devloping countries
+
+.container
 
   .papers
     .papers-heading

@@ -38,20 +38,7 @@
 
 
 
-
-- if current_user.try(:admin?)
-  ID:
-  = @item.id
 :javascript
-    $(document).ready( function() {
-      $('.item-title').click( function() {
-        mixpanel.track("Clicked to read PDF");
-      });
-    });
-
-:javascript
-  $(document).ready(function() {
-    $('.close-item-modal').click(function() {
-      $('.item-modal').toggleClass('hide');
-    });
+  $('.close-item-modal').click(function() {
+    $('.item-modal').toggleClass('hide');
   });

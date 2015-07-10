@@ -11,4 +11,5 @@
             %span.post-item--text-tag{class: "tag-" + tag.name}= tag.name
   .post-item--actions
     .post-item--actions--users
-      %span.post-item--actions--user Ethan
+      %span.post-item--actions--user
+        .profile-img= image_tag(User.find_by(id: list.submitter).image)

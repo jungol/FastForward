@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709150428) do
+ActiveRecord::Schema.define(version: 20150709210831) do
 
   create_table "collections", force: :cascade do |t|
     t.string   "name"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20150709150428) do
     t.string   "sources"
     t.text     "subtitle"
     t.string   "image_url"
+    t.integer  "submitter"
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -78,6 +79,7 @@ ActiveRecord::Schema.define(version: 20150709150428) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "submitter"
   end
 
   add_index "subscriptions", ["list_id"], name: "index_subscriptions_on_list_id"
@@ -125,6 +127,7 @@ ActiveRecord::Schema.define(version: 20150709150428) do
     t.boolean  "admin"
     t.string   "uid"
     t.string   "provider"
+    t.string   "image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

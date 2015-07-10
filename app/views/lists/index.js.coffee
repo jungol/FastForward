@@ -1,3 +1,3 @@
-$('.feed-lists').html("<%= escape_javascript(render partial: 'lists/list', collection: @lists)%>")
+$('.posts--group').html("<%= escape_javascript(render partial: 'lists/list', collection: @lists)%>")
 
 

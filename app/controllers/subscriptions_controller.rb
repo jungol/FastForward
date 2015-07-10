@@ -1,4 +1,6 @@
 class SubscriptionsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @list = List.find(params[:subscription][:list_id])
     current_user.follow!(@list)

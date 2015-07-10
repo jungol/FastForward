@@ -1,6 +1,6 @@
 .list--badge.v-small-text#follow-count-list_{id:list.id}
-  = list.users.count.to_s
+  = list.users.count
 = form_for(current_user.subscriptions.build(list_id: list.id), remote: true) do |f|
   %div
     = f.hidden_field :list_id
-  = f.submit 'Follow', class: "btn btn-large btn-primary"
+  = f.submit '+ Follow', class: "btn btn-large btn-primary"

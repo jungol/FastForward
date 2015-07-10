@@ -1,9 +1,12 @@
 .follow-form#follow_form{id: "list-" + list.id.to_s}
-  .list--badge.v-small-text#follow-count-list_{id:list.id}
-  = list.users.count.to_s
   - if !(user_signed_in?)
-    = form_for(Subscription.new) do |f|
-      = f.submit 'Follow', class: "btn btn-large btn-primary"
+    .list--badge.v-small-text#follow-count-list_{id:list.id}
+      = list.users.count
+    
+    %button.btn.btn-primary.btn-large.new_subscription{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
+      Follow
+    = render partial: 'shared/sign_in_modal'
+      
   - elsif current_user.following?(list)
     = render partial: 'lists/unfollow', locals: {list: list}
   - else

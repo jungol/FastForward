@@ -5,38 +5,22 @@ class ListsController < ApplicationController
 
 
   def index
-    # Tagging system for later
-    # if @tags = params[:tags]
-    #   @lists = List.get_lists_with(@tags)
-    # else
-    #   @lists = List.where(published: true)
-    # end
-    
-    # @checked_tags = Hash[Tag.hash_of_checked_tags(@tags)]
-    # @tags = Tag.all
-
-    # @tag = Tag.find_by_name(params[:topic])
-    # # don't forget to fix this so it just does this for admins
-    # if current_user.try(:admin?)
-    #   @lists = @tag.lists
-    # else
-    #   @lists = @tag.lists.where(published: true)
-    # end
-    # if @tag.name == 'Education'
-    #   @tag_image = 'education.jpg'
-    # else
-    #   @tag_image = 'microfinance.png'
-    # end
-    @lists = List.all
-
+    if params[:tag]
+      @tag = Tag.find_by(id: params[:tag])
+      @lists = @tag.lists
+    else
+      @lists = List.all
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
     @list = List.find(params[:id])
     @items = @list.items
-    if params[:collection]
-      @collection = Collection.find(params[:collection])
-    end
+    @submitter = User.find_by(id: @list.submitter)
   end
 
   def new

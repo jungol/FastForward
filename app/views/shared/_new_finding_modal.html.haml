@@ -1,0 +1,40 @@
+#newFindingModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h3#newFindingModalLabel.modal-title
+          Post a new finding
+      .modal-body
+        #instructions
+          Thanks for contributing to this page! Here are some tips. Use the form below to:
+          %ul
+            %li Notify us of a new paper relating to this research question
+            %li Suggest an edit to "What we know so far" section
+
+        The editors of this page will review your post and be in touch. If your suggestion meets our guidelines, we'll add it to this page and anyone following this page will be notified!
+        = form_tag( {controller: "recommendations", action: "create"}, method: "post", remote:true) do
+          %ul
+            %br
+            %li
+              %h4=label_tag "How can we reach you?"
+            %li=text_field_tag( :email, params[:email], placeholder: "Email", autofocus: true)
+            %br
+            %li
+              %h4=label_tag 'What do you suggest we add to this page?'
+            %li=text_area_tag(:recommendation, params[:recommendation], placeholder: "E.g. a new paper or an update to the 'What we know so far' section")
+            = hidden_field_tag :list, @list.title
+
+ 
+
+          .submit-recommendation
+            = submit_tag "Submit", class: "btn btn-large btn-primary"
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+
+:javascript
+  $('.submit-recommendation').click(function() {
+    $('.modal-body').html("You're a gentle(wo)man and a scholar");
+  });
+
