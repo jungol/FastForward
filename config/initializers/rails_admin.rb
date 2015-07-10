@@ -27,20 +27,20 @@ RailsAdmin.config do |config|
     delete
     show_in_app
 
-  config.model List do
-    field :title
-    field :submitter
-    field :subtitle
-    field :image_url
-    field :curator
-    field :curator_url
-    field :sources
-    field :description
-    field :tags
-    field :view_count
-    field :published
-    # field :users
-  end
+  # config.model List do
+  #   field :title
+  #   field :submitter
+  #   field :subtitle
+  #   field :image_url
+  #   field :curator
+  #   field :curator_url
+  #   field :sources
+  #   field :description
+  #   field :tags
+  #   field :view_count
+  #   field :published
+  #   # field :users
+  # end
 
   config.model Item do
     field :title
