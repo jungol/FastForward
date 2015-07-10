@@ -1,13 +1,14 @@
 .follow-form#follow_form{id: "list-" + list.id.to_s}
-  - if !(user_signed_in?)
-    .list--badge.v-small-text#follow-count-list_{id:list.id}
-      = list.users.count
+  / - if !(user_signed_in?)
+  /   .list--badge.v-small-text#follow-count-list_{id:list.id}
+  /     = list.users.count
     
-    %button.btn.btn-primary.btn-large.new_subscription{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
-      Follow
-    = render partial: 'shared/sign_in_modal'
+  /   %button.btn.btn-primary.btn-large.new_subscription{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
+  /     %i.fa.fa-bookmark
+  /     Sign in to get updates when there are new findings
+  / # = render partial: 'shared/sign_in_modal'
       
-  - elsif current_user.following?(list)
+  - if current_user.following?(list)
     = render partial: 'lists/unfollow', locals: {list: list}
   - else
     = render partial: 'lists/follow', locals: {list: list}

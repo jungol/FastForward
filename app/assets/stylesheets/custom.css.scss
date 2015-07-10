@@ -4,7 +4,11 @@
 @import "font-awesome";
 
 
-
+#tag-dropdown-menu {
+	li a {
+		text-transform: none !important;
+	}
+}
 
 .profile-img img {
 	height: 40px;
@@ -82,11 +86,18 @@ a {
 }
 
 .logo {
-	height: 100%;
-	background: yellow;
+	height: 40px;
+	width: 40px;
+	// background: yellow;
 	border-radius: 100%;
 	padding: 10px;
+	// padding-left: 14px;
+	padding-top: 5px;
 	font-size: 1.2em;
+	// position: absolute;
+	margin-right: 8px;
+	margin-top: 10px;
+	border: 3px solid #337ab7;
 }
 
 .featured--feed {
@@ -110,7 +121,8 @@ a {
 	text-transform: uppercase;
 	line-height: 24px;
 	margin-bottom: 10px;
-	margin-top: 20px;
+	margin-top: 50px;
+	color: #444;
 }
 
 .title--subtext {
@@ -132,12 +144,15 @@ a {
 	background: white;
 	&:hover {
 		background: #f7f7fa;
+		button {
+			background: #f7f7fa;
+		}
 	}
 	font-size: 18px;
 	min-height: 80px;
-	line-height: 17px;
+	line-height: 10px;
 	padding-top: 15px;
-	padding-bottom: 15px;
+	padding-bottom: 5px;
 	clear: both;
 	box-sizing: border-box;
 	border-radius: 3px;
@@ -145,6 +160,10 @@ a {
 	margin: 0 -10px;
 	padding: 15px;
 	position: relative;
+	margin-bottom: 40px;
+	div {
+		padding-bottom: 10px;
+	}
 }
 
 .post-item--actions {
@@ -180,48 +199,107 @@ a {
 
 .post-follow-button {
 	// transition: transform 200ms ease-out;
-	background: #b92b27;
+	// background: #b92b27;
 	border: 0;
 	box-shadow: none;
 	// height: 44px;
-	margin: 0 11px 0 0;
-	width: 34px;
-	border-radius: 4px;
+	// margin: 0 11px 0 0;
+	margin-right: 11px;
+	// width: 50px;
+	// border-radius: 4px;
 	// padding: 5px;
-	color: white;
-	font-size: 16px;
-	// line-height: 50px;	
+	// color: white;
+	
+	// font-size: 20px;
+	// line-height: 50px;
+	padding-right: 10px;	
 
 
 }
 
 .new_subscription, .edit_subscription {
+	width: 137px;
+}
+
+.btn-invisible {
+	background: white;
+	border: none;
 	width: 90px;
-	input {
-		width: 90px;
+	&:active {
+		border: none;
 	}
+}
+
+.btn-gray {
+	background: #f7f7fa;
+	&:focus, &:active {
+		outline: none;
+	}
+}
+
+.fa-bookmark {
+	color: #e5c64b;
 }
 
 .follow-form {
 	// width: 100px;
 	float:left;
-	li {
-		float:left;
+	margin-right: 25px;
+	margin-top: 13px;
+	form {
+		width: inherit;
 	}
+	li {
+		// float:left;
+		font-size: 10px;
+	}
+	input {
+		font-size: 20px;
+	}
+	text-align: center;
+	i {
+		font-size: 30px;
+		color: #e5c64b;
+		&:hover {
+			// color: #333;
+		}
+	}
+	i.fa-bookmark-o {
+		color: #444;
+	}
+	.fa-bookmark {
+		// color: #e5c64b;
+	}
+	.follow-count, li {
+		color: #444;
+		font-size: 12px;
+		padding-top: 5px;
+		&:hover {
+			color: #333;
+		}
+	}
+
 }
 
 .post-item--text {
 	display: inline-block;
+	max-width: 700px;
+	line-height: 30px;
+}
+
+.post-item--subtext {
+	line-height: 25px;
 }
 
 .post-item--text--name {
 	a {
-		color: black;
-		font-size: 20px;
+		color: #444;
+		font-size: 30px;
 		font-weight: 500;
 		margin: 5px 2px 0;
 		&:hover {
-			text-decoration: underline;
+			color: #333;
+			text-decoration: none;
 		}
 	}
 }
@@ -235,12 +313,15 @@ a {
 
 .post-item--text-tag {
 	text-transform: uppercase;
-	font-size: 10px;
-	background: green;
+	font-size: 15px;
+	color: #444;
+	background: white;
 	color: white;
 	padding: 3px;
+	padding-left: 5px;
+	padding-right: 5px;
 	font-weight: bold;
-	border-radius: 3px;
+	border-radius: 0px;
 }
 
 .page-main {
@@ -395,6 +476,20 @@ div {
 		// font-size: 1.2em;
 		margin-right: 10px;
 	}
+	button {
+		font-size: 1.2em;
+		background: #286090;
+	}
+	.follow-form {
+		margin: 0px;
+		ul li {
+			color: white;
+			line-height: 10px;
+		}
+		.fa-bookmark-o {
+			color: white;
+		}
+	}
 	// margin-top: 60px;
 	.user-follow-count {
 		font-style: italic;
@@ -446,6 +541,17 @@ div {
 
 .brand--title {
 	float: left;
+	h1 a {
+		font-size: 1.2em;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	h5 {
+		font-size: 1.2em;
+		margin-top: 2px;
+		color: #bbbbbb;
+	}
 }
 
 .header--primary {
@@ -460,6 +566,7 @@ div {
 	li {
 		display: inline-block;
 		float: left;
+		font-size: 18px;
 
 	}
 	margin: 5px 0;
@@ -477,11 +584,25 @@ div {
 	a {
 		margin-right: 10px;
 	}
-	.active {
-		color: black;
-		border-bottom: 1px solid black;
-		padding-bottom: 30px;
+	form {
+		float: left;
+		height: 100%;
 	}
+	.btn-gray {
+		font-size: 16px;
+		height: 100%;
+		padding-bottom: 20px;
+		border-radius: 0px;
+		padding-left: 0px;
+		padding-right: 0px;
+		margin-right: 20px;
+		border-bottom: 1px solid #e4e2e2;
+	}
+}
+
+#active {
+	color: black;
+	border-bottom: 3px solid #337ab7;
 }
 
 .bottom-line {

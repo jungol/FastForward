@@ -2,17 +2,18 @@
   %div
     .header--primary
       .container
-        %a.brand
-          %span.logo
+        =link_to root_url, class: "brand" do 
+          .logo
             %i.fa.fa-fast-forward
           .brand--title.u-hidden-on-small-screen
             %h1= link_to "FastForward", root_url
+            %h5 The latest research, delivered to your inbox
         %ul.header--nav
           - if user_signed_in?
-            %li= link_to "Log Out", destroy_user_session_path, method: 'delete'
+            %li.btn= link_to "Log Out", destroy_user_session_path, method: 'delete'
             %li.profile-img= image_tag(current_user.image)
           -else
-            %li= link_to "Log In", user_omniauth_authorize_path(:facebook)
+            %li.btn= link_to "Log In", user_omniauth_authorize_path(:facebook)
         %li.u-hidden-on-small-screen
           %a.header--post(href="#")
             / %svg(width="50" height="50")
@@ -20,13 +21,20 @@
     .header--secondary.v-links
       .container
         %a.header--secondary--link
-          = link_to "RESEARCH QUESTIONS", root_path, class: ("active" if request.env['PATH_INFO'] == '/')
+          =button_to root_path, method: "get", class: "btn btn-gray", id: ("active" if request.path == '/') do
+            Research Questions
 
         %a.header--secondary--link#following
           -if user_signed_in?
-            = link_to subscriptions_path, class: ("active" if request.env['PATH_INFO'] == '/subscriptions') do
-              FOLLOWING
+            =button_to subscriptions_path, method: "get", class: "btn btn-gray", id: ("active" if request.path == '/subscriptions') do
+              %i.fa.fa-bookmark
+              Following
               %span#user-follow-count= "(#{current_user.lists.count})"
+          -else
+            %button.btn.btn-gray{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
+              %i.fa.fa-bookmark
+              Following
+            =render partial: 'shared/sign_in_modal'
         - if request.env['PATH_INFO'] == '/'
           .btn-group#filter
             %button.btn.btn-default.dropdown-toggle(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")

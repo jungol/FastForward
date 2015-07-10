@@ -1,4 +1,6 @@
-.list--badge.v-small-text#follow-count-list_{id:list.id}
-  = list.users.count
 = form_for(current_user.subscriptions.find_by(list_id: list.id), html: { method: :delete}, remote: true) do |f|
-  = f.submit '- Unfollow', class: "btn btn-large btn-primary"
+  =button_tag(class: "btn btn-invisible") do
+    %i.fa.fa-bookmark
+  %ul
+    %li= "You and " + pluralize(list.users.count.to_s, 'other')
+    %li are subscribed

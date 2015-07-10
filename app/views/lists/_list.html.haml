@@ -1,15 +1,29 @@
 .post-item
   .post-item-content
-    %a.post-follow-button
-      = render partial: 'lists/follow_form', locals: {list: list} 
-
+    .post-follow-button
+      - if user_signed_in?
+        = render partial: 'lists/follow_form', locals: {list: list} 
+      - else
+        .follow-form#follow_form{id: "list" + list.id.to_s}
+          %button.btn-invisible.new_subscription{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
+            %i.fa.fa-bookmark-o
+          %ul
+            %li FOLLOW
+            %li 25
+          = render partial: 'shared/sign_in_modal'
     .post-item--text
       .post-item--text--name
         = link_to list.title, list_path(list)
-        .post-item--text-tags
-          - list.tags.each do |tag| 
-            %span.post-item--text-tag{class: "tag-" + tag.name}= tag.name
+      .post-item--subtext
+        The World Bank alone spend nearly $1 Billion a year on job training programs, but the evidence to date provides a bleak view of their effectiveness.
+      .post-item--text-tags
+        - list.tags.each do |tag| 
+          %span.post-item--text-tag{class: "tag-" + tag.name}= tag.name
   .post-item--actions
     .post-item--actions--users
       %span.post-item--actions--user
         .profile-img= image_tag(User.find_by(id: list.submitter).image)
+/ :javascript
+/   $('i').click(function(){
+/     $(this).toggleClass('fa-bookmark-o').toggleClass('fa-bookmark');
+/   })

@@ -14,7 +14,12 @@
         %h2.page-header--subtitle
           = raw @list.subtitle
       .page-header--buttons
-        = render partial: 'lists/follow_form', locals: {list: @list}
+        - if user_signed_in?
+          = render partial: 'lists/follow_form', locals: {list: @list}
+        - else
+          %button.btn.btn-large.btn-primary{{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}}
+            Sign in to be notified when there's a new finding
+          = render partial: 'shared/sign_in_modal'
         %button.btn.btn-large.btn-primary#post-new-finding-button{{"data-target" => "#newFindingModal", "data-toggle" => "modal", :type => "button"}}
           Post a new finding
         = render partial: 'shared/new_finding_modal'
