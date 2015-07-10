@@ -11,6 +11,10 @@
             %li FOLLOW
             %li 25
           = render partial: 'shared/sign_in_modal'
+    .post-item--actions
+      .post-item--actions--users
+        %span.post-item--actions--user
+          .profile-img= image_tag(User.find_by(id: list.submitter).image)
     .post-item--text
       .post-item--text--name
         = link_to list.title, list_path(list)
@@ -19,10 +23,7 @@
       .post-item--text-tags
         - list.tags.each do |tag| 
           %span.post-item--text-tag{class: "tag-" + tag.name}= tag.name
-  .post-item--actions
-    .post-item--actions--users
-      %span.post-item--actions--user
-        .profile-img= image_tag(User.find_by(id: list.submitter).image)
+
 / :javascript
 /   $('i').click(function(){
 /     $(this).toggleClass('fa-bookmark-o').toggleClass('fa-bookmark');

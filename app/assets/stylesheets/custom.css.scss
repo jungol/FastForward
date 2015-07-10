@@ -50,6 +50,8 @@ a {
 	}
 }
 
+
+
 #newFindingModal {
 	color: black;
 	#instructions li {
@@ -58,9 +60,12 @@ a {
 	}
 	input, textarea {
 		width: 400px;
+		padding-left: 8px;
+		padding-right: 5px;
 	}
 	textarea {
 		height: 200px;
+		padding-top: 5px;
 	}
 }
 
@@ -168,9 +173,10 @@ a {
 
 .post-item--actions {
 	position: absolute;
-	top: 50%;
+	// top: 50%;
 	right: 59px;
-	margin-top: -15px;
+	// margin-top: -15px;
+	float: right;
 }
 
 .post-item--actions--users {
@@ -179,6 +185,7 @@ a {
 	height: 30px;
 	margin: 0 23px 0 0;
 	position: relative;
+	float: right;
 }
 
 .post-item--actions--user {
@@ -428,7 +435,7 @@ div {
 }
 
 .page-header.v-collections .page-header--shadow {
-	background-color: rgba(0,0,0,0.4);
+	background-color: rgba(0,0,0,0.5);
 	box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
 	min-height: 220px;
 }
