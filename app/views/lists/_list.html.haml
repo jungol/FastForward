@@ -19,6 +19,8 @@
       .post-item--text
         .post-item--text--name
           = list.title
+          - if list.created_at > Time.now - 24.hours
+            %span.title--subtext.new NEW!
         .post-item--subtext
           =raw list.subtitle
         .post-item--text-tags

@@ -11,17 +11,40 @@
     %ul.posts--group
       = render @lists
 
+/ - @lists.group_by(&:date).sort.reverse.each do |date, lists|
+/   .day
+/     %h4.title.v-big
+/       - if date == Date.today.strftime('%B %d %A')
+/         %span Today
+/         %span.title--subtext= date.rpartition(' ').first
+/       / - elsif date == Date.yesterday.strftime('%B %d %A')
+/       /   %span Yesterday
+/       /   %span.title--subtext= date.rpartition(' ').first
+/       / - else
+/       /   %span= date.rpartition(' ').last
+/       /   %span.title--subtext= date.rpartition(' ').first
+/   .container
+/     %ul.posts-group
+/       =render lists
 
 
 
-  / - @lists.group_by(&:date).sort.reverse.each do |date, lists|
-  /   .day_feed
-  /     %ul.list_inline
-  /       %li.day
-  /         - if date == Date.today.strftime('%B %d')
-  /           Today's Collections
-  /         - elsif date == Date.yesterday.strftime('%B %d')
-  /           Yesterday
-  /         - else
-  /       %li.date
-  /         = date
+
+
+
+/ %ul.featured-feed
+/   .day
+/     %h4
+
+
+/ - @lists.group_by(&:date).sort.reverse.each do |date, lists|
+/   .day_feed
+/     %ul.list_inline
+/       %li.day
+/         - if date == Date.today.strftime('%B %d')
+/           Today's Collections
+/         - elsif date == Date.yesterday.strftime('%B %d')
+/           Yesterday
+/         - else
+/       %li.date
+/         = date

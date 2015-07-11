@@ -1,1 +1,1 @@
-= render partial: 'shared/feed', locals: {heading: "Following", date: nil}
+= render partial: 'shared/feed', locals: {heading: "Following", date: pluralize(current_user.lists.count, 'research question')}

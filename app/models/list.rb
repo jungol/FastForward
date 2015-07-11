@@ -87,6 +87,10 @@ class List < ActiveRecord::Base
     end
   end
 
+  def date
+    self.created_at.strftime('%B %d %A')
+  end
+
   private
 
 
