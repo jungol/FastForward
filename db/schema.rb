@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709210831) do
+ActiveRecord::Schema.define(version: 20150711184717) do
 
   create_table "collections", force: :cascade do |t|
     t.string   "name"
@@ -128,6 +128,8 @@ ActiveRecord::Schema.define(version: 20150709210831) do
     t.string   "uid"
     t.string   "provider"
     t.string   "image"
+    t.integer  "facebook_id"
+    t.string   "fb_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

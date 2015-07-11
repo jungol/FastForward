@@ -20,6 +20,7 @@ Sylaby::Application.routes.draw do
   get 'static_pages/design3'
   get 'static_pages/home'
   get 'static_pages/about'
+  get 'static_pages/confirm'
   get 'static_pages/microfinance'
   get 'static_pages/technologyofmicrofinance'
   get 'static_pages/groupreputation'

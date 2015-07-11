@@ -49,6 +49,10 @@ class User < ActiveRecord::Base
       user.email = auth.info
       user.image = auth.info.image
       user.password = Devise.friendly_token[0,20]
+      user.fb_id = auth.extra.raw_info.id
+      name = auth.info.name.rpartition(' ')
+      user.first_name = name.first
+      user.last_name = name.last
     end
   end
 

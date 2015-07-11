@@ -9,7 +9,19 @@
   .posts--group--header
   .container
     %ul.posts--group
-      = render @lists
+      -if @lists.count == 0
+        .nothing-here
+          %h2 You don't have any subscriptions yet!
+
+          %h4 Subscriptions let you track research questions and get email updates whenever there's a new finding. 
+
+          %h4
+            =link_to root_path do
+              Visit the main page and start subscribing
+              %i.fa.fa-arrow-right
+
+      -else
+        = render @lists
 
 / - @lists.group_by(&:date).sort.reverse.each do |date, lists|
 /   .day

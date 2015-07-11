@@ -3,6 +3,20 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+.confirm {
+	text-align: center;
+}
+
+.nothing-here {
+	// width: 600px;
+	text-align: center;
+	margin-left: 120px;
+	margin-right: 120px;
+	color: gray;
+	h4 {
+		
+	}
+}
 
 #tag-dropdown-menu {
 	li a {

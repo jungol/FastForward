@@ -27,6 +27,9 @@ class StaticPagesController < ApplicationController
   def people
   end
 
+  def confirm
+  end
+
   def microfinance
     @lists = List.where(id: [23, 21, 90, 89, 88, 97, 96, 95])
   end
