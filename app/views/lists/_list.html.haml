@@ -8,8 +8,8 @@
           %button.btn-invisible.new_subscription{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
             %i.fa.fa-bookmark-o
           %ul
-            %li FOLLOW
-            %li 25
+            %li GET UPDATES
+            %li= pluralize(list.users.count, 'subscriber')
           = render partial: 'shared/sign_in_modal'
     .post-item--actions
       .post-item--actions--users
