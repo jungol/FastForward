@@ -7,7 +7,7 @@
         .profile-img= image_tag(@submitter.image)
         %span 
           Submitted by
-          = "#{@submitter.first_name} #{@submitter.last_name}, a #{@submitter.position} at #{@submitter.school}"
+          = "#{@submitter.first_name} #{@submitter.last_name}, #{@submitter.position} at #{@submitter.school}"
       .page-header--info
         %h1.page-header--title
           = @list.title
