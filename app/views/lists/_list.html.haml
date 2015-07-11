@@ -6,7 +6,7 @@
       - else
         .follow-form#follow_form{id: "list" + list.id.to_s}
           %button.btn-invisible.new_subscription{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
-            %i.fa.fa-bookmark-o
+            %i.fa.fa-plus-circle
           %ul
             %li GET UPDATES
             %li= pluralize(list.users.count, 'subscriber')

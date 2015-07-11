@@ -1,6 +1,6 @@
 = form_for(current_user.subscriptions.find_by(list_id: list.id), html: { method: :delete}, remote: true) do |f|
   =button_tag(class: "btn btn-invisible") do
-    %i.fa.fa-bookmark
+    %i.fa.fa-minus-circle
   %ul
     %li= "You and " + pluralize(list.users.count.to_s, 'other')
     %li are subscribed
