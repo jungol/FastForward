@@ -316,6 +316,7 @@ a {
 	margin: 5px 0 0 0px;
 	display: block;
 	line-height: 20px;
+
 }
 
 .post-item--text-tag {
@@ -328,6 +329,8 @@ a {
 	padding-left: 5px;
 	padding-right: 5px;
 	font-weight: bold;
+	// float: right;
+	// text-align: right;
 	border-radius: 0px;
 }
 
@@ -612,9 +615,6 @@ div {
 	border-bottom: 3px solid #337ab7;
 }
 
-.bottom-line {
-}
-
 
 html, body {
 	// min-height: 100%;
@@ -629,8 +629,10 @@ html {
 
 .bottom-line {
 	li {
-		margin-bottom: 20px;
+		margin-bottom: 15px;
 		list-style-type: disc;
+		font-size: 17px;
+
 	}
 	h4 {
 		font-weight: normal;
@@ -865,6 +867,7 @@ li {
 	h3 {
 		margin-top: 15px;
 		margin-bottom: 15px;
+		color: #333;
 	}
 
 }
