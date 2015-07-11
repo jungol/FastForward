@@ -11,20 +11,16 @@
             %li GET UPDATES
             %li= pluralize(list.users.count, 'subscriber')
           = render partial: 'shared/sign_in_modal'
-    .post-item--actions
-      .post-item--actions--users
-        %span.post-item--actions--user
-          .profile-img= image_tag(User.find_by(id: list.submitter).image)
-    .post-item--text
-      .post-item--text--name
-        = link_to list.title, list_path(list)
-      .post-item--subtext
-        =raw list.subtitle
-      .post-item--text-tags
-        - list.tags.each do |tag| 
-          %span.post-item--text-tag{class: "tag-" + tag.name}= tag.name
-
-/ :javascript
-/   $('i').click(function(){
-/     $(this).toggleClass('fa-bookmark-o').toggleClass('fa-bookmark');
-/   })
+    =link_to(list) do
+      .post-item--actions
+        .post-item--actions--users
+          %span.post-item--actions--user
+            .profile-img= image_tag(User.find_by(id: list.submitter).image)
+      .post-item--text
+        .post-item--text--name
+          = list.title
+        .post-item--subtext
+          =raw list.subtitle
+        .post-item--text-tags
+          - list.tags.each do |tag| 
+            %span.post-item--text-tag{class: "tag-" + tag.name}= tag.name

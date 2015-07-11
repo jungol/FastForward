@@ -171,6 +171,9 @@ a {
 	div {
 		padding-bottom: 10px;
 	}
+	a {
+		text-decoration: none;
+	}
 }
 
 .post-item--actions {
@@ -301,15 +304,15 @@ a {
 }
 
 .post-item--text--name {
-	a {
-		color: #444;
-		font-size: 30px;
-		font-weight: 500;
-		margin: 5px 2px 0;
-		&:hover {
-			color: #333;
-			// text-decoration: none;
-		}
+	
+	color: #444;
+	font-size: 30px;
+	font-weight: 500;
+	margin: 5px 2px 0;
+	&:hover {
+		color: #333;
+		// text-decoration: none;
+
 	}
 }
 
