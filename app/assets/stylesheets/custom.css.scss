@@ -154,6 +154,14 @@ a {
 		button {
 			background: #f7f7fa;
 		}
+		i {
+			transform: scale(1.2);
+		}
+	}
+	i {
+		transition: all .2s ease-in-out;
+		&:hover {
+		}
 	}
 	font-size: 18px;
 	min-height: 80px;
@@ -515,6 +523,10 @@ div {
 		}
 		i {
 			font-size: 3em;
+			transition: all .2s ease-in-out;
+			&:hover {
+				transform: scale(1.2);
+			}
 		}
 	}
 	// margin-top: 60px;
