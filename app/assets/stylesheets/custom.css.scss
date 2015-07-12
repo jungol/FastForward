@@ -254,6 +254,9 @@ a {
 
 }
 
+
+
+
 .new_subscription button, .edit_subscription button {
 	width: 90px;
 	&:hover {
@@ -553,8 +556,9 @@ div {
 		// font-size: 1.2em;
 		margin-right: 10px;
 	}
+	
 	.new_subscription button {
-		font-size: 1.5em;
+		font-size: 1.3em;
 		// width: 275px;
 		// background: transparent;
 		// padding-top: 0px;
@@ -565,7 +569,7 @@ div {
 	button {
 		opacity: 1;
 		color: white;
-		font-size: 1.5em;
+		font-size: 1.3em;
 		&:hover {
 			transform: scale(1.05);
 			transition: all .2s ease-in-out;
@@ -597,6 +601,9 @@ div {
 			&:hover {
 				transform: scale(1.2);
 			}
+		}
+		#new_subscription_sign_in {
+			width: 400px;
 		}
 	}
 	// margin-top: 60px;
