@@ -32,4 +32,6 @@
   $('.submit-recommendation').click(function() {
     $('.modal-body').html("Thanks! You're a gentle(wo)man and a scholar. We'll be in touch very soon.");
   });
-
+  $('.submit-recommendation').click(function(){
+    mixpanel.track("Submit recommendation");
+  })

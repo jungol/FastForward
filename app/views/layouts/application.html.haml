@@ -52,3 +52,8 @@
 /       Research GPS 2015
 :javascript
   var $pagecontent = $('#page-wrapper').html();
+  $(document).on('click', '.follow-form button', function(){
+    mixpanel.track("(un)subscribe", {
+      "Type": $(this).attr('id')
+    })
+  })

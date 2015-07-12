@@ -21,7 +21,7 @@
     .header--secondary.v-links
       .container
         %a.header--secondary--link
-          =button_to root_path, method: "get", class: "btn btn-gray", id: ("active" if request.path == '/') do
+          =button_to root_path, method: "get", class: "btn btn-gray", id: ("active research-question-button" if request.path == '/') do
             Research Questions
 
         %a.header--secondary--link#following
@@ -87,6 +87,19 @@
       "Relation": "Root"
     });
   });
+  $('.header--secondary--link button').click(function() {
+    mixpanel.track("Visit subheader link", {
+      "Link": $('this').text()
+    });
+  })
+  $('.header--nav li a').click(function() {
+    mixpanel.track("Log in/out", {
+      "Type": $('this').text()
+    })
+  })
+  $('#filter button').click(function() {
+    mixpanel.track("Filter by topic");
+  })
   $('.child').click( function() {
     $text = ($(this).text());
     mixpanel.track("Visited collection", {

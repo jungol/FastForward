@@ -20,7 +20,7 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @items = @list.items
-    @submitter = User.find_by(id: @list.submitter)
+    @submitter = User.find_by(id: @list.submitter) || nil
   end
 
   def new

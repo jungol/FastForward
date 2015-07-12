@@ -3,11 +3,12 @@
 .page-header.v-collections.v-brown{style: %(background-image:url(/assets/#{@list.image_url}))}
   .page-header--shadow
     .container
-      .submitter
-        .profile-img= image_tag(@submitter.image)
-        %span 
-          Submitted by
-          = "#{@submitter.first_name} #{@submitter.last_name}, #{@submitter.position} at #{@submitter.school}"
+      - if !(@submitter == nil)
+        .submitter
+          .profile-img= image_tag(@submitter.image) 
+          %span 
+            Submitted by
+            = "#{@submitter.first_name} #{@submitter.last_name}, #{@submitter.position} at #{@submitter.school}"
       .page-header--info
         %h1.page-header--title
           = @list.title
@@ -64,6 +65,21 @@
                 /   %span.flag.flag-recommend= "RECOMMENDED"
               %td= item.author
               %td= item.journal
+
+:javascript
+  $('#post-new-finding-button').click(function() {
+    mixpanel.track("Post new finding");
+  })
+  $('.bottom-line li a').click(function(){
+    mixpanel.track("View paper", {
+      "Location": $('.bottom-line h3').text()
+    }) 
+  })
+  $('.item-remote-link').click(function(){
+    mixpanel.track("View paper", {
+      "Location": "Papers"
+    })
+  })
 
 /   .recommendation-modal.hide
 /   .list-show
