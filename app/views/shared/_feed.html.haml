@@ -21,7 +21,7 @@
               %i.fa.fa-arrow-right
 
       -else
-        = render @lists
+        = render @lists, locals: {destination: @destination}
 
 / - @lists.group_by(&:date).sort.reverse.each do |date, lists|
 /   .day

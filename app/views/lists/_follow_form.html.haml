@@ -8,6 +8,6 @@
   /     Sign in to get updates when there are new findings
   / # = render partial: 'shared/sign_in_modal'
   - if current_user.following?(list)
-    = render partial: 'lists/unfollow', locals: {list: list}
+    = render partial: 'lists/unfollow', locals: {list: list, destination: @destination}
   - else
-    = render partial: 'lists/follow', locals: {list: list}
+    = render partial: 'lists/follow', locals: {list: list, destination: @destination}

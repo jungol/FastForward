@@ -2,14 +2,12 @@
   .post-item-content
     .post-follow-button
       - if user_signed_in?
-        = render partial: 'lists/follow_form', locals: {list: list} 
+        = render partial: 'lists/follow_form', locals: {list: list, destination: @destination} 
       - else
-        .follow-form#follow_form{id: "list" + list.id.to_s}
-          %button.btn-invisible.new_subscription{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
-            %i.fa.fa-plus-circle
+        .follow-form#follow_form.new_subscription{id: "list" + list.id.to_s}
+          %button.btn-primary.btn{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
+            Follow
           %ul
-            %li GET UPDATES
-            %li= pluralize(list.users.count, 'subscriber')
           = render partial: 'shared/sign_in_modal'
     =link_to(list) do
       .post-item--actions

@@ -1,12 +1,5 @@
 = form_for(current_user.subscriptions.build(list_id: list.id), remote: true) do |f|
   = f.hidden_field :list_id
-  - if @subscribe_button == true
-    =button_tag(class: "btn btn-invisible", id: "follow") do
-      %i.fa.fa-plus-circle
-    %ul
-      %li Follow for updates
-      %li= pluralize(list.users.count, 'follower')
-  -else
-    =button_tag(class: "btn btn-primary", id: "follow") do
-      Follow to receive updates
-    %ul
+  =button_tag(class: "btn btn-primary", id: "follow") do
+    Follow
+  %ul

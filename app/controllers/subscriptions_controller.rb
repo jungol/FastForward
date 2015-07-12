@@ -3,6 +3,7 @@ class SubscriptionsController < ApplicationController
 
   def create
     @list = List.find(params[:subscription][:list_id])
+    @destination = params[:subscription][:destination]
     current_user.follow!(@list)
     respond_to do |format|
       format.html { redirect_to root_url}

@@ -14,7 +14,7 @@
 	margin-right: 120px;
 	color: gray;
 	h4 {
-		
+
 	}
 }
 
@@ -165,16 +165,19 @@ a {
 	background: white;
 	&:hover {
 		background: #f7f7fa;
-		button {
-			background: #f7f7fa;
+		.new_subscription button {
+			color: #82c440;
+			opacity: 1;
+			border: 3px solid #82c440;
+			transform: scale(1.1);
+			transition: all .2s ease-in-out;
 		}
-		i {
-			transform: scale(1.2);
-		}
-	}
-	i {
-		transition: all .2s ease-in-out;
-		&:hover {
+		.edit_subscription button {
+			opacity: 1;
+			border: 3px solid #e54b4b;
+			color: #e54b4b;
+			transform: scale(1.1);
+			transition: all .2s ease-in-out;
 		}
 	}
 	font-size: 18px;
@@ -251,8 +254,37 @@ a {
 
 }
 
-.new_subscription, .edit_subscription {
-	width: 137px;
+.new_subscription button, .edit_subscription button {
+	width: 90px;
+	&:hover {
+
+	}
+
+}
+
+.new_subscription button {
+	border: 3px solid #82c440;
+	opacity: .5;
+	background: transparent;
+	color: #82c440;
+	&:hover {
+		// color: white;
+		// background: #82c440;
+		background: transparent;
+	}
+}
+ 
+.edit_subscription button {
+	background: transparent;
+	border: 3px solid #e54b4b;
+	color: #e54b4b;
+	opacity: .5;
+	&:hover {
+		background: transparent;
+		// color: white;
+		// background: #e54b4b;
+	}
+
 }
 
 .btn-invisible {
@@ -521,11 +553,24 @@ div {
 		// font-size: 1.2em;
 		margin-right: 10px;
 	}
-	button {
+	.new_subscription button {
 		font-size: 1.5em;
 		// width: 275px;
 		// background: transparent;
 		// padding-top: 0px;
+		color: white;
+		opacity: 1;
+		background: #82c440;
+	}
+	button {
+		opacity: 1;
+		color: white;
+		font-size: 1.5em;
+		&:hover {
+			transform: scale(1.05);
+			transition: all .2s ease-in-out;
+		}
+		border: none;
 	}
 	#post-new-finding-button {
 		margin-left: 20px;
@@ -566,7 +611,7 @@ div {
 }
 
 #post-new-finding-button {
-	background: #e5894b;
+	// background: #e5894b;
 	// margin-left: 10px;
 }
 
