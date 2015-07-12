@@ -11,6 +11,7 @@ class ListsController < ApplicationController
     else
       @lists = List.all
     end
+    @subscribe_button = true
     respond_to do |format|
       format.html
       format.js

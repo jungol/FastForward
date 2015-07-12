@@ -1,6 +1,12 @@
 = form_for(current_user.subscriptions.find_by(list_id: list.id), html: { method: :delete}, remote: true) do |f|
-  =button_tag(class: "btn btn-invisible", id: "unfollow") do
-    %i.fa.fa-minus-circle
-  %ul
-    %li= "You and " + pluralize(list.users.count.to_s, 'other')
-    %li are subscribed
+  - if @subscribe_button == true 
+    =button_tag(class: "btn btn-invisible", id: "unfollow") do
+      %i.fa.fa-minus-circle
+    %ul
+      %li= "Youd and " + pluralize(list.users.count.to_s, 'other')
+      %li are subscribed
+  - else
+    =button_tag(class: "btn btn-primary", id: "unfollow") do
+      Unsubscribe
+    %ul
+      %li= "You and " + pluralize(list.users.count, 'other person are ') + "subscribed to this question"
