@@ -59,7 +59,7 @@
               - if current_user.try(:admin?)
                 %td= item.id
               %td
-                = item.finding
+                = item.finding || ""
                 / - if item.user_items.where(recommend: true).count > 0
                 /   %span.flag.flag-recommend= "RECOMMENDED"
               %td= link_to item.title, item, "data-remote" => "true", class: "item-remote-link"
