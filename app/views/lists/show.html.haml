@@ -29,13 +29,14 @@
 
 .container
   %ul.bottom-line
-    %h3 What we know so far
+    %h3.title.v-big
+      %span What we know so far
+      %span.title--subtext= "Last updated #{@list.updated_at.strftime('%A')}, #{@list.updated_at.strftime('%B %d')}"
     = raw @list.description
 .container
-  .papers
-    .papers-heading
-      %h3.papers-title
-        Research papers that address this question
+  %ul.findings
+    %h3.title.v-big
+      %span Findings
 
     .papers-body
       .table-responsive
@@ -47,25 +48,22 @@
               %td
                 %b ID
             %td
-              %b Title
+              %b Finding
             %td 
-              %b Authors
+              %b Source
             %td
-              %b Journal
+              %b Authors
           - @list.items.each do |item|
             %tr.clickable-row{ "data-href" =>('/items/' + item.id.to_s) }
               %td= item.year
               - if current_user.try(:admin?)
                 %td= item.id
               %td
-                = link_to item.title, item, "data-remote" => "true", class: "item-remote-link"
-                - if item.syllabus
-                  %br
-                  %span.flag.flag-syllabus= "ON A SYLLABUS"
+                = item.finding
                 / - if item.user_items.where(recommend: true).count > 0
                 /   %span.flag.flag-recommend= "RECOMMENDED"
+              %td= link_to item.title, item, "data-remote" => "true", class: "item-remote-link"
               %td= item.author
-              %td= item.journal
 
 :javascript
   $('#post-new-finding-button').click(function() {

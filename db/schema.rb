@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711184717) do
+ActiveRecord::Schema.define(version: 20150712192606) do
 
   create_table "collections", force: :cascade do |t|
     t.string   "name"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150711184717) do
     t.string   "journal"
     t.text     "abstract"
     t.boolean  "syllabus",      default: false
+    t.text     "finding"
   end
 
   create_table "list_collections", force: :cascade do |t|

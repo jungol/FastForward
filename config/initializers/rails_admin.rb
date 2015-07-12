@@ -44,6 +44,7 @@ RailsAdmin.config do |config|
 
   config.model Item do
     field :title
+    field :finding
     field :url
     field :abstract
     field :year
