@@ -21,7 +21,7 @@
     .header--secondary.v-links
       .container
         %a.header--secondary--link
-          =button_to root_path, method: "get", class: "btn btn-gray", id: ("active research-question-button" if request.path == '/') do
+          =button_to root_path, method: "get", class: "btn btn-gray", id: ("active" if request.path == '/') do
             Research Questions
 
         %a.header--secondary--link#following
