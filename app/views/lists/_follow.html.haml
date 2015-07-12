@@ -4,9 +4,9 @@
     =button_tag(class: "btn btn-invisible", id: "follow") do
       %i.fa.fa-plus-circle
     %ul
-      %li Subscribe for updates
-      %li= pluralize(list.users.count, 'subscriber')
+      %li Follow for updates
+      %li= pluralize(list.users.count, 'follower')
   -else
     =button_tag(class: "btn btn-primary", id: "follow") do
-      Subscribe to receive updates
+      Follow to receive updates
     %ul

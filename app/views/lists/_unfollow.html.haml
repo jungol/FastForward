@@ -4,9 +4,9 @@
       %i.fa.fa-minus-circle
     %ul
       %li= "Youd and " + pluralize(list.users.count.to_s, 'other')
-      %li are subscribed
+      %li are following
   - else
     =button_tag(class: "btn btn-primary", id: "unfollow") do
       Unsubscribe
     %ul
-      %li= "You and " + pluralize(list.users.count, 'other person are ') + "subscribed to this question"
+      %li= "You and " + pluralize(list.users.count, 'other person are ') + "following this question"
