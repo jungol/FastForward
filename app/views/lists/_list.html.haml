@@ -1,6 +1,6 @@
 .post-item
   .post-item-content
-    %span.title--subtext.post-date= "#{list.updated_at.strftime('%A')}"
+    / %span.title--subtext.post-date= "#{list.updated_at.strftime('%A')}"
     .post-follow-button
       - if user_signed_in?
         = render partial: 'lists/follow_form', locals: {list: list, destination: @destination} 
