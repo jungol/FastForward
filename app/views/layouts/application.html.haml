@@ -45,11 +45,12 @@
   /   %small
   /     Want to get in touch? Email
   /     =mail_to "info@researchgps.com"
-  = debug(params) if Rails.env.development?
-/ .footer 
-/   .container-fluid
-/     .pull-right
-/       Research GPS 2015
+  / # = debug(params) if Rails.env.development?
+  .footer 
+    .container-fluid
+      .pull-right
+        Send emails to 
+        = mail_to "ethan@econforward.com"
 :javascript
   var $pagecontent = $('#page-wrapper').html();
   $(document).on('click', '.follow-form button', function(){
