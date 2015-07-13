@@ -62,7 +62,9 @@
                 = item.finding || ""
                 / - if item.user_items.where(recommend: true).count > 0
                 /   %span.flag.flag-recommend= "RECOMMENDED"
-              %td= link_to item.title, item, "data-remote" => "true", class: "item-remote-link"
+              %td
+                = link_to item.title, item, "data-remote" => "true", class: "item-remote-link"
+                .journal= item.journal
               %td= item.author
 
 :javascript
