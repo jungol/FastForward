@@ -17,9 +17,11 @@
               .profile-img= image_tag(User.find_by(id: list.submitter).image)
       .post-item--text
         .post-item--text--name
-          = list.title
-          - if list.created_at > Time.now - 24.hours
-            %span.title--subtext.new NEW!
+          %span= list.title
+          %span.title--subtext= "#{list.updated_at.strftime('%A')}"
+
+          / - if list.created_at > Time.now - 24.hours
+          / %span.title--subtext.new NEW!
         .post-item--subtext
           =raw list.subtitle
         .post-item--text-tags
