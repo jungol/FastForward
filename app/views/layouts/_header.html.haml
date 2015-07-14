@@ -15,11 +15,12 @@
         %ul.header--nav
           %li.btn#slogan Follow today's big questions, get new findings delivered to your inbox.
           - if user_signed_in?
-            %li.btn.welcome= "Hello, #{current_user.first_name}!"
-            %li.profile-img= image_tag(current_user.image)
+            
+            / # %li.profile-img= image_tag(current_user.image)
             %li.btn= link_to "Log Out", destroy_user_session_path, method: 'delete'
           -else
-            %li.btn= link_to "Log In", user_omniauth_authorize_path(:facebook)
+            / # %li.btn= link_to "Log In", user__authorize_path(:facebook)
+            %li.btn= link_to "Log In", new_user_session_path
         %li.u-hidden-on-small-screen
           %a.header--post(href="#")
             / %svg(width="50" height="50")
@@ -41,6 +42,9 @@
               %i.fa.fa-plus-circle
               My Subscriptions
             =render partial: 'shared/sign_in_modal'
+        / %li.btn#slogan Follow today's big questions, get new findings delivered to your inbox.
+        - if user_signed_in?
+          %li.btn.welcome= "Hello, #{current_user.email}!"
         - if request.env['PATH_INFO'] == '/'
           .btn-group#filter
             %button.btn.btn-default.dropdown-toggle(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")

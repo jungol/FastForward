@@ -6,7 +6,7 @@ Sylaby::Application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  devise_for :users
   resources :recommendations
   resources :users, only: [:show]
   resources :lists

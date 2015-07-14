@@ -8,7 +8,7 @@
           Log in, please!
       .modal-body
         %button.btn.btn-primary.btn-lg
-          = link_to "Log in", user_omniauth_authorize_path(:facebook)
+          = link_to "Log in", new_user_session_path
           %i.fa.fa-arrow-circle-right
       .modal-footer
         %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Eh, not right now
