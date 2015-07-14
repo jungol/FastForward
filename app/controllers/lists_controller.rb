@@ -10,12 +10,10 @@ class ListsController < ApplicationController
       @lists = @tag.lists
     else
       @lists = List.all
-
     end
-    @destination = "index"
     respond_to do |format|
       format.html
-      format.js
+      format.js {@lists}
     end
   end
 
