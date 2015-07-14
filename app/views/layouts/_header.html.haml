@@ -34,12 +34,12 @@
           -if user_signed_in?
             =button_to subscriptions_path, method: "get", class: "btn btn-gray", id: ("active" if request.path == '/subscriptions') do
               %i.fa.fa-plus-circle
-              What I'm Following
+              My Subscriptions
               %span#user-follow-count= "(#{current_user.lists.count})"
           -else
             %button.btn.btn-gray{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
               %i.fa.fa-plus-circle
-              What I'm Following
+              My Subscriptions
             =render partial: 'shared/sign_in_modal'
         - if request.env['PATH_INFO'] == '/'
           .btn-group#filter

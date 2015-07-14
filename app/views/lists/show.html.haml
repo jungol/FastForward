@@ -20,7 +20,7 @@
         - else
           .follow-form#follow-form.new_subscription.new_subscription_sign_in
             %button.btn.btn-primary.new_subscription#new_subscription_sign_in{{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}}
-              Sign in to be notified about new findings
+              Sign in to get email alerts about new findings
             = render partial: 'shared/sign_in_modal'
         %button.btn.btn-large.btn-primary#post-new-finding-button{{"data-target" => "#newFindingModal", "data-toggle" => "modal", :type => "button"}}
           Post a new finding

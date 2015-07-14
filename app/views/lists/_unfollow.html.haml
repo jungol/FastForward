@@ -1,5 +1,5 @@
 = form_for(current_user.subscriptions.find_by(list_id: list.id), html: { method: :delete}, remote: true) do |f|
   =button_tag(class: "btn btn-primary", id: "unfollow") do
-    Unfollow
+    Stop Email Updates
   %ul
     / %li= "You and " + pluralize(list.users.count, 'other person are ') + "following this question"
