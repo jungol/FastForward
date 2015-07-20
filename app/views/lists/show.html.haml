@@ -3,12 +3,6 @@
 .page-header.v-collections.v-brown{style: %(background-image:url(/assets/#{@list.image_url}))}
   .page-header--shadow
     .container
-      - if !(@submitter == nil)
-        .submitter
-          .profile-img= image_tag(@submitter.image) 
-          %span 
-            Submitted by
-            = "#{@submitter.first_name} #{@submitter.last_name}, #{@submitter.position} at #{@submitter.school}"
       .page-header--info
         %h1.page-header--title
           = @list.title
@@ -67,6 +61,14 @@
                 .journal= item.journal
               %td= item.author
 
+.container.contributor
+  - if !(@submitter == nil)
+    .submitter
+      %h3.title.v-big
+        %span Contributors
+      .profile-img= image_tag(@submitter.image) 
+      %span 
+        = "#{@submitter.first_name} #{@submitter.last_name}, #{@submitter.position} at #{@submitter.school}"
 :javascript
   $('#post-new-finding-button').click(function() {
     mixpanel.track("Post new finding");
