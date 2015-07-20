@@ -13,9 +13,9 @@
     =link_to(list) do
       .post-item--actions
         .post-item--actions--users
-          %span.post-item--actions--user
-            - if !(User.find_by(id: list.submitter) == nil)
-              .profile-img= image_tag(User.find_by(id: list.submitter).image)
+          / %span.post-item--actions--user
+          /   - if !(User.find_by(id: list.submitter) == nil)
+          /     .profile-img= image_tag(User.find_by(id: list.submitter).image)
       .post-item--text
         .post-item--text--name
           %span= list.title
