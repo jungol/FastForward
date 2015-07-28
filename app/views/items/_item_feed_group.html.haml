@@ -1,0 +1,18 @@
+.day_feed
+  %ul.item_inline
+    %li.day
+      %h4.title.v-big
+        - if date == Date.today.strftime('%B %d %A')
+          %span Today
+          %span.title--subtext= date.rpartition(' ').first
+        - elsif date == Date.yesterday.strftime('%B %d %A')
+          %span Yesterday
+          %span.title--subtext= date.rpartition(' ').first
+        - else
+          %li.date
+            %span= date.rpartition(' ').last
+            %span.title--subtext= date.rpartition(' ').first
+  .container
+    %ul.posts--group
+      = render items
+

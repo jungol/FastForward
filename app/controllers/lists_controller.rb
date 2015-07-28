@@ -30,7 +30,8 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-    if @list.save    
+    if @list.save   
+      current_user.add_list!(@list)
       flash[:success] = "List created!"
       redirect_to @list
     else

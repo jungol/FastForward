@@ -15,6 +15,8 @@ gem 'ancestry'
 gem 'font-awesome-sass'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

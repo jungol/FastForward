@@ -11,5 +11,12 @@ class ItemsController < ApplicationController
   
   end
 
+  def index
+    @item_groups = Item.all.group_by(&:date).sort.reverse
+    @item_groups = @item_groups.paginate(:page => params[:page], :per_page=>1)
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 end
-

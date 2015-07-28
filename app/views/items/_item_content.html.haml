@@ -8,7 +8,16 @@
     .item-journal.gray= @item.journal
   .col-xs-12
     .item-author.gray= @item.author
-
+  .col-xs-12
+    .post-follow-button
+      - if user_signed_in?
+        = render partial: 'items/follow_form', locals: {item: @item} 
+      - else
+        .follow-form#follow_form.new_subscription{id: "item" + @item.id.to_s}
+          %button.btn-primary.btn{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
+            Pin
+          %ul
+          = render partial: 'shared/sign_in_modal'
 
 
   / .col-xs-12

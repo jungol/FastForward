@@ -24,29 +24,29 @@
     %h2#catchphrase Powerboost your research
 
   .col-xs-12
-    %h4#sub-slogan DevEc GPS collects the latest findings and ideas about high-impact research questions in development economics
+    %h4#sub-slogan EconFrontier is a personalized, daily feed of the best new research you need to know about
 
   .col-xs-12#sample-question
-    .btn.btn-primary.btn-default.btn-primary-text
-      = link_to "Take me to a research question", '/lists/144' 
-      %i.fa.fa-arrow-circle-o-right 
+    %button.btn.btn-large.btn-primary#post-new-finding-button{{"data-target" => "#newFindingModal", "data-toggle" => "modal", :type => "button"}}
+      Get notified about the beta
+  = render partial: 'shared/new_finding_modal'
 
   .col-md-4.value
     %h3
       %i.fa.fa-compass 
       Get the latest
-    Read a two-minute summary of the latest findings on any research question. 
+    See a collection of new academic articles every day, catered to your interests 
 
   .col-md-4.value
     %h3 
       %i.fa.fa-map-marker 
-      Stay in the know
-    Subscribe to research questions and be notified when a discovery is made.
+      Stay organized
+    Create collections of articles and never stress out about keeping track of articles you need
   .col-md-4.value
     %h3 
       %i.fa.fa-university
-      Build your reputation
-    Publish updates about your own research, and establish expertise.
+      Explore the community
+    See what other people are reading by exploring their collections
 
   
     

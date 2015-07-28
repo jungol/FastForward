@@ -33,14 +33,20 @@ class Item < ActiveRecord::Base
   has_many :item_lists
   # has_many :users, :through => :user_items
   has_many :lists, :through => :item_lists
-
+  has_many :user_items
+  has_many :users, :through => :user_items
   before_create :already_exists?
 
-
+  def date
+    self.created_at.strftime('%B %d %A')
+  end
+  
   private
 
     def already_exists?
       Item.find_or_initialize_by(title: self.title)
     end
+
+
 
 end

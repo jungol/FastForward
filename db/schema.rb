@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150712192606) do
+ActiveRecord::Schema.define(version: 20150725132745) do
 
   create_table "collections", force: :cascade do |t|
     t.string   "name"
@@ -22,12 +22,6 @@ ActiveRecord::Schema.define(version: 20150712192606) do
   end
 
   add_index "collections", ["ancestry"], name: "index_collections_on_ancestry"
-
-  create_table "email_signups", force: :cascade do |t|
-    t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "item_lists", force: :cascade do |t|
     t.integer  "item_id"
@@ -96,6 +90,13 @@ ActiveRecord::Schema.define(version: 20150712192606) do
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_items", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

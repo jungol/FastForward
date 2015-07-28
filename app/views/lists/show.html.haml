@@ -1,6 +1,6 @@
 - provide(:title, @list.title)
 
-.page-header.v-collections.v-brown{style: %(background-image:url(/assets/#{@list.image_url}))}
+.page-header.v-collections.v-brown{style: %(background-image:url(/assets/book.jpg))}
   .page-header--shadow
     .container
       .page-header--info
@@ -9,80 +9,91 @@
         %h2.page-header--subtitle
           = raw @list.subtitle
       .page-header--buttons
-        - if user_signed_in?
-          = render partial: 'lists/follow_form', locals: {list: @list, list_index: false}
-        - else
-          .follow-form#follow-form.new_subscription.new_subscription_sign_in
-            %button.btn.btn-primary.new_subscription#new_subscription_sign_in{{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}}
-              Sign in to get email alerts about new findings
-            = render partial: 'shared/sign_in_modal'
-        %button.btn.btn-large.btn-primary#post-new-finding-button{{"data-target" => "#newFindingModal", "data-toggle" => "modal", :type => "button"}}
-          Post a new finding
-        = render partial: 'shared/new_finding_modal'
-
-
+        .contributor
+          = "Created by #{current_user.first_name} #{current_user.last_name}"
 .container
-  %ul.bottom-line
-    %h3.title.v-big
-      %span What we know so far
-      %span.title--subtext= "Last updated #{@list.updated_at.strftime('%A')}, #{@list.updated_at.strftime('%B %d')}"
-    = raw @list.description
-.container
-  %ul.findings
-    %h3.title.v-big
-      %span Empirical Findings
+  %ul.featured-feed
+    = render @list.items
+/   - if !(@submitter == nil)
+/     .submitter
+/       %h3.title.v-big
+/         %span Contributors
+/       .profile-img= image_tag(@submitter.image) 
+/       %span 
+/   - if user_signed_in?
+/     = render partial: 'lists/follow_form', locals: {list: @list, list_index: false}
+/   - else
+/     .follow-form#follow-form.new_subscription.new_subscription_sign_in
+/       %button.btn.btn-primary.new_subscription#new_subscription_sign_in{{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}}
+/         Sign in to get email alerts about new findings
+/       = render partial: 'shared/sign_in_modal'
+/   %button.btn.btn-large.btn-primary#post-new-finding-button{{"data-target" => "#newFindingModal", "data-toggle" => "modal", :type => "button"}}
+/     Post a new finding
+/   = render partial: 'shared/new_finding_modal'
 
-    .papers-body
-      .table-responsive
-        %table.table.table-bordered.table-hover
-          %tr
-            %td
-              %b Date
-            - if current_user.try(:admin?)
-              %td
-                %b ID
-            %td
-              %b Finding
-            %td 
-              %b Source
-            %td
-              %b Authors
-          - @list.items.each do |item|
-            %tr.clickable-row{ "data-href" =>('/items/' + item.id.to_s) }
-              %td= item.year
-              - if current_user.try(:admin?)
-                %td= item.id
-              %td
-                = item.finding || ""
-                / - if item.user_items.where(recommend: true).count > 0
-                /   %span.flag.flag-recommend= "RECOMMENDED"
-              %td
-                = link_to item.title, item, "data-remote" => "true", class: "item-remote-link"
-                .journal= item.journal
-              %td= item.author
 
-.container.contributor
-  - if !(@submitter == nil)
-    .submitter
-      %h3.title.v-big
-        %span Contributors
-      .profile-img= image_tag(@submitter.image) 
-      %span 
-        = "#{@submitter.first_name} #{@submitter.last_name}, #{@submitter.position} at #{@submitter.school}"
-:javascript
-  $('#post-new-finding-button').click(function() {
-    mixpanel.track("Post new finding");
-  })
-  $('.bottom-line li a').click(function(){
-    mixpanel.track("View paper", {
-      "Location": $('.bottom-line h3').text()
-    }) 
-  })
-  $('.item-remote-link').click(function(){
-    mixpanel.track("View paper", {
-      "Location": "Papers"
-    })
-  })
+/ .container
+/   %ul.bottom-line
+/     %h3.title.v-big
+/       %span What we know so far
+/       %span.title--subtext= "Last updated #{@list.updated_at.strftime('%A')}, #{@list.updated_at.strftime('%B %d')}"
+/     = raw @list.description
+/ .container
+/   %ul.findings
+/     %h3.title.v-big
+/       %span Empirical Findings
+
+/     .papers-body
+/       .table-responsive
+/         %table.table.table-bordered.table-hover
+/           %tr
+/             %td
+/               %b Date
+/             - if current_user.try(:admin?)
+/               %td
+/                 %b ID
+/             %td
+/               %b Finding
+/             %td 
+/               %b Source
+/             %td
+/               %b Authors
+/           - @list.items.each do |item|
+/             %tr.clickable-row{ "data-href" =>('/items/' + item.id.to_s) }
+/               %td= item.year
+/               - if current_user.try(:admin?)
+/                 %td= item.id
+/               %td
+/                 = item.finding || ""
+/                 / - if item.user_items.where(recommend: true).count > 0
+/                 /   %span.flag.flag-recommend= "RECOMMENDED"
+/               %td
+/                 = link_to item.title, item, "data-remote" => "true", class: "item-remote-link"
+/                 .journal= item.journal
+/               %td= item.author
+
+/ .container.contributor
+/   - if !(@submitter == nil)
+/     .submitter
+/       %h3.title.v-big
+/         %span Contributors
+/       .profile-img= image_tag(@submitter.image) 
+/       %span 
+/         = "#{@submitter.first_name} #{@submitter.last_name}, #{@submitter.position} at #{@submitter.school}"
+/ :javascript
+/   $('#post-new-finding-button').click(function() {
+/     mixpanel.track("Post new finding");
+/   })
+/   $('.bottom-line li a').click(function(){
+/     mixpanel.track("View paper", {
+/       "Location": $('.bottom-line h3').text()
+/     }) 
+/   })
+/   $('.item-remote-link').click(function(){
+/     mixpanel.track("View paper", {
+/       "Location": "Papers"
+/     })
+/   })
 
 /   .recommendation-modal.hide
 /   .list-show

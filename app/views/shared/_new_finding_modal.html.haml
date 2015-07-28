@@ -5,22 +5,18 @@
         %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
           %span{"aria-hidden" => "true"} ×
         %h3#newFindingModalLabel.modal-title
-          Post a new finding to this page
+          Join the beta
       .modal-body
         #instructions
-          Our team will review your submission and be in touch with you by email within 12 hours. We post everything that meets our
-          %a guidelines. 
+          We'll let you know when we're ready to open up the beta!
 
         = form_tag( {controller: "recommendations", action: "create"}, method: "post", remote:true) do
           %ul
             %br
             %li
-              %h4=label_tag 'What is the new finding?'
-            %li=text_area_tag(:recommendation, params[:recommendation], placeholder: "Make sure to tell us your source for the new finding, such as a new working paper (feel free to submit something from your own work!)")
-            = hidden_field_tag :list, @list.title
             %br
             %li
-              %h4=label_tag "How can we reach you?"
+              %h4=label_tag "What's your email?"
             %li=text_field_tag( :email, params[:email], placeholder: "Email", autofocus: true)
           %br
           .submit-recommendation
@@ -30,7 +26,7 @@
 
 :javascript
   $('.submit-recommendation').click(function() {
-    $('.modal-body').html("Thanks! You're a gentle(wo)man and a scholar. We'll be in touch very soon.");
+    $('.modal-body').html("Thanks! We'll be in touch very soon.");
   });
   $('.submit-recommendation').click(function(){
     mixpanel.track("Submit recommendation");

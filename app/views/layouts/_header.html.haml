@@ -8,19 +8,19 @@
           .brand--title.u-hidden-on-small-screen
             = link_to root_url do
               %h1 
-                %span EconForward
+                %span EconFrontier
                 %div
                   %sup DEVELOPMENT ECONOMICS
             / %h5 Follow topics in development and never miss a new finding
         %ul.header--nav
-          %li.btn#slogan Follow today's big questions, get new findings delivered to your inbox.
+          %li.btn#slogan A personalized daily feed of the best, new research
           - if user_signed_in?
             
             / # %li.profile-img= image_tag(current_user.image)
             %li.btn= link_to "Log Out", destroy_user_session_path, method: 'delete'
           -else
             / # %li.btn= link_to "Log In", user__authorize_path(:facebook)
-            %li.btn= link_to "Log In", new_user_session_path
+            / %li.btn= link_to "Log In", new_user_session_path
         %li.u-hidden-on-small-screen
           %a.header--post(href="#")
             / %svg(width="50" height="50")
@@ -28,19 +28,19 @@
     .header--secondary.v-links
       .container
         %a.header--secondary--link
-          =button_to root_path, method: "get", class: "btn btn-gray", id: ("active" if request.path == '/') do
-            Research Questions
+          / =button_to root_path, method: "get", class: "btn", id: ("active" if request.path == '/') do
+          New Papers
 
         %a.header--secondary--link#following
           -if user_signed_in?
-            =button_to subscriptions_path, method: "get", class: "btn btn-gray", id: ("active" if request.path == '/subscriptions') do
+            =button_to user_lists_path, method: "get", class: "btn", id: ("active" if request.path == '/subscriptions') do
               %i.fa.fa-plus-circle
-              My Subscriptions
-              %span#user-follow-count= "(#{current_user.lists.count})"
+              My Collections
+              %span#user-follow-count= "(#{current_user.items.count})"
           -else
-            %button.btn.btn-gray{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
-              %i.fa.fa-plus-circle
-              My Subscriptions
+            / %button.btn{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
+            /   %i.fa.fa-plus-circle
+            My Collections
             =render partial: 'shared/sign_in_modal'
         / %li.btn#slogan Follow today's big questions, get new findings delivered to your inbox.
         - if user_signed_in?

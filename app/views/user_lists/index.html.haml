@@ -1,0 +1,17 @@
+.container
+  .day
+    %h4.title.v-big 
+      %span.profile-img= image_tag("#{current_user.first_name}_#{current_user.last_name}.jpg")
+      %span= "#{current_user.first_name} #{current_user.last_name}'s Collections"
+      %span.title--subtext
+
+
+  
+  .row
+    .col-xs-4
+      = form_for(@list) do |f|
+        = f.label :title
+        = f.text_field :title
+        = f.submit
+    = render partial: 'lists/list', collection: @lists, as: :list
+

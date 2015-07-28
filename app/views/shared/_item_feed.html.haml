@@ -1,0 +1,12 @@
+=provide(:heading, heading)
+=provide(:date, date)
+%ul.featured-feed
+  - @item_groups.each do |date, items|
+    #featured-feed-group
+      = render partial: 'items/item_feed_group', locals: {date: date, items: items}
+
+
+.container
+  = will_paginate @item_groups
+
+= render partial: 'item_lists/new_item_list_modal'

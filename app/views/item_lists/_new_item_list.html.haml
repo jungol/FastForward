@@ -1,0 +1,19 @@
+.container.new_item_list
+
+  .added_item
+    =render item
+  .day
+    %h4.title.v-big 
+      %i.fa.fa-plus
+      %span= "Choose a collection"
+      %span.title--subtext
+
+
+
+  .row.list-choices
+    - lists.each do |list|
+      .col-xs-4
+        =form_for ItemList.new do |f|
+          = f.hidden_field :list_id, value: list.id
+          = f.hidden_field :item_id, value: @item.id
+          = f.submit list.title, class: "list-small"
