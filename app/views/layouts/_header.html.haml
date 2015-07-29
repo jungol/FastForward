@@ -8,57 +8,70 @@
           .brand--title.u-hidden-on-small-screen
             = link_to root_url do
               %h1 
-                %span EconFrontier
+                %span ResearchFrontier
                 %div
-                  %sup DEVELOPMENT ECONOMICS
+                  %sup ECONOMICS
             / %h5 Follow topics in development and never miss a new finding
         %ul.header--nav
-          %li.btn#slogan A personalized daily feed of the best, new research
+          %span.new-collection
+            =link_to new_collection_path, class: "btn btn-success" do
+              %i.fa.fa-plus-circle
+              Create a collection
+
+          %span.dropdown
+            %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+              = "Collections (#{collection_count})"
+              %span.caret
+            %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+              - if user_signed_in?
+                - current_user.collections.each do |collection|
+                  =link_to collection_path(collection) do
+                    %li.dropdown-option= collection.title
+              - else
+                %li Sign in
           - if user_signed_in?
-            
-            / # %li.profile-img= image_tag(current_user.image)
             %li.btn= link_to "Log Out", destroy_user_session_path, method: 'delete'
           -else
-            / # %li.btn= link_to "Log In", user__authorize_path(:facebook)
-            / %li.btn= link_to "Log In", new_user_session_path
-        %li.u-hidden-on-small-screen
-          %a.header--post(href="#")
-            / %svg(width="50" height="50")
-            / %circle(cx="25" cy="25" r="20" stroke="green" stroke-width="2" fill="yellow")
-    .header--secondary.v-links
-      .container
-        %a.header--secondary--link
-          / =button_to root_path, method: "get", class: "btn", id: ("active" if request.path == '/') do
-          New Papers
+            %li.btn= link_to "Log In", new_user_session_path
 
-        %a.header--secondary--link#following
-          -if user_signed_in?
-            =button_to user_lists_path, method: "get", class: "btn", id: ("active" if request.path == '/subscriptions') do
-              %i.fa.fa-plus-circle
-              My Collections
-              %span#user-follow-count= "(#{current_user.items.count})"
-          -else
-            / %button.btn{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
-            /   %i.fa.fa-plus-circle
-            My Collections
-            =render partial: 'shared/sign_in_modal'
-        / %li.btn#slogan Follow today's big questions, get new findings delivered to your inbox.
-        - if user_signed_in?
-          %li.btn.welcome= "Hello, #{current_user.email}!"
-        - if request.env['PATH_INFO'] == '/'
-          .btn-group#filter
-            %button.btn.btn-default.dropdown-toggle(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
-              %span#filter-display-name
-                - if @tag
-                  = @tag.name
-                - else 
-                  All topics
-              %span.caret
-            %ul.dropdown-menu#tag-dropdown-menu
-              %li= link_to "All topics", lists_path, remote: true
-              - Tag.all.each do |tag|
-                - if tag.lists.count > 0
-                  %li= link_to tag.name, tag_path(tag), class: "tag-" + tag.name, remote: true
+
+
+
+
+
+
+
+
+          / .dropdown
+          /   %button.btn.btn-default.dropdown-toggle(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+          /   %ul.dropdown-menu
+          /     %li= link_to "HEY", '#'
+          /     %li= "YO"
+          / %svg(width="50" height="50")
+          / %circle(cx="25" cy="25" r="20" stroke="green" stroke-width="2" fill="yellow")
+    / .header--secondary.v-links
+    /   .container
+    /     %a.header--secondary--link
+    /       / =button_to root_path, method: "get", class: "btn", id: ("active" if request.path == '/') do
+    /       New Papers
+
+    /     %a.header--secondary--link#following
+    /       -if user_signed_in?
+    /         / =button_to user_lists_path, method: "get", class: "btn", id: ("active" if request.path == '/subscriptions') do
+    /         /   %i.fa.fa-plus-circle
+    /         /   My Collections
+    /         / %span#user-follow-count= "(#{current_user.items.count})"
+    /       -else
+    /         / %button.btn{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
+    /         /   %i.fa.fa-plus-circle
+    /         My Collections
+    /         =render partial: 'shared/sign_in_modal'
+    /     / %li.btn#slogan Follow today's big questions, get new findings delivered to your inbox.
+    /     - if user_signed_in?
+    /       %li.btn.welcome= "Hello, #{current_user.email}!"
+    /     - if request.env['PATH_INFO'] == '/'
+    /       .btn-group#filter
+
 
 
 

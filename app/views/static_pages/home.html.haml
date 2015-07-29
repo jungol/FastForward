@@ -1,80 +1,24 @@
 - provide(:title, "Home")
 
-/ %nav.navbar.navbar-inverse.navbar-fixed-top{role:"navigation"}
-/ .collapse.navbar-collapse.navbar-ex1-collapse
-/   %ul.nav.navbar-nav.side-nav
-/     - Collection.roots.each do |collection|
-/       %li= link_to collection.name, collection
+.pitch-box
+  .container
+    .row
+      .col-xs-6
+        %h3 ResearchFrontier is a daily feed of the best new research, personalized for you.
+      .col-xs-6
+        .center.vertical-container
+          - if user_signed_in?
+            = "Welcome, #{current_user.email}!"
+          - else 
+            / %button.btn.pull-right
+            /   Join the beta
 
+%ul
+  - @feed_groups.each do |date, items|
+    %h4.day.v-big
+      %span= format_date(date)
+      %span.title--subtext= date.rpartition(' ').first
+    .container
+      = render items
 
-
-/ .row.text-center
-/   .col-xs-12.signup-form
-/     %ul 
-/       %li New features are coming. Be the first to know about it.
-/       %li
-/         = form_for @email_signup, remote: true do |f|
-/           = render 'shared/error_messages', object: f.object
-/           / %div.field
-/           %li= f.text_field :email, placeholder: "What's your email?"
-/           %li= f.submit "Get updates!", class: "btn btn-large btn-primary", id: "submit"
-
-.row.homepage-copy
-  .col-xs-12
-    %h2#catchphrase Powerboost your research
-
-  .col-xs-12
-    %h4#sub-slogan EconFrontier is a personalized, daily feed of the best new research you need to know about
-
-  .col-xs-12#sample-question
-    %button.btn.btn-large.btn-primary#post-new-finding-button{{"data-target" => "#newFindingModal", "data-toggle" => "modal", :type => "button"}}
-      Get notified about the beta
-  = render partial: 'shared/new_finding_modal'
-
-  .col-md-4.value
-    %h3
-      %i.fa.fa-clock-o 
-      Get the latest
-    See a collection of new academic articles every day, catered to your interests 
-
-  .col-md-4.value
-    %h3 
-      %i.fa.fa-folder-open 
-      Stay organized
-    Create collections of articles and never stress out about keeping track of articles you need
-  .col-md-4.value
-    %h3 
-      %i.fa.fa-users
-      Explore the community
-    See what other people are reading by exploring their collections
-
-  
-    
-
-  / .search
-  /   %input{autofocus: "true", autocomplete: "off", class: "instantsearch", id: "q", placeholder: "Search your research interest (e.g. school vouchers)", type: "text", spellcheck: "false"}
-
-  / .search
-  /   #display
-  /     #hits
-  /     :javascript
-  /       var $inputfield = $('#q');
-  /       var $hits = $('#hits');
-  / .instructions
-  / .row.research-collection
-  /   .col-xs-12
-  /     %h3.gray Research Collections (8)
-  / .collection-div
-  /   %ul.collections.pull-center
-  /     - @collections.each do |collection|
-  /       %li
-  /         %div{:class => 'bg-img', :style => %(background-image:url(/assets/#{collection.image_url}))}
-
-  /         / style: "background-image: url(_#{image_path image_url}_)"}
-  /         =link_to collection_path(collection), class: "collection" do
-  /           %span= collection.name
-  /           %span.question-count= "#{pluralize(collection.lists.count, 'research question')}"
-
-
-
-
+= will_paginate @feed_groups

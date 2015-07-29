@@ -1,8 +1,0 @@
-= form_for(current_user.user_items.find_by(item_id: item.id), html: { method: :delete}, remote: true) do |f|
-  %ul
-    %li
-      =button_tag(class: "btn btn-primary", id: "unfollow") do
-        Unsave
-    %li= item.user_items.count
-  %ul
-    / %li= "You and " + pluralize(list.users.count, 'other person are ') + "following this question"

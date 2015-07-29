@@ -1,36 +1,11 @@
-.post-item
-  .post-item-content
-    
-    =link_to(item, remote:true) do
-      .post-item--actions
-        .post-item--actions--users
-          / %span.post-item--actions--user
-          /   - if !(User.find_by(id: list.submitter) == nil)
-          /     .profile-img= image_tag(User.find_by(id: list.submitter).image)
-      .post-item--text
-        .post-item--text--name
-          %span= item.finding
+%ul.item
+  %li#item_collect.pull-right
+    =render partial: 'shared/collect_button', locals: {item: item}
+  %li#item_title
+    %h4= link_to item.title, item_path(item), remote:true
 
+  %li#item_authors= item.authors
+  %li#item_category
+    / # %span= "Found in"
+    / # %span.category= "Alcoholism"
 
-          / - if list.created_at > Time.now - 24.hours
-          / %span.title--subtext.new NEW!
-        .post-item--subtext
-          ="#{raw item.author} (#{item.year}), #{item.journal}"
-    .post-follow-button
-      - if user_signed_in?
-        = render partial: 'items/follow_form', locals: {item: item} 
-      - else
-        .follow-form#follow_form.new_subscription{id: "item" + item.id.to_s}
-          %button.btn-primary.btn{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
-            Pin
-          %ul
-          = render partial: 'shared/sign_in_modal'
-/ .post-item--text-tags
-/ - list.tags.each do |tag| 
-/   %span.post-item--text-tag{class: "tag-" + tag.name}= tag.name
-/ :javascript
-/     $(document).ready( function() {
-/       $('.item').click( function() {
-/         mixpanel.track("Clicked an article");
-/       });
-/     });

@@ -1,54 +1,31 @@
 Sylaby::Application.routes.draw do
 
+  get 'collection_items/new'
 
+  get 'collection_items/create'
 
+  get 'collections/show'
 
+  get 'collections/new'
 
-  get 'user_lists/new'
+  get 'items/new'
 
-  get 'user_lists/create'
+  get 'items/create'
 
-  get 'user_lists/destroy'
+  get 'items/show'
+  resources :collections
+  
+  resources :items do
+    resources :collection_items, shallow: true
+  end
 
-  get 'user_lists/show'
-
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users
-  resources :recommendations
-  resources :users, only: [:show]
-  resources :lists
-  resources :collections
-  resources :items, only: [:show]
-  resources :subscriptions, only: [:create, :destroy, :index]
-  resources :user_items
-  resources :user_lists
-  resources :item_lists
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   root to: 'static_pages#home'
-  get 'tags/:tag', to: 'lists#index', as: :tag
-  get 'static_pages/design'
-  get 'static_pages/design2'
-  get 'static_pages/design3'
+  # get 'tags/:tag', to: 'lists#index', as: :tag
   get 'static_pages/home'
-  get 'static_pages/about'
-  get 'static_pages/confirm'
-  get 'static_pages/microfinance'
-  get 'static_pages/technologyofmicrofinance'
-  get 'static_pages/groupreputation'
-  get 'static_pages/microcreditsavings'
-  get 'static_pages/tdesign'
-  get 'static_pages/mfi'
-  get 'static_pages/impactofmicrofinance'
-  get 'static_pages/health'
-  get 'static_pages/growth'
-  get 'static_pages/education'
-  get 'static_pages/contributors'
-  get 'static_pages/history'
-  get 'static_pages/search'
-  get 'static_pages/foreignaid'
-  get 'static_pages/propertyrights'
-  get 'static_pages/people'
-  resources :email_signups
   # get 'tags/*tags', to: 'lists#index', as: :tag
 
 

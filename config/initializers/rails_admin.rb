@@ -42,17 +42,17 @@ RailsAdmin.config do |config|
   #   # field :users
   # end
 
-  config.model Item do
-    field :title
-    field :finding
-    field :url
-    field :abstract
-    field :year
-    field :author
-    field :journal
-    field :lists
-    field :syllabus
-  end
+  # config.model Item do
+  #   field :title
+  #   field :finding
+  #   field :url
+  #   field :abstract
+  #   field :year
+  #   field :author
+  #   field :journal
+  #   field :lists
+  #   field :syllabus
+  # end
 
     ## With an audit adapter, you can add:
     # history_index

@@ -1,44 +1,10 @@
-/ %div{:class => 'row banner', :style => %(background-image:url(/assets/#{@collection.image_url}))}
-/   .banner-info
-/     .container
-/       .name
-/         %span= @collection.name
-/ .row.feed
-/   .col-xs-12
-/     %ul
-/       =render @collection.lists
+.page-header.v-collections.v-brown{style: %(background-image:url(/assets/librarydrawing.jpg))}
+  .page-header--shadow
+    .container
+      .title.v-big
+        %h2= @collection.title
+        %br
+        %h4= "Created by #{@collection.user.email}"
+.container
+  = render @items
 
-/ .row.child-collections
-/   %ul
-/     %li.child= link_to "All", @collection.root, class: ("highlight" if @collection == @collection.root)
-/     -@collection.root.children.each do |child|
-/       %li.child= link_to child.name, child, class: ("highlight" if @collection == child)
-/ %li= link_to "Home", root_urlk
-/ - @collection.ancestors.each do |ancestor|
-/   %li
-/     = link_to ancestor.name, ancestor
-/     = "(#{ancestor.lists.count})"
-/ %li
-/   %b#current-collection
-/     = link_to @collection.name, @collection
-/     = "(#{@collection.lists.count})"
-
-
-.row
-  .col-xs-12.list-feed
-    %ul
-      %li.collection-instructions
-        %h4
-          %i.fa.fa-info-circle
-          Get in on the action! Click on a research question below.
-      =render @collection.lists
-      - @collection.children.each do |child|
-        =render child.lists
-
-:javascript
-  $('.feed-item').click( function() {
-    $text = $(this).text();
-    mixpanel.track("Visited list", {
-      "List": $text
-    });
-  });

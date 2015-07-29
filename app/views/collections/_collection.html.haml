@@ -1,0 +1,15 @@
+.col-xs-4
+  %ul.collection
+    %li
+      %h4=link_to collection.title, collection_path(collection)
+    - if collection.items.include? @item
+      Already added!
+    -else 
+      = form_for @collection_item, url: {action: "create"} do |f|
+        = f.hidden_field :item_id, value: @item.id
+        = f.hidden_field :collection_id, value: collection.id
+        = button_tag(class: "btn btn-primary", type: "submit", data: {disable_with: "Added!", remote:true}) do
+          Add
+
+        / = f.submit "Add", class: "btn btn-primary btn-frontier", remote:true, disable_with: 'Executing...'
+

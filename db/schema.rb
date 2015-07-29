@@ -11,99 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150725132745) do
+ActiveRecord::Schema.define(version: 20150728230223) do
 
-  create_table "collections", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "image_url"
-    t.string   "ancestry"
-  end
-
-  add_index "collections", ["ancestry"], name: "index_collections_on_ancestry"
-
-  create_table "item_lists", force: :cascade do |t|
-    t.integer  "item_id"
-    t.integer  "list_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "item_lists", ["list_id", "item_id"], name: "index_item_lists_on_list_id_and_item_id", unique: true
-
-  create_table "items", force: :cascade do |t|
-    t.string   "title"
-    t.string   "url"
-    t.string   "description"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.integer  "upvotes_count", default: 0
-    t.integer  "year"
-    t.string   "author"
-    t.string   "journal"
-    t.text     "abstract"
-    t.boolean  "syllabus",      default: false
-    t.text     "finding"
-  end
-
-  create_table "list_collections", force: :cascade do |t|
-    t.integer  "list_id"
+  create_table "collection_items", force: :cascade do |t|
     t.integer  "collection_id"
+    t.integer  "item_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
-  create_table "lists", force: :cascade do |t|
+  create_table "collections", force: :cascade do |t|
+    t.string   "title"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+  end
+
+  add_index "collections", ["user_id", "created_at"], name: "index_collections_on_user_id_and_created_at"
+
+  create_table "items", force: :cascade do |t|
     t.string   "title"
-    t.string   "curator"
-    t.string   "curator_url"
-    t.integer  "view_count"
-    t.boolean  "published"
-    t.string   "sources"
-    t.text     "subtitle"
-    t.string   "image_url"
-    t.integer  "submitter"
-  end
-
-  create_table "subscriptions", force: :cascade do |t|
-    t.integer  "list_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean  "submitter"
-  end
-
-  add_index "subscriptions", ["list_id"], name: "index_subscriptions_on_list_id"
-  add_index "subscriptions", ["user_id", "list_id"], name: "index_subscriptions_on_user_id_and_list_id", unique: true
-  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
-
-  create_table "taggings", force: :cascade do |t|
-    t.integer  "tag_id"
-    t.integer  "list_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tags", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "user_items", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "item_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "user_lists", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "list_id"
+    t.string   "authors"
+    t.text     "abstract"
+    t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -119,19 +50,8 @@ ActiveRecord::Schema.define(version: 20150725132745) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "link"
-    t.string   "school"
-    t.string   "position"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.boolean  "admin"
-    t.string   "uid"
-    t.string   "provider"
-    t.string   "image"
-    t.integer  "facebook_id"
-    t.string   "fb_id"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

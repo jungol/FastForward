@@ -1,18 +1,7 @@
-# == Schema Information
-#
-# Table name: collections
-#
-#  id         :integer          not null, primary key
-#  name       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  image_url  :string
-#  ancestry   :string
-#
-
 FactoryGirl.define do
   factory :collection do
-    name "MyString"
+    title "MyString"
+description "MyText"
   end
 
 end

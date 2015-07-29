@@ -10,19 +10,19 @@
         #instructions
           We'll let you know when we're ready to open up the beta!
 
-        = form_tag( {controller: "recommendations", action: "create"}, method: "post", remote:true) do
-          %ul
-            %br
-            %li
-            %br
-            %li
-              %h4=label_tag "What's your email?"
-            %li=text_field_tag( :email, params[:email], placeholder: "Email", autofocus: true)
-          %br
-          .submit-recommendation
-            = submit_tag "Submit", class: "btn btn-large btn-primary"
-      .modal-footer
-        %button.btn.btn-primary{"data-dismiss" => "modal", :type => "button"} Close
+        / # = form_tag( {controller: "recommendations", action: "create"}, method: "post", remote:true) do
+      /     %ul
+      /       %br
+      /       %li
+      /       %br
+      /       %li
+      /         %h4=label_tag "What's your email?"
+      /       %li=text_field_tag( :email, params[:email], placeholder: "Email", autofocus: true)
+      /     %br
+      /     .submit-recommendation
+      /       = submit_tag "Submit", class: "btn btn-large btn-primary"
+      / .modal-footer
+      /   %button.btn.btn-primary{"data-dismiss" => "modal", :type => "button"} Close
 
 :javascript
   $('.submit-recommendation').click(function() {

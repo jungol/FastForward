@@ -1,0 +1,25 @@
+%button.close-item-modal
+  %i.fa.fa-times
+.row
+  .col-xs-12
+    .item-title
+      %h4.pdf= link_to @item.title, @item.url
+  .col-xs-12
+    .item-author.gray= @item.authors
+
+
+  .col-xs-12
+    %br
+    %span.static= render partial: 'shared/collect_button', locals: {item: @item}
+    %span= link_to "Read", @item.url, class: "btn btn-primary"
+  .col-xs-12
+    .abstract
+      %ul
+        %h5.abstract-header Abstract
+        %li= raw @item.abstract
+
+
+:javascript
+  $('.close-item-modal').click(function() {
+    $('.item-modal').toggleClass('hide');
+  });
