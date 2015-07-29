@@ -1,4 +1,6 @@
-%h3.modal-title.day Add this article to one of your collections
+%h3.modal-title.day 
+  %span Add this article to one of your collections
+  .title--subtext= link_to "Or create a new collection here", new_collection_path
 .container
   = render @item
 
