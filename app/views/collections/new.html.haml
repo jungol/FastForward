@@ -5,6 +5,11 @@
     .field.form-group
       %h3= f.label :title
       = f.text_field :title, autofocus: true, class: "form-control"
-    =button_tag(class: "btn btn-success") do
+    =button_tag(class: "btn btn-success", id: "create-collection-btn") do
       Create Collection
       %i.fa.fa-plus
+
+:javascript
+  $('#create-collection-btn').click(function() {
+    mixpanel.track("Submit new collection form")
+  })

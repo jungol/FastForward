@@ -61,3 +61,6 @@
       "Type": $(this).attr('id')
     })
   })
+  $('.collect-btn').click(function() {
+    mixpanel.track("Collect paper")
+  })

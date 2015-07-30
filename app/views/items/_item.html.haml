@@ -1,7 +1,7 @@
 %ul.item
-  %li#item_collect.pull-right
+  %li.item-collect.pull-right
     =render partial: 'shared/collect_button', locals: {item: item}
-  %li#item_title
+  %li.item_title
     %h4= link_to item.title, item_path(item), remote:true
 
   %li#item_authors= item.authors
@@ -10,4 +10,6 @@
     %span.category= item.tag
     / # %span= "Found in"
     / # %span.category= "Alcoholism"
+
+
 

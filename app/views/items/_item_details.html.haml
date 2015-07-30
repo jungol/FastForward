@@ -13,7 +13,7 @@
   .col-xs-12
     %br
     %span.static= render partial: 'shared/collect_button', locals: {item: @item}
-    %span= link_to "Read", @item.url, class: "btn btn-primary"
+    %span#read= link_to "Read", @item.url, class: "btn btn-primary"
   .col-xs-12
     .abstract
       %ul
@@ -25,3 +25,6 @@
   $('.close-item-modal').click(function() {
     $('.item-modal').toggleClass('hide');
   });
+  $('#read').click(function() {
+    mixpanel.track("Read")
+  })

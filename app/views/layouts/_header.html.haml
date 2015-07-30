@@ -13,7 +13,7 @@
                   %sup SOCIAL SCIENCE
             / %h5 Follow topics in development and never miss a new finding
         %ul.header--nav
-          %span.new-collection
+          %span#new-collection
             =link_to new_collection_path, class: "btn btn-success" do
               %i.fa.fa-plus-circle
               Create a collection
@@ -28,112 +28,29 @@
                   =link_to collection_path(collection) do
                     %li.dropdown-option= collection.title
               - else
-                %li Sign in
+                %li= link_to "Sign in to view collections", new_user_session_path
           - if user_signed_in?
-            %li.btn= link_to "Log Out", destroy_user_session_path, method: 'delete'
+            %li.btn#logout= link_to "Log Out", destroy_user_session_path, method: 'delete'
           -else
-            %li.btn= link_to "Log In", new_user_session_path
+            %li.btn#login= link_to "Log In", new_user_session_path
 
-
-
-
-
-
-
-
-
-          / .dropdown
-          /   %button.btn.btn-default.dropdown-toggle(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
-          /   %ul.dropdown-menu
-          /     %li= link_to "HEY", '#'
-          /     %li= "YO"
-          / %svg(width="50" height="50")
-          / %circle(cx="25" cy="25" r="20" stroke="green" stroke-width="2" fill="yellow")
-    / .header--secondary.v-links
-    /   .container
-    /     %a.header--secondary--link
-    /       / =button_to root_path, method: "get", class: "btn", id: ("active" if request.path == '/') do
-    /       New Papers
-
-    /     %a.header--secondary--link#following
-    /       -if user_signed_in?
-    /         / =button_to user_lists_path, method: "get", class: "btn", id: ("active" if request.path == '/subscriptions') do
-    /         /   %i.fa.fa-plus-circle
-    /         /   My Collections
-    /         / %span#user-follow-count= "(#{current_user.items.count})"
-    /       -else
-    /         / %button.btn{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
-    /         /   %i.fa.fa-plus-circle
-    /         My Collections
-    /         =render partial: 'shared/sign_in_modal'
-    /     / %li.btn#slogan Follow today's big questions, get new findings delivered to your inbox.
-    /     - if user_signed_in?
-    /       %li.btn.welcome= "Hello, #{current_user.email}!"
-    /     - if request.env['PATH_INFO'] == '/'
-    /       .btn-group#filter
-
-
-
-
-
-/ %nav.navbar.navbar-inverse.navbar-fixed-top{role:"navigation"}
-/   .navbar-header
-/     =link_to root_url, class:"navbar-brand", id:"logo" do
-/       %i.fa.fa-globe
-/       Development Economics GPS
-
-/   %ul.nav.navbar-right.top-nav
-/     %li.search
-/       %input.search-bar{autocomplete: "off", id: "q", placeholder: "Search your research interest (e.g. school vouchers)", type: "text", spellcheck: "false"}
-/     - if current_user.try(:admin?)
-/       %li.btn.btn-default.btn-primary= link_to "Sign out", destroy_user_session_path, method: 'delete'
-
-/ .container-fluid.sub-nav
-/   .row.child-collections
-/     %ul
-/       -if @collection && !@collection.new_record?
-
-/         %li.child
-/           = link_to "All", @collection.root, class: ("highlight" if @collection == @collection.root)
-/         -@collection.root.children.each do |child|
-/           %li.child= link_to child.name, child, class: ("highlight" if @collection == child)
-/       -else
-/         %li.child= link_to "Home", root_url, class: ("highlight" if request.original_url == root_url)
-/         %li.child= link_to "FAQ", static_pages_about_url, class: ("highlight" if request.original_url == static_pages_about_url)
-/         %li.child= link_to "People", static_pages_people_url, class: ("highlight" if request.original_url == static_pages_people_url)
 
 :javascript
-  $('.collection').click( function() {
-    $text =($(this).text());
-    mixpanel.track("Visited collection", {
-      "Collection": $text,
-      "Relation": "Root"
-    });
-  });
-  $('.header--secondary--link button').click(function() {
-    mixpanel.track("Visit subheader link", {
-      "Link": $('this').text()
-    });
+  $('#login').click(function() {
+    mixpanel.track("Log in")
   })
-  $('.header--nav li a').click(function() {
-    mixpanel.track("Log in/out", {
-      "Type": $('this').text()
-    })
+  $('#logout').click(function() {
+    mixpanel.track("Log out")
   })
-  $('#filter button').click(function() {
-    mixpanel.track("Filter by topic");
+  $('.dropdown-option').click(function() {
+    mixpanel.track("View collection")
   })
-  $('.child').click( function() {
-    $text = ($(this).text());
-    mixpanel.track("Visited collection", {
-      "Collection": $text,
-      "Relation": "Child"
-    })
+  $('#new-collection').click(function() {
+    mixpanel.track("Create new collection")
   })
-  $('.dropdown-menu li').click( function() {
-    $text = $(this).text();
-    $('#filter-display-name').text($text);
-  })
+
+
+
 
 
 

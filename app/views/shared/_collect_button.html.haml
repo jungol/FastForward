@@ -1,5 +1,7 @@
 
 - if user_signed_in?
-  = link_to "Collect", new_item_collection_item_path(item), "data-toggle" => "modal", "type" => "button", "data-target" => "#myModal", remote:true, class: "btn btn-frontier"
+  = link_to "Collect", new_item_collection_item_path(item), "data-toggle" => "modal", "type" => "button", "data-target" => "#myModal", remote:true, class: "btn btn-frontier collect-btn"
 - else
   = link_to "Collect", new_user_session_path, class: "btn btn-frontier"
+
+

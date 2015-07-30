@@ -23,3 +23,9 @@
 
 .container  
   = will_paginate @feed_groups
+  
+  
+:javascript
+  $('.item_title a').click(function() {
+    mixpanel.track("View abstract")
+  })
