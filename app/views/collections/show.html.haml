@@ -6,5 +6,18 @@
         %br
         %h4= "Created by #{@collection.user.email}"
 .container
-  = render @items
+  -if @items.empty?
+    %h3
+      There's nothing here! This collection needs a little love
+      %i.fa.fa-heart
+    %h3 
+      Visit your
+      = link_to 'personal feed', root_url
+      and add papers with the 'Collect' button
 
+    =link_to root_path, class: "btn btn-frontier-visible" do
+      Get movin'
+      %i.fa.fa-chevron-right
+      
+  -else
+    = render @items
