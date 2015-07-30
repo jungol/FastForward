@@ -24,11 +24,13 @@ def make_items
     abstract = Faker::Lorem.paragraph
     url = "http://www.sufjan.com"
     authors = "#{Faker::Name.name}, #{Faker::Name.name}, #{Faker::Name.name}"
+    tag = "RCTs"
     Item.create!(
       title: title,
       abstract: abstract,
       url: url,
-      authors: authors)
+      authors: authors,
+      tag: tag)
   end 
 end
 

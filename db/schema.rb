@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728230223) do
+ActiveRecord::Schema.define(version: 20150730145128) do
 
   create_table "collection_items", force: :cascade do |t|
     t.integer  "collection_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150728230223) do
     t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "tag"
   end
 
   create_table "users", force: :cascade do |t|
