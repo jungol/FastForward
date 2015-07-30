@@ -27,6 +27,14 @@ RailsAdmin.config do |config|
     delete
     show_in_app
 
+  config.model Item do
+    field :title
+    field :authors
+    field :abstract
+    field :url
+    field :tag
+    field :publish_date
+  end
 
     ## With an audit adapter, you can add:
     # history_index
