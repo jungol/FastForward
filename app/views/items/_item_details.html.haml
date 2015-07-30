@@ -5,6 +5,8 @@
     .item-title
       %h4.pdf= link_to @item.title, @item.url
   .col-xs-12
+    .item-date.gray= "Published #{@item.publish_date}"
+  .col-xs-12
     .item-author.gray= @item.authors
 
 

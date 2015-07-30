@@ -25,12 +25,14 @@ def make_items
     url = "http://www.sufjan.com"
     authors = "#{Faker::Name.name}, #{Faker::Name.name}, #{Faker::Name.name}"
     tag = "RCTs"
+    date = Faker::Date.between(2.days.ago, Date.today)
     Item.create!(
       title: title,
       abstract: abstract,
       url: url,
       authors: authors,
-      tag: tag)
+      tag: tag,
+      publish_date: date)
   end 
 end
 
