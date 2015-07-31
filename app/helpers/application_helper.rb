@@ -34,7 +34,7 @@ module ApplicationHelper
 
   def format_date(date)
     if date == Date.today.strftime('%B %d %A')
-      return "Today"
+      return "Today's Picks"
     elsif date == Date.yesterday.strftime('%B %d %A')
       return "Yesterday"
     else

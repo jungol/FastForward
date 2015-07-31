@@ -26,6 +26,6 @@
   
   
 :javascript
-  $('.item_title a').click(function() {
-    mixpanel.track("View abstract")
+  $(document).on('click', '.collect-btn', function(event) {
+      mixpanel.track("Collect")
   })
