@@ -15,10 +15,10 @@
             /   Join the beta
 
 %ul
-  - @feed_groups.each do |date, items|
+  - @feed_groups.each do |(month, date), items|
     %h4.day.v-big
-      %span= format_date(Date.parse(date).strftime('%B %d %A'))
-      %span.title--subtext= Date.parse(date).strftime('%B %d %A').rpartition(' ').first
+      %span= format_date(date.to_date.strftime('%B %d %A'))
+      %span.title--subtext= date.to_date.strftime('%B %d %A').rpartition(' ').first
     .container
       = render items
 
