@@ -16,14 +16,14 @@
 
 .container
   .row
-    .col-sm-2.tags
+    .col-sm-3.tags
       %h5 Your Tags
       %ul
       - if user_signed_in?
         - current_user.tags.each do |tag|
           %li
             %span=tag.name
-    .col-sm-10.col-xs-12
+    .col-sm-9.col-xs-12
       %ul
         - @feed_groups.each do |(month, date), items|
           %h4.day.v-big
