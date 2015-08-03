@@ -7,3 +7,4 @@ class Tag < ActiveRecord::Base
                    source: :taggable,
                    source_type: "Item"
 end
+

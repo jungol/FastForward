@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150803174613) do
+ActiveRecord::Schema.define(version: 20150803175732) do
 
   create_table "collection_items", force: :cascade do |t|
     t.integer  "collection_id"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20150803174613) do
   add_index "taggings", ["taggable_id", "taggable_type"], name: "index_taggings_on_taggable_id_and_taggable_type"
 
   create_table "tags", force: :cascade do |t|
-    t.text     "name"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
