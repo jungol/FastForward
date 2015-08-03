@@ -17,8 +17,8 @@
 %ul
   - @feed_groups.each do |date, items|
     %h4.day.v-big
-      %span= format_date(date)
-      %span.title--subtext= date.rpartition(' ').first
+      %span= format_date(Date.parse(date).strftime('%B %d %A'))
+      / # %span.title--subtext= date.rpartition(' ').first
     .container
       = render items
 
