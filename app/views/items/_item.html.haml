@@ -1,17 +1,16 @@
-%ul.item
-  %li.item-collect.pull-right
-    =render partial: 'shared/collect_button', locals: {item: item}
-  %li.item-title
-    %h4= link_to item.title, item_path(item), remote:true
+.item
+  %ul
+    %li.item-collect.pull-right
+      =render partial: 'shared/collect_button', locals: {item: item}
+    %li.item-title
+      %h4= link_to item.title, item_path(item), remote:true
 
-  %li#item_authors= item.authors
-  %li#item_category
-    %span.category
+    %li#item_authors= item.authors
+    %li#item_category
+      %span Matches with
       - item.tags.each do |tag|
-        %span= "Matched with"
-        %span= tag.name
-    / # %span= "Found in"
-    / # %span.category= "Alcoholism"
+        %span.tag= tag.name
+
 
 
 

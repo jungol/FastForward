@@ -22,7 +22,7 @@
       - if user_signed_in?
         - current_user.tags.each do |tag|
           %li
-            %span=tag.name
+            %span.tag=tag.name
     .col-sm-9.col-xs-12
       %ul
         - @feed_groups.each do |(month, date), items|
@@ -30,7 +30,7 @@
             %span= format_date(date.to_date.strftime('%B %d %A'))
             %span.title--subtext= date.to_date.strftime('%B %d %A').rpartition(' ').first
           / .container
-          = render items
+          .feed_group= render items
 
       / .container  
       = will_paginate @feed_groups
