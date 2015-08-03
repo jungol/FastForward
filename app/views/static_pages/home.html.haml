@@ -1,5 +1,6 @@
 - provide(:title, "Home")
-
+= javascript_tag do
+  window.Ethan = "<%=j @feed_groups %>";
 .pitch-box
   .container
     .row
@@ -23,9 +24,12 @@
 
 .container  
   = will_paginate @feed_groups
-  
-  
+
+
 :javascript
   $(document).on('click', '.collect-btn', function(event) {
       mixpanel.track("Collect")
+  })
+  $(document).ready( function() {    
+    alert(Ethan)
   })

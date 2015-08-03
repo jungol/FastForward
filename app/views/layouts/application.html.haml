@@ -20,6 +20,9 @@
   %body
     / -flash.each do |key,value|
     /   = content_tag(:div, value, class: "alert alert-#{key}")
+    =javascript_tag do
+      window.userEmail = "<%= raw current_user.to_json %>"
+
     .overlay.hide
     .item-modal.hide
     
@@ -43,7 +46,9 @@
             = content_tag(:div, value.to_s, class: "alert alert-#{key}")
         = yield
         = render partial: 'shared/new_collection_item_modal'
-  
+
+
+
   / %footer.footer
   /   %small
   /     Want to get in touch? Email
@@ -54,6 +59,7 @@
       .pull-right
         Send emails to 
         = mail_to "ethan@econfrontier.com"
+
 :javascript
   var $pagecontent = $('#page-wrapper').html();
   $(document).on('click', '.follow-form button', function(){
@@ -64,4 +70,9 @@
   $(document).on('click', '.add-btn', function() {
       mixpanel.track("Add paper to collection")
     })
-
+  $(document).on('click', '.item-title a', function() {
+    mixpanel.track("View abstract")
+  })
+  $(document).ready(function() {
+    alert(userEmail);
+  });

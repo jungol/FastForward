@@ -1,7 +1,7 @@
 %ul.item
   %li.item-collect.pull-right
     =render partial: 'shared/collect_button', locals: {item: item}
-  %li.item_title
+  %li.item-title
     %h4= link_to item.title, item_path(item), remote:true
 
   %li#item_authors= item.authors
