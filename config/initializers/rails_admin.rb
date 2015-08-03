@@ -32,7 +32,6 @@ RailsAdmin.config do |config|
     field :authors
     field :abstract
     field :url
-    field :tag
     field :publish_date
   end
 
