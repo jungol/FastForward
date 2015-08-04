@@ -16,7 +16,8 @@
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"}
     = render 'shared/analytics.js'
     = render 'layouts/shim'
-  
+    <link href='http://fonts.googleapis.com/css?family=Lobster|Pacifico|Great+Vibes|Sacramento|Parisienne|Bilbo+Swash+Caps' rel='stylesheet' type='text/css'>  
+    
   %body
     / -flash.each do |key,value|
     /   = content_tag(:div, value, class: "alert alert-#{key}")
@@ -43,7 +44,7 @@
       .main-content
         .container
           - flash.each do |key, value|
-            = content_tag(:div, value.to_s, class: "alert alert-#{key}")
+            = content_tag :div, value.to_s, class: "alert alert-#{key}" unless value.blank?
         = yield
         = render partial: 'shared/new_collection_item_modal'
 

@@ -5,36 +5,53 @@
   .container
     .row
       .col-xs-6
-        %h3 ResearchFrontier is a daily feed of the best new research, personalized for you.
+        - if user_signed_in?
+          %h3#journal
+            = "Journal of"
+            - if current_user.first_name.nil?
+              = current_user.email
+            -else
+              = "#{current_user.first_name} #{current_user.last_name}"
+        -else 
+          %h3 ResearchFrontier is a daily feed of the best new research, personalized for you.
       .col-xs-6
         .center.vertical-container
-          - if user_signed_in?
-            = "Welcome, #{current_user.email}!"
-          - else 
-            / %button.btn.pull-right
-            /   Join the beta
+
+
 
 .container
   .row
-    .col-sm-3.tags
-      %h5 Your Tags
-      %ul
-      - if user_signed_in?
-        - current_user.tags.each do |tag|
-          %li
-            %span.tag=tag.name
-    .col-sm-9.col-xs-12
-      %ul
-        - @feed_groups.each do |(month, date), items|
-          %h4.day.v-big
-            %span= format_date(date.to_date.strftime('%B %d %A'))
-            %span.title--subtext= date.to_date.strftime('%B %d %A').rpartition(' ').first
-          / .container
-          .feed_group= render items
+    - if user_signed_in?
+      .col-sm-3.tags
+        %h5 Your Tags
+        %ul
+        - if user_signed_in?
+          - current_user.tags.each do |tag|
+            %li
+              %span.tag=tag.name
+      .col-sm-9.col-xs-12
+        %ul
+          - @feed_groups.each do |(month, date), items|
+            %h4.day.v-big
+              %span= format_date(date.to_date.strftime('%B %d %A'))
+              %span.title--subtext= date.to_date.strftime('%B %d %A').rpartition(' ').first
+            / .container
+            .feed_group= render items
 
-      / .container  
-      = will_paginate @feed_groups
+        / .container  
+        = will_paginate @feed_groups
+    -else
+      .col-xs-12
+        %ul
+          - @feed_groups.each do |(month, date), items|
+            %h4.day.v-big
+              %span= format_date(date.to_date.strftime('%B %d %A'))
+              %span.title--subtext= date.to_date.strftime('%B %d %A').rpartition(' ').first
+            / .container
+            .feed_group= render items
 
+        / .container  
+        = will_paginate @feed_groups
 
 :javascript
   $(document).on('click', '.collect-btn', function(event) {
