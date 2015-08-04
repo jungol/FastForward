@@ -8,6 +8,10 @@ class StaticPagesController < ApplicationController
     end
     @feed_groups = @items.group_by {|t| [t.created_at_date.to_date.beginning_of_month, t.created_at_date]}.sort.reverse
     @feed_groups = @feed_groups.paginate(page: params[:page], per_page: 2)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 end
 

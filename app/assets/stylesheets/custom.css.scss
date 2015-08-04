@@ -3,6 +3,14 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+.collection-button a {
+	height: 10px;
+}
+
+.affix + .container {
+    padding-top: 85px
+}
+
 .modal-backdrop.in {
     opacity: 0.8;
 }
@@ -11,11 +19,33 @@
 	text-align: center;
 }
 
+#collections-btn {
+	margin-top: 10px;
+}
+
+#create-collection-btn a {
+	color: #333;
+	&:hover {
+		i { 
+			color: green;
+		}
+	}
+}
+
+
 .pitch-box {
 	background: LightYellow;
 	padding: 10px 10px 10px 15px;
 	h3 {margin-top: 10px;}
 	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+	top: 0px;
+	z-index: 1020;
+}
+.pitch-box.affix {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10;
 }
 
 #journal {
@@ -113,6 +143,7 @@ body {
 	margin: 0px;
 	font-size: 1.3em;
 	font-weight: normal;
+	line-height: 25px;
 }
 
 

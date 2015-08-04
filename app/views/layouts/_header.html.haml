@@ -1,4 +1,4 @@
-%header.header
+%header.header.navbar-static-top
   %div
     .header--primary
       .container
@@ -13,22 +13,7 @@
                   %sup SOCIAL SCIENCE
             / %h5 Follow topics in development and never miss a new finding
         %ul.header--nav
-          %span#new-collection
-            =link_to new_collection_path, class: "btn btn-success" do
-              %i.fa.fa-plus-circle
-              Create a collection
 
-          %span.dropdown
-            %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
-              = "Collections (#{collection_count})"
-              %span.caret
-            %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
-              - if user_signed_in?
-                - current_user.collections.each do |collection|
-                  =link_to collection_path(collection) do
-                    %li.dropdown-option= collection.title
-              - else
-                %li= link_to "Sign in to view collections", new_user_session_path
           - if user_signed_in?
             %li.btn#logout= link_to "Log Out", destroy_user_session_path, method: 'delete'
           -else

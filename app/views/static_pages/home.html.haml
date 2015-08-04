@@ -1,21 +1,57 @@
 - provide(:title, "Home")
 = javascript_tag do
   window.Ethan = "<%=j @feed_groups %>";
-.pitch-box
+%nav.pitch-box.navbar.navbar-default{"data-spy" => "affix", "data-offset-top" => "90"}
   .container
-    .row
-      .col-xs-6
-        - if user_signed_in?
+    %ul.navbar-header
+      %li 
+        - if user_signed_in?      
           %h3#journal
-            = "Journal of"
+            ="Journal of"
             - if current_user.first_name.nil?
               = current_user.email
             -else
               = "#{current_user.first_name} #{current_user.last_name}"
-        -else 
+        - else
           %h3 ResearchFrontier is a daily feed of the best new research, personalized for you.
-      .col-xs-6
-        .center.vertical-container
+    -if user_signed_in?
+      .navbar-collapse.collapse
+        %ul.nav.navbar-nav.navbar-right
+          %li#create-collection-btn
+            = link_to new_collection_path, class: "btn" do
+              %i.fa.fa-plus-circle
+              Create a Collection
+          %li#collections-btn
+            %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+              = "Collections (#{collection_count})"
+              %span.caret
+            %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+              - if user_signed_in?
+                - current_user.collections.each do |collection|
+                  =link_to collection_path(collection) do
+                    %li.dropdown-option= collection.title
+              - else
+                %li= link_to "Sign in to view collections", new_user_session_path
+
+    / %ul.nav.navbar-nav
+    /   - if user_signed_in?
+    /     %li
+    /       %h3#journal
+    /         = "Journal of"
+    /         - if current_user.first_name.nil?
+    /           = current_user.email
+    /         -else
+    /           = "#{current_user.first_name} #{current_user.last_name}"
+    /   -else 
+    /     %h3 ResearchFrontier is a daily feed of the best new research, personalized for you.
+    / %ul.nav.navbar-nav.navbar-right
+    /   %li.pull-right.collection-button
+    /     =link_to new_collection_path, class: "btn btn-default btn-primary btn-success" do
+    /       %i.fa.fa-plus-circle
+    /       Create a collection
+
+    / %li
+
 
 
 
@@ -38,8 +74,8 @@
             / .container
             .feed_group= render items
 
-        / .container  
-        = will_paginate @feed_groups
+        #infinite-scrolling
+          = will_paginate @feed_groups
     -else
       .col-xs-12
         %ul
@@ -51,7 +87,8 @@
             .feed_group= render items
 
         / .container  
-        = will_paginate @feed_groups
+        #infinite-scrolling
+          = will_paginate @feed_groups
 
 :javascript
   $(document).on('click', '.collect-btn', function(event) {
@@ -60,3 +97,4 @@
   $(document).ready( function() {    
     alert(Ethan)
   })
+
