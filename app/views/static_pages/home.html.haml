@@ -1,6 +1,4 @@
 - provide(:title, "Home")
-= javascript_tag do
-  window.Ethan = "<%=j @feed_groups %>";
 %nav.pitch-box.navbar.navbar-default{"data-spy" => "affix", "data-offset-top" => "90"}
   .container
     %ul.navbar-header
@@ -95,6 +93,6 @@
       mixpanel.track("Collect")
   })
   $(document).ready( function() {    
-    alert(Ethan)
+    / alert(Ethan)
   })
 
