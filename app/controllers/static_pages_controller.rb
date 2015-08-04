@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
   def home
     # @items_by_month = Item.all.group_by { |t| t.created_at.beginning_of_month}
     if user_signed_in?
-      @items = Item.joins(:tags).where(tags: {id: current_user.tags}).all
+      @items = Item.joins(:tags).where(tags: {id: current_user.tags}).all.uniq
     else
       @items = Item.all
     end

@@ -33,6 +33,7 @@ RailsAdmin.config do |config|
     field :abstract
     field :url
     field :publish_date
+    field :tags
   end
 
     ## With an audit adapter, you can add:
