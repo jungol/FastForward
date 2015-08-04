@@ -36,6 +36,14 @@ RailsAdmin.config do |config|
     field :tags
   end
 
+  config.model User do
+    field :email
+    field :password
+    field :tags
+    field :first_name
+    field :last_name
+  end
+
     ## With an audit adapter, you can add:
     # history_index
     # history_show
